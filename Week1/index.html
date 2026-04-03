@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 1: Water &mdash; Source, Cycle, and States</title>
+    <style id="hide-content">body > *:not(#pw-overlay) { display: none !important; }</style>
+    <style>
+        :root {
+            --w: #2B6CB0;
+            --wl: #EBF4FF;
+            --wm: #BEE3F8;
+            --wd: #1A365D;
+            --green: #276749;
+            --gl: #F0FFF4;
+            --sand: #FFF8EE;
+            --sd: #E2CAAA;
+            --rule: #CBD5E0;
+            --acc: #C05621;
+            --ink: #1a1a1a;
+            --mut: #555;
+            --fnt: #888;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--ink);
+            background: #FAFAF7;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        /* COVER */
+        .cover {
+            text-align: center;
+            padding: 52px 24px 40px;
+            border-bottom: 1px solid var(--rule);
+            margin-bottom: 48px;
+        }
+        .ey {
+            font-size: 11px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin-bottom: 14px;
+        }
+        .cover h1 {
+            font-size: clamp(24px, 5vw, 38px);
+            font-weight: bold;
+            line-height: 1.2;
+            color: var(--wd);
+            margin-bottom: 10px;
+        }
+        .cs { font-style: italic; color: var(--mut); font-size: 15px; }
+        .cr { width: 52px; height: 2px; background: var(--w); margin: 22px auto 0; opacity: .4; }
+
+        /* PART HEADERS */
+        .ph {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 48px 0 24px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--w);
+        }
+        .pn {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            white-space: nowrap;
+            padding-right: 14px;
+            border-right: 1px solid var(--rule);
+        }
+        .ph h2 { font-size: 20px; color: var(--wd); }
+
+        /* TYPOGRAPHY */
+        h3 {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin: 34px 0 12px;
+        }
+        h4 { font-size: 16px; color: var(--ink); margin: 20px 0 7px; }
+        p { margin-bottom: 12px; }
+        p:last-child { margin-bottom: 0; }
+        ul, ol { padding-left: 22px; margin-bottom: 12px; }
+        li { margin-bottom: 5px; font-size: 15px; }
+        a { color: var(--w); }
+
+        /* ITALIC NOTE */
+        .note {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--fnt);
+            background: #F5F5F2;
+            border-left: 2px solid var(--rule);
+            padding: 8px 14px;
+            margin-bottom: 16px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* DUA */
+        .dua {
+            background: var(--wl);
+            border-left: 3px solid var(--w);
+            border-radius: 0 6px 6px 0;
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+        .ar {
+            font-size: 22px;
+            line-height: 2;
+            text-align: right;
+            direction: rtl;
+            color: var(--wd);
+            display: block;
+            margin-bottom: 6px;
+        }
+        .tr { font-style: italic; color: var(--mut); font-size: 15px; line-height: 1.6; }
+        .src { font-size: 12px; color: var(--fnt); margin-top: 5px; }
+
+        /* AYAH */
+        .ayah {
+            background: var(--sand);
+            border: 1px solid var(--sd);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+        .ayah .ar { color: var(--acc); font-size: 20px; }
+        .albl {
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: .05em;
+            color: var(--acc);
+            margin-bottom: 8px;
+            display: block;
+        }
+        .com {
+            border-top: 1px solid var(--sd);
+            margin-top: 11px;
+            padding-top: 11px;
+            font-size: 14px;
+            color: var(--mut);
+            font-style: italic;
+        }
+
+        /* ASMA */
+        .asma {
+            background: var(--wd);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 20px 0;
+            display: flex;
+            gap: 22px;
+            align-items: flex-start;
+        }
+        .aar {
+            font-size: 28px;
+            line-height: 1.5;
+            color: var(--wm);
+            white-space: nowrap;
+            flex-shrink: 0;
+            direction: rtl;
+        }
+        .ab .nm { font-size: 17px; font-weight: bold; color: white; margin-bottom: 3px; }
+        .ab .mn {
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--wm);
+            margin-bottom: 9px;
+        }
+        .ab p { color: rgba(255,255,255,.85); font-size: 15px; margin-bottom: 0; }
+
+        /* AGE GRID */
+        .ag {
+            display: flex;
+            gap: 0;
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+        .ac { flex: 1; display: flex; flex-direction: column; }
+        .ac:not(:last-child) { border-right: 1px solid var(--rule); }
+        .ach {
+            background: var(--wd);
+            color: white;
+            font-size: 11px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 10px 13px;
+            text-align: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .acb { padding: 13px 15px; font-size: 14px; line-height: 1.65; flex: 1; }
+        .ac:nth-child(odd) .acb { background: var(--wl); }
+        .ac:nth-child(even) .acb { background: white; }
+        .acb p { margin-bottom: 9px; }
+        .acb p:last-child { margin-bottom: 0; }
+
+        @media(max-width:560px) {
+            .ag { flex-direction: column; }
+            .ac:not(:last-child) { border-right: none; border-bottom: 1px solid var(--rule); }
+            .acb { background: var(--wl) !important; }
+            .asma { flex-direction: column; gap: 10px; }
+        }
+
+        /* STORY */
+        .story { border: 1px solid var(--sd); border-radius: 8px; overflow: hidden; margin: 24px 0; }
+        .sh {
+            background: var(--acc);
+            color: white;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-style: italic;
+            font-weight: bold;
+        }
+        .sb { padding: 20px; background: var(--sand); }
+        .sb .note { margin-bottom: 13px; }
+        .sb ul { padding-left: 20px; }
+        .sb li { margin-bottom: 9px; font-size: 15px; }
+        .tw { margin-top: 16px; padding-top: 13px; border-top: 1px solid var(--sd); }
+        .tw h5 {
+            font-size: 10px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--acc);
+            margin-bottom: 7px;
+        }
+        .sf { background: white; border-top: 1px solid var(--sd); padding: 10px 20px; font-size: 12px; color: var(--fnt); }
+
+        /* READ ALOUDS */
+        .reads { display: flex; gap: 10px; margin: 16px 0; }
+        .rc {
+            flex: 1;
+            background: var(--wl);
+            border: 1px solid var(--wm);
+            border-radius: 6px;
+            padding: 13px 15px;
+        }
+        .ra {
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--w);
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+        .rc ul { padding-left: 14px; }
+        .rc li { font-size: 13px; margin-bottom: 5px; }
+
+        @media(max-width:560px) { .reads { flex-direction: column; } }
+
+        /* ACTIVITY CARD */
+        .act { border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; margin: 24px 0; }
+        .ah { background: var(--w); color: white; padding: 12px 20px; font-size: 15px; font-weight: bold; }
+        .ab2 { padding: 20px; }
+        .ab2 h5 {
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin: 16px 0 7px;
+        }
+        .ab2 h5:first-child { margin-top: 0; }
+        .ab2 ul, .ab2 ol { padding-left: 20px; margin-bottom: 9px; }
+        .ab2 li { margin-bottom: 5px; font-size: 15px; }
+        .ab2 p { font-size: 15px; }
+
+        /* DISCUSSION */
+        .disc { background: var(--gl); border-top: 1px solid #C6F6D5; padding: 16px 20px; }
+        .disc h5 { color: var(--green); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; margin: 0 0 11px; }
+        .dq { font-weight: bold; font-size: 15px; margin-bottom: 3px; color: #1a4731; font-style: italic; }
+        .da { font-size: 14px; color: var(--mut); margin-bottom: 13px; padding-left: 11px; border-left: 2px solid #9AE6B4; }
+        .da:last-child { margin-bottom: 0; }
+
+        /* HADITH */
+        .hadith { border: 1px solid var(--rule); border-radius: 8px; padding: 24px 28px; margin: 24px 0; background: white; }
+        .hq { font-size: 15px; font-style: italic; line-height: 1.7; color: var(--ink); margin: 12px 0; padding-left: 14px; border-left: 3px solid var(--w); }
+        .hrf { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--rule); font-size: 15px; color: var(--mut); font-style: italic; }
+        .href2 { font-size: 12px; color: var(--fnt); }
+
+        /* MOVEMENTS */
+        .mv { display: flex; gap: 13px; margin-bottom: 16px; align-items: flex-start; }
+        .mvn {
+            width: 30px; height: 30px; border-radius: 50%;
+            background: var(--wl); border: 1.5px solid var(--wm);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; font-size: 12px; color: var(--w); font-weight: bold;
+        }
+        .mv h4 { margin: 0 0 4px; font-size: 14px; color: var(--wd); }
+        .mv ul { padding-left: 15px; margin: 0; }
+        .mv li { font-size: 14px; margin-bottom: 3px; }
+
+        /* MISC */
+        .snack {
+            background: var(--gl);
+            border: 1px solid #C6F6D5;
+            border-radius: 6px;
+            padding: 11px 16px;
+            font-size: 14px;
+            color: var(--green);
+            margin: 20px 0;
+            font-style: italic;
+        }
+        ul.plain { list-style: none; padding: 0; margin: 12px 0; }
+        ul.plain li { padding: 3px 0 3px 15px; position: relative; font-size: 15px; }
+        ul.plain li::before { content: '\2014'; position: absolute; left: 0; color: var(--w); }
+
+        /* IMAGE */
+        .lesson-img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--rule);
+            margin: 16px 0;
+            display: block;
+        }
+        .img-caption {
+            font-size: 12px;
+            color: var(--fnt);
+            font-style: italic;
+            text-align: center;
+            margin-top: -8px;
+            margin-bottom: 16px;
+        }
+
+        /* POLYMATH */
+        .polymath {
+            background: var(--wl);
+            border: 1px solid var(--wm);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+        .polymath h4 {
+            color: var(--wd);
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+        .polymath p { font-size: 14px; color: var(--mut); }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--rule);
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--fnt);
+        }
+
+        /* NAV MENU */
+        .nav-menu { background: var(--wl); border: 1px solid var(--wm); border-radius: 8px; padding: 18px 22px; margin-bottom: 44px; }
+        .nav-menu-title { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--w); margin-bottom: 14px; font-family: Georgia, serif; }
+        .nav-part { margin-bottom: 10px; }
+        .nav-part-label { font-size: 13px; font-weight: bold; color: var(--wd); margin-bottom: 4px; }
+        .nav-part-label a { color: var(--wd); text-decoration: none; }
+        .nav-part-label a:hover { text-decoration: underline; }
+        .nav-sub { list-style: none; padding: 0; margin: 0 0 0 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+        .nav-sub li a {
+            font-size: 12px; color: var(--w); text-decoration: none;
+            background: white; border: 1px solid var(--wm); border-radius: 4px;
+            padding: 3px 10px; display: inline-block;
+        }
+        .nav-sub li a:hover { background: var(--wm); }
+
+        /* BACK TO TOP */
+        .back-top { text-align: right; margin: 32px 0 8px; padding-top: 12px; border-top: 1px solid var(--rule); }
+        .back-top a { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--fnt); text-decoration: none; }
+        .back-top a:hover { color: var(--w); }
+    </style>
+</head>
+
+<body>
+
+<!-- PASSWORD GATE -->
+<div id="pw-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#FAFAF7;display:flex;align-items:center;justify-content:center;z-index:9999;font-family:Georgia,serif;">
+  <div style="text-align:center;padding:40px;max-width:340px;width:90%;">
+    <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#2B6CB0;margin-bottom:16px;">Khulafa Al-Ardh Nature Pods</div>
+    <h2 style="font-size:22px;color:#1A365D;margin-bottom:8px;">Members Only</h2>
+    <p style="font-size:14px;color:#555;margin-bottom:24px;">Enter the password to access this week&rsquo;s lesson plan.</p>
+    <input id="pw-input" type="password" placeholder="Password" style="width:100%;padding:10px 14px;font-size:16px;border:1px solid #CBD5E0;border-radius:6px;box-sizing:border-box;margin-bottom:4px;outline:none;" />
+    <div style="text-align:right;margin-bottom:12px;">
+      <span onclick="togglePw()" style="font-size:12px;color:#2B6CB0;cursor:pointer;user-select:none;" id="pw-toggle">Show password</span>
+    </div>
+    <button onclick="checkPassword()" style="width:100%;padding:10px;background:#2B6CB0;color:#fff;font-size:15px;border:none;border-radius:6px;cursor:pointer;">Enter</button>
+    <p id="pw-error" style="color:#C05621;font-size:13px;margin-top:12px;display:none;">Incorrect password. Please check with your pod leader.</p>
+  </div>
+</div>
+<script>
+  if (sessionStorage.getItem("kaanp_auth") === "1") {
+    document.getElementById("pw-overlay").style.display = "none";
+    document.getElementById("hide-content").remove();
+  }
+  document.getElementById("pw-input").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") checkPassword();
+  });
+  function togglePw() {
+    var input = document.getElementById("pw-input");
+    var toggle = document.getElementById("pw-toggle");
+    if (input.type === "password") { input.type = "text"; toggle.textContent = "Hide password"; }
+    else { input.type = "password"; toggle.textContent = "Show password"; }
+  }
+  function checkPassword() {
+    var val = document.getElementById("pw-input").value;
+    if (val === "KAANP-Water!") {
+      sessionStorage.setItem("kaanp_auth", "1");
+      document.getElementById("pw-overlay").remove();
+      document.getElementById("hide-content").remove();
+    } else {
+      document.getElementById("pw-error").style.display = "block";
+      document.getElementById("pw-input").value = "";
+      document.getElementById("pw-input").focus();
+    }
+  }
+</script>
+
+<!-- COVER -->
+<div class="cover">
+    <div class="ey">Khulafa Al-Ardh &middot; Rhythm: Water &middot; Week 1</div>
+    <h1>Water: Source,<br>Cycle, and States</h1>
+    <div class="cr"></div>
+</div>
+
+<!-- NAV MENU -->
+<div class="nav-menu" id="top">
+    <div class="nav-menu-title">Jump to section</div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part1">Part 1 &nbsp;|&nbsp; Blessed Beginnings</a></div>
+        <ul class="nav-sub">
+            <li><a href="#duaa">Opening Duaa</a></li>
+            <li><a href="#intro">An Introduction to Water</a></li>
+            <li><a href="#discovery">Discovery Den</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part2">Part 2 &nbsp;|&nbsp; Walking with Intention</a></div>
+        <ul class="nav-sub">
+            <li><a href="#asma">The Most Beautiful of Names</a></li>
+            <li><a href="#observing">Observing on the Move</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part3">Part 3 &nbsp;|&nbsp; Grounding in Gratitude</a></div>
+        <ul class="nav-sub">
+            <li><a href="#stories">Stories for Blooming Hearts</a></li>
+            <li><a href="#readalouds">Suggested Read-Alouds</a></li>
+            <li><a href="#activity">Hands-On Activity</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part4">Part 4 &nbsp;|&nbsp; Slowing the Flow</a></div>
+        <ul class="nav-sub">
+            <li><a href="#tadabbur">Tadabbur Among the Trees</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#addendum">Addendum &nbsp;|&nbsp; Further Enrichment</a></div>
+        <ul class="nav-sub">
+            <li><a href="#prophetic">Prophetic Wisdom</a></li>
+            <li><a href="#ayaat">Additional Ayaat</a></li>
+            <li><a href="#movements">Meaningful Movements</a></li>
+            <li><a href="#morenature">More Nature Activities</a></li>
+            <li><a href="#artistic">Artistic Expressions</a></li>
+            <li><a href="#olderkids">Information for Older Kids &amp; Printables</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- ═══════════════ PART 1 ═══════════════ -->
+<div class="ph" id="part1"><span class="pn">Part 1</span>
+    <h2>Blessed Beginnings</h2>
+</div>
+<p class="note">Set the tone for the walk and introduce the topic before beginning the walk. This should take between 5&ndash;10 minutes &mdash; nothing longer than the attention spans of the kids.</p>
+
+<h3 id="duaa"><span style="font-size:16px;">Opening Duaa</span></h3>
+<p class="note">Start with a duaa for protection from harm and evil. The duaa can be led by either the walk leader or a child who has the duaa memorized.</p>
+<div class="dua">
+    <span class="ar">أَعُوذُ بِكَلِمَاتِ اللهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</span>
+    <p class="tr">&ldquo;I seek refuge in the perfect words of Allah from the evil of what He has created.&rdquo;</p>
+</div>
+<div class="dua">
+    <span class="ar">بِسْمِ اللهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</span>
+    <p class="tr">&ldquo;In the Name of Allah, with whose Name nothing in the earth or the heavens can cause harm. He is the All-Hearing, the All-Knowing.&rdquo;</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="intro"><span style="font-size:16px;">An Introduction to Water</span></h3>
+<p class="note">Introduce the topic to the kids. Share the opening ayah and how it ties to the week&rsquo;s topic.</p>
+<div class="ayah">
+    <span class="ar">أَوَلَمْ يَرَ ٱلَّذِينَ كَفَرُوٓا۟ أَنَّ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضَ كَانَتَا رَتْقًۭا فَفَتَقْنَـٰهُمَا ۖ وَجَعَلْنَا مِنَ ٱلْمَآءِ كُلَّ شَىْءٍ حَىٍّ ۖ أَفَلَا يُؤْمِنُونَ</span>
+    <p class="tr">&ldquo;Are the disbelievers not aware that the heavens and the earth used to be joined together and that We ripped them apart, that We made every living thing from water? Will they not believe?&rdquo;</p>
+    <p class="src">Surah Al-Anbiya&rsquo; 21:30</p>
+    <p class="com">In this ayah, Allah informs us that He originated all living things from a single source: water. He has made it such that all life requires its origin to be sustained. Water has long been a sign of life and hope. In order to distribute water amongst creation, Allah has put in place elaborate mechanisms. He has also created water in such a way that it can exist in different states to serve different purposes. To kick off our 8-week exploration of water, we will be learning about where water comes from, its different states, the water cycle, and how this abundant compound forms the foundation of all life.</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="discovery"><span style="font-size:16px;">Discovery Den</span></h3>
+<p class="note">This is information to share with the kids. What you share and the level of detail will depend on the ages of the kids in your pod. Use your discretion.</p>
+
+<h4>What do you know about water?</h4>
+<ul>
+    <li>Water particles stay close to each other, but not too close &mdash; they can flow. Water takes the shape of its container. Water flows down and sideways. There is water all over the world.</li>
+    <li>Water exists in three states: <strong>liquid</strong> (rain, rivers, oceans), <strong>solid</strong> (ice and snow), and <strong>gas</strong> (water vapour in clouds and steam). Allah made water the only substance that naturally moves between all three states under normal conditions on Earth.</li>
+</ul>
+
+<h4>What is the Water Cycle?</h4>
+<ul>
+    <li>The water cycle is Allah&rsquo;s system for circulating water through creation: the sun&rsquo;s heat causes water to evaporate from oceans and lakes, rising vapour cools and condenses into clouds, then falls as precipitation (rain or snow), collects in rivers, lakes, and underground, and begins again.</li>
+</ul>
+
+<img src="images/image2.png" alt="Water cycle diagram showing evaporation, condensation, precipitation, and infiltration" class="lesson-img">
+<p class="img-caption">The Water Cycle: evaporation, condensation, precipitation, run-off, and infiltration</p>
+<p>Reference: <a href="https://sydneydesal.com.au/education/desalination-and-the-water-cycle/">link</a></p>
+
+<h4>Can we drink all the water available on Earth?</h4>
+<ul>
+    <li>About 71% of Earth&rsquo;s surface is covered in water &mdash; but most is saltwater in the oceans. Only about 3% is freshwater, and most of that is frozen in glaciers. Less than 1% of all the water on Earth is freshwater accessible for drinking!</li>
+</ul>
+
+<h4>Where does our water here in DFW come from?</h4>
+<ul>
+    <li>Here in North Texas, our water comes from local lakes and reservoirs &mdash; Lake Lavon, Lake Eagle Mountain, Lake Lewisville, Lake Grapevine, and Lake Ray Hubbard all help supply the region. These fill from rainfall and rivers flowing through the area.</li>
+</ul>
+
+<h4>Do the lakes and reservoirs always have the same amount of water?</h4>
+<ul>
+    <li>Spring is the start of the rainy season in DFW. We experience frequent thunderstorms during this time, with May being the wettest month. Heavy rainfall can lead to flash flooding, but spring rainfall also replenishes lakes, rivers, and groundwater, improving water levels.</li>
+</ul>
+
+<h4>How ancient is our water?</h4>
+<ul>
+    <li>The same water Allah created has been cycling through the Earth for billions of years! The water we drink today may have once flowed in a river in ancient Arabia, fallen as snow on a distant mountain, or even been a dinosaur&rsquo;s drinking water millions of years ago! Allah entrusted that same water to us and we should conserve and protect this precious resource.</li>
+</ul>
+
+<!-- ═══════════════ PART 2 ═══════════════ -->
+<div class="ph" id="part2"><span class="pn">Part 2</span>
+    <h2>Walking with Intention</h2>
+</div>
+<p class="note">Now that we are all up to speed on this week&rsquo;s topic, let&rsquo;s start walking! The following are some conversations and activities to do as you walk. This should take about 30&ndash;60 minutes.</p>
+
+<h3 id="asma"><span style="font-size:16px;">The Most Beautiful of Names</span></h3>
+<p class="note">Introduce the name of Allah and its basic meaning as you start your walk. Encourage the kids to reflect on the name throughout the walk, and mention it whenever relevant.</p>
+<div class="asma">
+    <span class="aar">الغَنِيّ</span>
+    <div class="ab">
+        <div class="nm">Al-Ghanyy</div>
+        <div class="mn">The One Who is Free of All Need</div>
+        <p>Allah has made all life reliant on water: where there is water, there is life, and its absence is a death sentence. There is not a living being that can survive without water. When searching for the possibility of life on other planets, scientists look for signs of water, for water is known to be a precursor for life. Every human is equally reliant on water to sustain their life, no matter how rich and powerful they may be. Reflecting on our heavy reliance on water highlights an important difference between the Creator and His creation: He relies on nothing, He is completely free of all need, He is Al-Ghanyy. Even those who reject Allah and do not acknowledge their need for Him cannot deny their need for His creation. We are entirely reliant on Him, but He has no need for us, yet He showers us with endless mercy.</p>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="observing"><span style="font-size:16px;">Observing on the Move!</span></h3>
+<p class="note">Here are some observation prompts to help the kids tune into their environment and engage all of their senses.</p>
+<div class="ag">
+    <div class="ac">
+        <div class="ach">Ages 1&ndash;4</div>
+        <div class="acb">
+            <p>Is there anything you see wet right now? Where is the water coming from?</p>
+            <p>How do you feel when you see rain after a long dry time?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">Ages 5&ndash;8</div>
+        <div class="acb">
+            <p>Look around you &mdash; where do you see signs of water right now? (Dew on grass, moisture in soil, puddles, clouds overhead.)</p>
+            <p>What happens if you leave water in the sun vs. shade?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">Ages 9&ndash;14</div>
+        <div class="acb">
+            <p>Where does the water in your home come from before it reaches your tap?</p>
+            <p>Why do you think water is described as a &ldquo;mercy&rdquo; in many traditions?</p>
+            <p>What connections do you see between sunlight and water movement?</p>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════ PART 3 ═══════════════ -->
+    <div class="ph" id="part3"><span class="pn">Part 3</span>
+        <h2>Grounding in Gratitude</h2>
+    </div>
+    <p class="note">Phew, that was a good walk! Let&rsquo;s pause and apply what we have learned and reflect on what we have observed.</p>
+    
+    <h3 id="stories"><span style="font-size: 16px;">Stories for Blooming Hearts</span></h3>
+    <p class="note"><span style="font-size: 13px;">Share a story from our tradition that ties to this week&rsquo;s topic. Note that creating an engaging storytelling experience is on the storyteller; these are just the basic details. A story told from the heart will reach hearts!</span></p>
+    <div class="story">
+        <div class="sh"><span style="font-size: 16px;">Prophet Musa (AS) as a Baby in the River Nile</span></div>
+        <div class="sb">
+            <ul>
+            <li>After Fir&rsquo;awn and his army were drowned in the sea, Musa (AS) led Bani Isra&rsquo;il out of Egypt and into the desert. Now they were free, but being in the middle of the desert meant they needed water and provision.</li>
+            <li>Bani Isra&rsquo;il complained to Musa (AS) that there was no water, so Musa (AS) made du&rsquo;a asking Allah to send them water.</li>
+            <li>Usually when people pray for water, Allah would send water through rain from clouds. This time was different though. Similar to the water of Zamzam, Allah created a new water source for them that didn&rsquo;t exist before!</li>
+            <li>Allah commanded Musa (AS) to strike a particular rock with his staff. Musa (AS) hit the rock with his large stick and a miracle occurred! Twelve springs of water burst forth from the rock.</li>
+            <li>There were twelve tribes of Bani Isra&rsquo;il, so Allah made it so that each tribe had its own water source, and not one tribe was left out.</li>
+        </ul>
+        <div class="tw">
+            <h5>Take-aways</h5>
+            <ul>
+                <li>Today we learned about the process of how we get water &mdash; from clouds, rivers, etc. However, Allah SWT rules the world and all of its creation. He is not bound by the rules of nature that He makes and can change them at any time, causing miracles like the one in this story.</li>
+                <li>This story teaches us that Allah will provide for everyone. He made sure each tribe had its own water source and not one tribe was left out.</li>
+                <li>Allah ended this story in Surat Baqarah by telling us to eat and drink but do not spread corruption. This is a reminder to be grateful for the blessings we have and to take care of them. After being freed and then sent food and water, Bani Isra&rsquo;il should have been the most grateful people but they still constantly found things to complain about. Allah is teaching us not to follow their mistakes &mdash; every blessing should bring us closer to Allah.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="sf">Reference: Tafsir of Surat Al-Baqarah Ayah 60 and Surat Al-A&rsquo;raf Ayah 160</div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="readalouds"><span style="font-size:16px;">Suggested Read-Alouds</span></h3>
+<p class="note">Here are a few book titles to check out related to this week&rsquo;s topic.</p>
+<div class="reads">
+    <div class="rc">
+        <div class="ra">Ages 1&ndash;4</div>
+        <ul>
+            <li><em>All the Water in the World</em> by George Ella Lyons</li>
+            <li><em>Water</em> by Frank Asch</li>
+        </ul>
+    </div>
+    <div class="rc">
+        <div class="ra">Ages 5&ndash;8</div>
+        <ul>
+            <li><em>Water: A Blessing from Allah</em> by Umm Ayman</li>
+            <li><em>The Great Big Water Cycle Adventure</em> by Kay Barnham</li>
+            <li><em>A Drop of Water</em> by Gordon Morrison</li>
+        </ul>
+    </div>
+    <div class="rc">
+        <div class="ra">Ages 9&ndash;14</div>
+        <ul>
+            <li><em>Water: A Deep Dive of Discovery</em> by Christy Mihaly</li>
+            <li><em>A Long Walk to Water</em> by Linda Sue Park</li>
+        </ul>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="activity"><span style="font-size:16px;">Hands-On Activity</span></h3>
+<p class="note">Time to engage little hands and minds! Additional activities can be found in the &ldquo;Further Enrichment&rdquo; section if needed.</p>
+<p style="font-size:14px;margin-bottom:16px;">Jump to: <a href="#activity-1-4">For Kids 1&ndash;4</a> &nbsp;&middot;&nbsp; <a href="#activity-5-8">For Kids 5&ndash;8</a> &nbsp;&middot;&nbsp; <a href="#activity-9-14">For Kids 9&ndash;14</a></p>
+
+<!-- Activity: Ages 1-4 -->
+<div class="act">
+    <div class="ah" id="activity-1-4">Ages 1&ndash;4: States of Water Exploration</div>
+    <div class="ab2">
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Ice cubes in a small container</li>
+            <li>A small bottle of water</li>
+            <li>A thermos with hot water</li>
+            <li>A dark piece of paper or small mirror</li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>A leaf or dark rock</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Pass around the ice cube &mdash; solid! Feel how cold it is. Watch it start to melt in your hand &mdash; it&rsquo;s turning into liquid.</li>
+            <li>Pour a little water from the bottle onto the leaf &mdash; liquid! Watch how it moves.</li>
+            <li>Hold the dark paper or mirror near the mouth of the thermos &mdash; steam will condense and leave droplets. &ldquo;The gas became liquid again &mdash; just like clouds making rain!&rdquo;</li>
+            <li>Ask: which state do we drink? Which falls from the sky? Which forms when water freezes?</li>
+        </ol>
+    </div>
+</div>
+
+<!-- Activity: Ages 5-8 -->
+<div class="act">
+    <div class="ah" id="activity-5-8">Ages 5&ndash;8: Mini Water Cycle &amp; Desalination</div>
+    <div class="ab2">
+        <img src="images/image4.png" alt="Water cycle desalination experiment with bowl and cling wrap" class="lesson-img">
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>1 large bowl</li>
+            <li>1 small bowl or cup (short enough to sit inside the large bowl)</li>
+            <li>Cling wrap</li>
+            <li>A couple of ice cubes</li>
+            <li>Salt</li>
+            <li>Hot water (boiled ahead of time, cooled 2&ndash;3 minutes before pouring &mdash; adults handle this)</li>
+            <li>Optional: a few drops of blue food colouring</li>
+            <li>Spoons for tasting, one per child</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Place the small bowl in the centre of the large bowl.</li>
+            <li>Pour the hot salted water into the large bowl around the small bowl (not into it). Add food colouring if using.</li>
+            <li>Stretch cling wrap tightly over the top of the large bowl and seal the edges.</li>
+            <li>Place ice cubes on the centre of the wrap, directly above the small bowl &mdash; this creates a dome that dips down toward the collection cup.</li>
+            <li>Wait 20&ndash;30 minutes in a sunny spot and check: water droplets should form on the underside of the wrap and drip into the small bowl.</li>
+            <li>Taste a drop from the large bowl (salty), then a drop from the small bowl (fresh!).</li>
+        </ol>
+        <p>Reference: <a href="https://www.youtube.com/watch?v=kLpU2YdmiQ0">Link</a>. For free printable water cycle, scroll to bottom of <a href="https://taminglittlemonsters.com/water-cycle-science-activity/">this page</a> and click on link to printable.</p>
+    </div>
+    <div class="disc">
+        <h5>Discussion Questions</h5>
+        <p class="dq">What do you think happened to the salt &mdash; where did it go?</p>
+        <p class="da">Salt can&rsquo;t evaporate. When water heats up, water molecules escape into the air as vapour, but salt molecules are too heavy and too strongly bonded to do the same &mdash; they stay behind in the bowl.</p>
+        <p class="dq">Which part of our experiment was like the sun? Which part was like clouds?</p>
+        <p class="da">The hot water acts like the sun &mdash; it provides heat that drives evaporation. The ice cube acts like the upper atmosphere &mdash; cold air high in the sky that causes vapour to cool and condense into droplets.</p>
+        <p class="dq">If almost all the water on Earth is salty, and rain is always fresh &mdash; who figured out how to do that?</p>
+        <p class="da">The heat causes the salty water to evaporate. The vapour rises, hits the cold wrap, and condenses into droplets &mdash; just like clouds forming. Then it &ldquo;rains&rdquo; down into the cup. But the salt stays behind. Allah built this same purification process into the sky: every drop of rain that falls on Earth started as saltwater evaporated from the ocean.</p>
+    </div>
+</div>
+
+<!-- Activity: Ages 9-14 -->
+<div class="act">
+    <div class="ah" id="activity-9-14">Ages 9&ndash;14: Mini Water Cycle &amp; Desalination (Advanced)</div>
+    <div class="ab2">
+        <p class="note">Same materials and steps as the Ages 5&ndash;8 activity above.</p>
+    </div>
+    <div class="disc">
+        <h5>Discussion Questions</h5>
+        <p class="dq">Why does salt stay behind when water evaporates &mdash; what&rsquo;s actually happening at the molecular level?</p>
+        <p class="da">Water (H₂O) molecules are small and have enough kinetic energy when heated to break free from the liquid surface and enter the air as vapour. Salt (sodium chloride) dissociates into ions (Na⁺ and Cl⁻) that are held in solution by strong ionic bonds with water molecules &mdash; they don&rsquo;t have the energy to escape into vapour form at these temperatures. Evaporation is essentially a molecular filter.</p>
+        <p class="dq">Less than 1% of Earth&rsquo;s water is fresh and accessible. Allah designed a planetary desalination system that runs continuously without any energy cost to us. What does that make you feel?</p>
+        <p class="da">Reflect freely &mdash; this is a moment for gratitude and wonder.</p>
+        <p class="dq">Allah describes sending down &ldquo;مَاءً طَهُورًا&rdquo; &mdash; purifying water &mdash; in Surah Al-Furqan. Having done this experiment, what do you understand about that description now that you didn&rsquo;t before?</p>
+        <p class="da">Rain is inherently purified through the natural desalination of evaporation &mdash; Allah designed rain itself to be a cleansing force.</p>
+        <p class="dq">What are the limits of this system &mdash; what could break it, and what role do we play in protecting it?</p>
+        <p class="da">Pollution, climate change, and overuse of groundwater can disrupt the cycle. Our role as Khulafa (stewards) of the Earth means actively protecting these systems.</p>
+    </div>
+</div>
+
+<div class="note"> After completing the activity is a good time to stop for a snack. Power their brains and bodies with something nutritious! Bonus points for avoiding single-use plastics and being good Khulafa. Be sure to leave the area as you found it, or better &mdash; following the good manners taught to us by our Prophet &#65018;.</div>
+
+<!-- ═══════════════ PART 4 ═══════════════ -->
+<div class="ph" id="part4"><span class="pn">Part 4</span>
+    <h2>Slowing the Flow</h2>
+</div>
+<p class="note">Now that this week&rsquo;s walk is just about done, let&rsquo;s wrap it up.</p>
+
+<h3 id="tadabbur"><span style="font-size:16px;">Tadabbur Among the Trees</span></h3>
+<p class="note">Here are some prompts to help wrap up the walk. These prompts can be used to spark a conversation or to fill up your nature journal for today!</p>
+<div class="ag">
+    <div class="ac">
+        <div class="ach">Ages 1&ndash;4</div>
+        <div class="acb">
+            <p>What are things around you that need water?</p>
+            <p>Say &lsquo;Alhamdulillah&rsquo; for the things Allah gifted us because of water. What are other ways we can thank Allah for water?</p>
+            <p>Pretend to be water and make a wave!</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">Ages 5&ndash;8</div>
+        <div class="acb">
+            <p>Think of a use for water in each of its states (solid, liquid, gas) in your daily life.</p>
+            <p>What are some ways we can show gratitude to Allah for the blessing of water?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">Ages 9&ndash;14</div>
+        <div class="acb">
+            <p>How is the water you drink today connected to clouds, oceans, and rivers?</p>
+            <p>Can you draw your own water cycle and write the story of a droplet travelling through it?</p>
+            <p>Why do you think water is mentioned so often in the Qur&rsquo;an as a source of life?</p>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════ ADDENDUM ═══════════════ -->
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<div class="ph" id="addendum"><span class="pn">Addendum</span>
+    <h2>Further Enrichment</h2>
+</div>
+<p class="note">Need more nature? We got you! Here are some additional resources to further enrich your understanding and reflection. These can be utilised by the pod, by individual families, or a combination of both &mdash; whatever best fits your needs!</p>
+
+<h3 id="prophetic"><span style="font-size:16px;">Prophetic Wisdom</span></h3>
+<p class="note">Find an opportunity to share the wisdom of our Prophet &#65018; as you walk.</p>
+<div class="hadith">
+    <span class="ar" style="font-size:18px;">مَنْ سَقَى مُسْلِمًا شَرْبَةً مِنْ مَاءٍ حَيْثُ يُوجَدُ الْمَاءُ فَكَأَنَّمَا أَعْتَقَ رَقَبَةً وَمَنْ سَقَى مُسْلِمًا شَرْبَةً مِنْ مَاءٍ حَيْثُ لاَ يُوجَدُ الْمَاءُ فَكَأَنَّمَا أَحْيَاهَا</span>
+    <p class="hq">&ldquo;Whoever gives a Muslim water to drink when water is available, it is as if he freed a slave; and whoever gives a Muslim water to drink when there is no water available, it is as if he brought him back to life.&rdquo;</p>
+    <p class="hrf">Sunan Ibn Majah 2474</p>
+    <p style="font-size:14px;color:var(--mut);margin-top:12px;">This beautiful hadith motivates us to be of those who rush to serve others water! May Allah make us of those who give people clean drinking water in this dunya and of those who drink the water of Jannah.</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="ayaat"><span style="font-size:16px;">Additional Ayaat</span></h3>
+
+<div class="ayah">
+    <span class="albl">The Consultation (42:28)</span>
+    <span class="ar">وَهُوَ ٱلَّذِى يُنَزِّلُ ٱلْغَيْثَ مِنۢ بَعْدِ مَا قَنَطُوا۟ وَيَنشُرُ رَحْمَتَهُۥ وَهُوَ ٱلْوَلِىُّ ٱلْحَمِيدُ ٢٨</span>
+    <p class="tr">&ldquo;It is He who sends relief through rain after they have lost hope, and spreads His mercy far and wide. He is the Protector, Worthy of All Praise.&rdquo;</p>
+    <p class="com">Can you think of some ways in which rain spreads the mercy of Allah?</p>
+</div>
+
+<div class="ayah">
+    <span class="albl">The Light (24:43)</span>
+    <span class="ar">أَلَمْ تَرَ أَنَّ ٱللَّهَ يُزْجِى سَحَابًۭا ثُمَّ يُؤَلِّفُ بَيْنَهُۥ ثُمَّ يَجْعَلُهُۥ رُكَامًۭا فَتَرَى ٱلْوَدْقَ يَخْرُجُ مِنْ خِلَـٰلِهِۦ وَيُنَزِّلُ مِنَ ٱلسَّمَآءِ مِن جِبَالٍۢ فِيهَا مِنۢ بَرَدٍۢ فَيُصِيبُ بِهِۦ مَن يَشَآءُ وَيَصْرِفُهُۥ عَن مَّن يَشَآءُ ۖ يَكَادُ سَنَا بَرْقِهِۦ يَذْهَبُ بِٱلْأَبْصَـٰرِ ٤٣</span>
+    <p class="tr">&ldquo;Do you not see that Allah drives the clouds, then gathers them together and piles them up until you see rain pour from their midst? He sends hail down from such mountains in the sky, pouring it on whoever He wishes and diverting it from whoever He wishes &mdash; the flash of its lightning almost snatches sight away.&rdquo;</p>
+    <p class="com">There is a mention of all three states of water in this ayah &mdash; can you spot them?</p>
+</div>
+
+<div class="ayah">
+    <span class="albl">Luqman (31:34)</span>
+    <span class="ar">إِنَّ ٱللَّهَ عِندَهُۥ عِلْمُ ٱلسَّاعَةِ وَيُنَزِّلُ ٱلْغَيْثَ وَيَعْلَمُ مَا فِى ٱلْأَرْحَامِ ۖ وَمَا تَدْرِى نَفْسٌۭ مَّاذَا تَكْسِبُ غَدًۭا ۖ وَمَا تَدْرِى نَفْسٌۢ بِأَىِّ أَرْضٍۢ تَمُوتُ ۚ إِنَّ ٱللَّهَ عَلِيمٌ خَبِيرٌۢ ٣٤</span>
+    <p class="tr">&ldquo;Knowledge of the Hour, when He will send down relieving rain, and what is hidden in the womb all belong to Allah alone. No soul knows what it will reap tomorrow, and no soul knows in what land it will die; it is Allah who is all knowing and all aware.&rdquo;</p>
+    <p class="com">The timing of Judgement Day, when it will rain, and what is hidden in the wombs are all pieces of knowledge unknown to us. With all the advancements in technology, we still cannot know with full certainty when it will rain &mdash; how many times has the weather forecast been completely off? Allah has taught us some signs of Judgement Day, but it is still unknown to all but Him.</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="movements"><span style="font-size:16px;">Meaningful Movements</span></h3>
+<p class="note">A flow of movements to get kids&rsquo; energy out at the beginning, or help them calm down at the end of the walk. One breath = one inhale and one exhale that is twice as long as the inhale.</p>
+
+<div class="mv">
+    <div class="mvn">1</div>
+    <div>
+        <p style="font-size:14px;color:var(--mut);">Begin by imagining you are a molecule of water in a liquid state, bring your arms by your side and wave them side to side, that&rsquo;s how loose molecules would move around this state. Now by warming under the sun, slowly raise your arms straight up into the sky and stand in warrior 1 pose: left foot in front and right foot one step behind, inhale with your arms up and exhale, roll your shoulders down your back. Switch feet and repeat a breath each.</p>
+    </div>
+</div>
+<div class="mv">
+    <div class="mvn">2</div>
+    <div>
+        <p style="font-size:14px;color:var(--mut);">Now swoop your arms down and then raise them up to the clouds, imagine being water molecules turning into a gas state, further apart and more loose! Spread your arms wider apart into a T shape, right arm back and left arm at the front, left leg in the front and right foot in a line behind (Warrior 2 pose). Take an inhale and bend into the front left leg, exhale and straighten the left leg. Take the left arm up to the sky and the right arm rests on the back leg. Reverse warrior, take a breath. Switch sides and repeat for a breath.</p>
+    </div>
+</div>
+<div class="mv">
+    <div class="mvn">3</div>
+    <div>
+        <p style="font-size:14px;color:var(--mut);">Now the gas molecules condense in the cloud. Bring arms together and come down in a forward hinge at the hip, pouring rain down with your fingertips. With a deep inhale, lift your head up, straight back into a halfway fold (Rukoo pose) and exhale, and hinge forward back down. Now bend legs into a slow squat position, palms together. Imagine the water molecules tightening closer and closer together into solid ice. Squat and sink low in; inhale and slow exhale. Gradually melt down onto the ground and take a few moments to make Zikr of gratitude.</p>
+    </div>
+</div>
+<p class="note">**one breath = one inhale and one exhale that is twice as long as the inhale.</p>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="morenature"><span style="font-size:16px;">More Nature Activities</span></h3>
+<p class="note">Here are more activities to try, whether as a group with your pod or individually at home.</p>
+
+<div class="act">
+    <div class="ah">Ages 5&ndash;8: Water Cycle in a Bag</div>
+    <div class="ab2">
+        <img src="images/image5.png" alt="Water cycle in a Ziploc bag taped to a sunny window" class="lesson-img">
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>A large Ziploc bag</li>
+            <li>Permanent marker</li>
+            <li>A few drops of blue food colouring</li>
+            <li>&frac14; cup of water</li>
+            <li>Clear tape</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Draw a simple water cycle on the outside of the bag with the marker: sun, clouds, rain, ground.</li>
+            <li>Pour water into the bag, add a drop of blue colouring, and seal it.</li>
+            <li>Tape it to a sunny window or hold it in direct sunlight.</li>
+            <li>Watch over 15&ndash;20 minutes: droplets will form near the top (condensation), then slide back down (precipitation).</li>
+        </ol>
+        <p class="com">The sun drives the water up; gravity brings it back down. This is the exact cycle described in the Qur&rsquo;an over 1,400 years ago.</p>
+    </div>
+</div>
+
+<h4>Additional Experiments to Explore</h4>
+<ul>
+    <li><strong>Volume change: ice vs water</strong> &mdash; Mark the level of water in a jar and then freeze it. Which takes up more room? Discuss how the unique hexagonal arrangement of molecules in ice keeps them farther apart than in liquid water, making ice float.</li>
+    <li><a href="https://www.youtube.com/watch?v=lRZRR9G-lk4&pp=YgUWd2F0ZXIgY3ljbGUgZXhwZXJpbWVudA==">Moving between states of water</a> &mdash; melting, evaporation, condensation</li>
+    <li><a href="https://thoughtfullysustainable.com/how-does-salt-affect-ice/">Salt and water &ndash; melting point experiment</a> &mdash; Experiment with salt&rsquo;s effect on the melting point of ice. What impact might salt molecules have on the arrangement of water molecules within ice? Discuss why people may put salt on sidewalks and roads in the winter.</li>
+    <li><a href="https://www.jpl.nasa.gov/edu/resources/lesson-plan/melting-ice-experiment/">Ice melting experiment in different liquids</a> &mdash; Predict, observe, and compare melt rates of ice under different temperature conditions and in different solutions.</li>
+    <li><a href="https://www.youtube.com/shorts/kXUUqOiGLzw">Water sticks together &ndash; Experiment</a> &mdash; Water molecules are attracted to each other (cohesion) and to surfaces (adhesion). When the string is wet, water clings to it and pulls the stream along rather than letting it fall straight down. The same force that lets water climb through plant roots against gravity &mdash; Allah built the tendency to cling and connect right into the molecule itself.</li>
+    <li><a href="https://www.youtube.com/watch?v=iSJ_NRcVjpg&pp=YgUWd2F0ZXIgY3ljbGUgZXhwZXJpbWVudA==">Condensation experiment</a></li>
+</ul>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="artistic"><span style="font-size:16px;">Artistic Expressions</span></h3>
+<p class="note">Let your heart guide you to create a beautiful work of nature art. Use Allah&rsquo;s divine creations as inspiration!</p>
+
+<div class="act">
+    <div class="ah">Wet-on-Wet Watercolour Bookmarks</div>
+    <div class="ab2">
+        <img src="images/image3.png" alt="Wet-on-wet watercolour bookmarks with botanical designs" class="lesson-img">
+        <p>Learn how water is used to create beautiful art.</p>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Watercolour paints</li>
+            <li>Watercolour paper (or thick cardstock)</li>
+            <li>Cup of water</li>
+            <li>Brushes (one large, one small)</li>
+            <li>Permanent marker</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Cut strips of watercolour paper in bookmark sizes.</li>
+            <li>Wet the entire paper with plain water using the large brush.</li>
+            <li>Drop colours onto the wet surface and watch them bloom and blend on their own &mdash; this mimics how water moves through different environments.</li>
+            <li>Notice: more water in the brush = lighter, more flowing colour. Less water = deeper, more concentrated. Even in art, water teaches us about states and movement.</li>
+            <li>Use the permanent marker to sketch leafy, floral designs onto each bookmark.</li>
+        </ol>
+        <p>Reference: <a href="https://homemadeheather.com/how-to-make-watercolor-bookmarks/">https://homemadeheather.com/how-to-make-watercolor-bookmarks/</a></p>
+        <ul>
+            <li><a href="https://laughingkidslearn.com/painting-with-water/">Toddler art: painting with water</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="olderkids"><span style="font-size:16px;">Information for Older Kids &amp; Printables</span></h3>
+<ul class="plain">
+    <li><a href="https://drive.google.com/file/d/1-jxBUoX3KF-gY7usY7XgPpsT7LKg8eEU/view?usp=drive_link">Weekly Journal Page</a></li>
+    <li><a href="https://drive.google.com/file/d/1ponNnm7SrV_AUl53gP9chaSehVDLFuHo/view?usp=drive_link">Weekly Summary Document</a></li>
+</ul>
+
+<h4>Polymath Facts</h4>
+<div class="polymath">
+    <h4>Ibn Sin&amacr; (c. 980&ndash;1037)</h4>
+    <p>A Muslim polymath most often credited with an early scientific explanation of the water cycle. He wrote about it in his <em>Kitab Al-Shifa&rsquo;</em> (The Book of Healing), where he rejected the idea that water simply comes from underground oceans. He explained that rainwater seeps into the ground, forming springs, which then collect in larger bodies of water.</p>
+</div>
+<div class="polymath">
+    <h4>Al-Karaji (c. 953&ndash;1029)</h4>
+    <p>Also described important parts of the water cycle, especially groundwater and how it moves through the Earth, in his work <em>Inb&amacr;t al-Miy&amacr;h al-Khafiyya</em> (Extraction of Hidden Waters).</p>
+</div>
+
+<div class="footer">Khulafa Al-Ardh &middot; Rhythm: Water &middot; Week 1 &mdash; Water: Source, Cycle, and States</div>
+
+</body>
+</html>
