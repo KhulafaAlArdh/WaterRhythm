@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3: Water's Work on Earth</title>
+    <style id="hide-content">body > *:not(#pw-overlay) { display: none !important; }</style>
+    <style>
+        :root {
+            --w: #2B6CB0;
+            --wl: #EBF4FF;
+            --wm: #BEE3F8;
+            --wd: #1A365D;
+            --green: #276749;
+            --gl: #F0FFF4;
+            --sand: #FFF8EE;
+            --sd: #E2CAAA;
+            --rule: #CBD5E0;
+            --acc: #C05621;
+            --ink: #1a1a1a;
+            --mut: #555;
+            --fnt: #888;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--ink);
+            background: #FAFAF7;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        /* COVER */
+        .cover {
+            text-align: center;
+            padding: 52px 24px 40px;
+            border-bottom: 1px solid var(--rule);
+            margin-bottom: 48px;
+        }
+
+        .ey {
+            font-size: 11px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin-bottom: 14px;
+        }
+
+        .ey a {
+            color: var(--w);
+            text-decoration: underline;
+        }
+
+        .cover h1 {
+            font-size: clamp(24px, 5vw, 38px);
+            font-weight: bold;
+            line-height: 1.2;
+            color: var(--wd);
+            margin-bottom: 10px;
+        }
+
+        .cs {
+            font-style: italic;
+            color: var(--mut);
+            font-size: 15px;
+        }
+
+        /* PART HEADERS */
+        .ph {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 48px 0 24px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--w);
+        }
+
+        .pn {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            white-space: nowrap;
+            padding-right: 14px;
+            border-right: 1px solid var(--rule);
+        }
+
+        .ph h2 {
+            font-size: 20px;
+            color: var(--wd);
+        }
+
+        /* TYPOGRAPHY */
+        h3 {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin: 34px 0 12px;
+        }
+
+        h4 {
+            font-size: 16px;
+            color: var(--ink);
+            margin: 20px 0 7px;
+        }
+
+        p {
+            margin-bottom: 12px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul,
+        ol {
+            padding-left: 22px;
+            margin-bottom: 12px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        a {
+            color: var(--w);
+        }
+
+        /* ITALIC NOTE */
+        .note {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--fnt);
+            background: #F5F5F2;
+            border-left: 2px solid var(--rule);
+            padding: 8px 14px;
+            margin-bottom: 16px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* DUA */
+        .dua {
+            background: var(--wl);
+            border-left: 3px solid var(--w);
+            border-radius: 0 6px 6px 0;
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+
+        .ar {
+            font-size: 22px;
+            line-height: 2;
+            text-align: right;
+            direction: rtl;
+            color: var(--wd);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .tr {
+            font-style: italic;
+            color: var(--mut);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .src {
+            font-size: 12px;
+            color: var(--fnt);
+            margin-top: 5px;
+        }
+
+        /* AYAH */
+        .ayah {
+            background: var(--sand);
+            border: 1px solid var(--sd);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .ayah .ar {
+            color: var(--acc);
+            font-size: 20px;
+        }
+
+        .albl {
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: .05em;
+            color: var(--acc);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .com {
+            border-top: 1px solid var(--sd);
+            margin-top: 11px;
+            padding-top: 11px;
+            font-size: 14px;
+            color: var(--mut);
+            font-style: italic;
+        }
+
+        /* ASMA */
+        .asma {
+            background: var(--wd);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 20px 0;
+            display: flex;
+            gap: 22px;
+            align-items: flex-start;
+        }
+
+        .aar {
+            font-size: 28px;
+            line-height: 1.5;
+            color: var(--wm);
+            white-space: nowrap;
+            flex-shrink: 0;
+            direction: rtl;
+        }
+
+        .ab .nm {
+            font-size: 17px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 3px;
+        }
+
+        .ab .mn {
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--wm);
+            margin-bottom: 9px;
+        }
+
+        .ab p {
+            color: rgba(255, 255, 255, .85);
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        /* AGE GRID */
+        .ag {
+            display: flex;
+            gap: 0;
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+
+        .ac {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ac:not(:last-child) {
+            border-right: 1px solid var(--rule);
+        }
+
+        .ach {
+            background: var(--wd);
+            color: white;
+            font-size: 11px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 10px 13px;
+            text-align: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .acb {
+            padding: 13px 15px;
+            font-size: 14px;
+            line-height: 1.65;
+            flex: 1;
+        }
+
+        .ac:nth-child(odd) .acb {
+            background: var(--wl);
+        }
+
+        .ac:nth-child(even) .acb {
+            background: white;
+        }
+
+        .acb p {
+            margin-bottom: 9px;
+        }
+
+        .acb p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media(max-width:560px) {
+            .ag {
+                flex-direction: column;
+            }
+
+            .ac:not(:last-child) {
+                border-right: none;
+                border-bottom: 1px solid var(--rule);
+            }
+
+            .acb {
+                background: var(--wl) !important;
+            }
+
+            .asma {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* STORY */
+        .story {
+            border: 1px solid var(--sd);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+
+        .sh {
+            background: var(--acc);
+            color: white;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .sb {
+            padding: 20px;
+            background: var(--sand);
+        }
+
+        .sb .note {
+            margin-bottom: 13px;
+        }
+
+        .sb ul {
+            padding-left: 20px;
+        }
+
+        .sb li {
+            margin-bottom: 9px;
+            font-size: 15px;
+        }
+
+        .tw {
+            margin-top: 16px;
+            padding-top: 13px;
+            border-top: 1px solid var(--sd);
+        }
+
+        .tw h5 {
+            font-size: 10px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--acc);
+            margin-bottom: 7px;
+        }
+
+        .sf {
+            background: white;
+            border-top: 1px solid var(--sd);
+            padding: 10px 20px;
+            font-size: 12px;
+            color: var(--fnt);
+        }
+
+        /* READ ALOUDS */
+        .reads {
+            display: flex;
+            gap: 10px;
+            margin: 16px 0;
+        }
+
+        .rc {
+            flex: 1;
+            background: var(--wl);
+            border: 1px solid var(--wm);
+            border-radius: 6px;
+            padding: 13px 15px;
+        }
+
+        .ra {
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--w);
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .rc ul {
+            padding-left: 14px;
+        }
+
+        .rc li {
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        @media(max-width:560px) {
+            .reads {
+                flex-direction: column;
+            }
+        }
+
+        /* ACTIVITY CARD */
+        .act {
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+
+        .ah {
+            background: var(--w);
+            color: white;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .ab2 {
+            padding: 20px;
+        }
+
+        .ab2 h5 {
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin: 16px 0 7px;
+        }
+
+        .ab2 h5:first-child {
+            margin-top: 0;
+        }
+
+        .ab2 ul,
+        .ab2 ol {
+            padding-left: 20px;
+            margin-bottom: 9px;
+        }
+
+        .ab2 li {
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .ab2 p {
+            font-size: 15px;
+        }
+
+        /* DISCUSSION */
+        .disc {
+            background: var(--gl);
+            border-top: 1px solid #C6F6D5;
+            padding: 16px 20px;
+        }
+
+        .disc h5 {
+            color: var(--green);
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin: 0 0 11px;
+        }
+
+        .dq {
+            font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 3px;
+            color: #1a4731;
+            font-style: italic;
+        }
+
+        .da {
+            font-size: 14px;
+            color: var(--mut);
+            margin-bottom: 13px;
+            padding-left: 11px;
+            border-left: 2px solid #9AE6B4;
+        }
+
+        .da:last-child {
+            margin-bottom: 0;
+        }
+
+        /* HADITH */
+        .hadith {
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 24px 0;
+            background: white;
+        }
+
+        .hq {
+            font-size: 15px;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--ink);
+            margin: 12px 0;
+            padding-left: 14px;
+            border-left: 3px solid var(--w);
+        }
+
+        .hrf {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--rule);
+            font-size: 15px;
+            color: var(--mut);
+            font-style: italic;
+        }
+
+        .href2 {
+            font-size: 12px;
+            color: var(--fnt);
+        }
+
+        /* MOVEMENTS */
+        .mv {
+            display: flex;
+            gap: 13px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+
+        .mvn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--wl);
+            border: 1.5px solid var(--wm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 12px;
+            color: var(--w);
+            font-weight: bold;
+        }
+
+        .mv p {
+            font-size: 15px;
+            margin: 0;
+        }
+
+        /* MISC */
+        .snack {
+            background: var(--gl);
+            border: 1px solid #C6F6D5;
+            border-radius: 6px;
+            padding: 11px 16px;
+            font-size: 14px;
+            color: var(--green);
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        ul.plain {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        ul.plain li {
+            padding: 3px 0 3px 15px;
+            position: relative;
+            font-size: 15px;
+        }
+
+        ul.plain li::before {
+            content: '\2014';
+            position: absolute;
+            left: 0;
+            color: var(--w);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--rule);
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--fnt);
+        }
+
+        /* NAV MENU */
+        .nav-menu {
+            background: var(--wl);
+            border: 1px solid var(--wm);
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin-bottom: 44px;
+        }
+        .nav-menu-title {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin-bottom: 14px;
+            font-family: Georgia, serif;
+        }
+        .nav-part {
+            margin-bottom: 10px;
+        }
+        .nav-part-label {
+            font-size: 13px;
+            font-weight: bold;
+            color: var(--wd);
+            margin-bottom: 4px;
+        }
+        .nav-part-label a {
+            color: var(--wd);
+            text-decoration: none;
+        }
+        .nav-part-label a:hover { text-decoration: underline; }
+        .nav-sub {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .nav-sub li a {
+            font-size: 12px;
+            color: var(--w);
+            text-decoration: none;
+            background: white;
+            border: 1px solid var(--wm);
+            border-radius: 4px;
+            padding: 3px 10px;
+            display: inline-block;
+        }
+        .nav-sub li a:hover { background: var(--wm); }
+
+        /* BACK TO TOP */
+        .back-top {
+            text-align: right;
+            margin: 32px 0 8px;
+            padding-top: 12px;
+            border-top: 1px solid var(--rule);
+        }
+        .back-top a {
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--fnt);
+            text-decoration: none;
+        }
+        .back-top a:hover { color: var(--w); }
+
+        /* IMAGES */
+        .img-block {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .img-block img {
+            max-width: 100%;
+            border-radius: 6px;
+        }
+        .img-block .img-caption {
+            font-size: 12px;
+            color: var(--fnt);
+            margin-top: 6px;
+        }
+
+        /* PART 2 NOTE */
+        .part2-note {
+            display: inline-block;
+            background: var(--wl);
+            border: 1px solid var(--wm);
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--w);
+            padding: 3px 10px;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="pw-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#FAFAF7;display:flex;align-items:center;justify-content:center;z-index:9999;font-family:Georgia,serif;">
+  <div style="text-align:center;padding:40px;max-width:340px;width:90%;">
+    <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#2B6CB0;margin-bottom:16px;">Khulafa Al-Ardh Nature Pods</div>
+    <h2 style="font-size:22px;color:#1A365D;margin-bottom:8px;">Members Only</h2>
+    <p style="font-size:14px;color:#555;margin-bottom:24px;">Enter the password to access this week&rsquo;s lesson plan.</p>
+    <input id="pw-input" type="password" placeholder="Password" style="width:100%;padding:10px 14px;font-size:16px;border:1px solid #CBD5E0;border-radius:6px;box-sizing:border-box;margin-bottom:4px;outline:none;" />
+    <div style="text-align:right;margin-bottom:12px;">
+      <span onclick="togglePw()" style="font-size:12px;color:#2B6CB0;cursor:pointer;user-select:none;" id="pw-toggle">Show password</span>
+    </div>
+    <button onclick="checkPassword()" style="width:100%;padding:10px;background:#2B6CB0;color:#fff;font-size:15px;border:none;border-radius:6px;cursor:pointer;">Enter</button>
+    <p id="pw-error" style="color:#C05621;font-size:13px;margin-top:12px;display:none;">Incorrect password. Please check with your pod leader.</p>
+  </div>
+</div>
+<script>
+  if (sessionStorage.getItem("kaanp_auth") === "1") {
+    document.getElementById("pw-overlay").style.display = "none";
+    document.getElementById("hide-content").remove();
+  }
+  document.getElementById("pw-input").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") checkPassword();
+  });
+  function togglePw() {
+    var input = document.getElementById("pw-input");
+    var toggle = document.getElementById("pw-toggle");
+    if (input.type === "password") {
+      input.type = "text";
+      toggle.textContent = "Hide password";
+    } else {
+      input.type = "password";
+      toggle.textContent = "Show password";
+    }
+  }
+  function checkPassword() {
+    var val = document.getElementById("pw-input").value;
+    if (val === "KAANP-Water!") {
+      sessionStorage.setItem("kaanp_auth", "1");
+      document.getElementById("pw-overlay").remove();
+      document.getElementById("hide-content").remove();
+    } else {
+      document.getElementById("pw-error").style.display = "block";
+      document.getElementById("pw-input").value = "";
+      document.getElementById("pw-input").focus();
+    }
+  }
+</script>
+
+<div class="cover">
+    <div class="ey">Khulafa Al-Ardh &middot; <a href="../index.html">Rhythm: Water</a> &middot; Week 3</div>
+    <h1>Water&rsquo;s Work on Earth</h1>
+</div>
+
+<div class="nav-menu" id="top">
+    <div class="nav-menu-title">Jump to section</div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part1">Part 1 &nbsp;|&nbsp; Blessed Beginnings</a></div>
+        <ul class="nav-sub">
+            <li><a href="#duaa">Opening Duaa</a></li>
+            <li><a href="#intro">An Introduction to Water&rsquo;s Work on Earth</a></li>
+            <li><a href="#discovery">Discovery Den</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part2">Part 2 &nbsp;|&nbsp; Walking with Intention</a></div>
+        <ul class="nav-sub">
+            <li><a href="#asma">The Most Beautiful of Names</a></li>
+            <li><a href="#observing">Observing on the Move</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part3">Part 3 &nbsp;|&nbsp; Grounding in Gratitude</a></div>
+        <ul class="nav-sub">
+            <li><a href="#stories">Stories for Blooming Hearts</a></li>
+            <li><a href="#readalouds">Suggested Read-Alouds</a></li>
+            <li><a href="#activity">Hands-On Activity</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part4">Part 4 &nbsp;|&nbsp; Slowing the Flow</a></div>
+        <ul class="nav-sub">
+            <li><a href="#tadabbur">Tadabbur Among the Trees</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#addendum">Addendum &nbsp;|&nbsp; Further Enrichment</a></div>
+        <ul class="nav-sub">
+            <li><a href="#prophetic">Prophetic Wisdom</a></li>
+            <li><a href="#ayaat">Additional Ayaat</a></li>
+            <li><a href="#movements">Meaningful Movements</a></li>
+            <li><a href="#morenature">More Nature Activities</a></li>
+            <li><a href="#olderkids">Information for Older Kids &amp; Printables</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- PART 1 -->
+<div class="ph" id="part1"><span class="pn">Part 1</span>
+    <h2>Blessed Beginnings</h2>
+</div>
+<p class="note">Set the tone for the walk and introduce the topic before beginning the walk. This should take between 5&ndash;10 minutes &mdash; nothing longer than the attention spans of the kids.</p>
+
+<h3 id="duaa"><span style="font-size:16px;">Opening Duaa</span></h3>
+<p class="note">Start with a duaa for protection from harm and evil. The duaa can be led by either the walk leader or a child who has the duaa memorized.</p>
+<div class="dua">
+    <span class="ar">أَعُوذُ بِكَلِمَاتِ اللهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</span>
+    <p class="tr">&ldquo;I seek refuge in the perfect words of Allah from the evil of what He has created.&rdquo;</p>
+</div>
+<div class="dua">
+    <span class="ar">بِسْمِ اللهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</span>
+    <p class="tr">&ldquo;In the Name of Allah, with whose Name nothing in the earth or the heavens can cause harm. He is the All-Hearing, the All-Knowing.&rdquo;</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="intro"><span style="font-size:16px;">An Introduction to Water&rsquo;s Work on Earth</span></h3>
+<p class="note">Introduce the topic to the kids. Share the opening ayah and how it ties to the week&rsquo;s topic.</p>
+<div class="ayah">
+    <span class="ar">أَلَمْ تَرَ أَنَّ ٱللَّهَ أَنزَلَ مِنَ ٱلسَّمَآءِ مَآءً فَسَلَكَهُۥ يَنَٰبِيعَ فِى ٱلْأَرْضِ ثُمَّ يُخْرِجُ بِهِۦ زَرْعًا مُّخْتَلِفًا أَلْوَٰنُهُۥ ثُمَّ يَهِيجُ فَتَرَىٰهُ مُصْفَرًّا ثُمَّ يَجْعَلُهُۥ حُطَٰمًا ۚ إِنَّ فِى ذَٰلِكَ لَذِكْرَىٰ لِأُوْلِى ٱلْأَلْبَٰبِ ٢١</span>
+    <p class="tr">&ldquo;Have you not considered that Allah sends water down from the sky, guides it along to form springs in the earth, and then, with it, brings forth vegetation of various colours, which later withers, turns yellow before your eyes, and is crumbled to dust at His command? There is truly a reminder in this for those who have understanding.&rdquo;</p>
+    <p class="src">Surah Az-Zumar 39:21</p>
+    <p class="com">In the past week, we have seen how Allah put in place mechanisms to distribute water across the earth, as well as how He has made its movement a blessing full of many benefits. This week, we will explore how the movement of water physically shapes the earth itself. In this ayah, we see how Allah Himself guides the movement of water along the earth. This water may be absorbed into the earth, erode it to form rivers, lakes, waterfalls or canyons, move around soil and particles and cause sedimentation &mdash; or in some cases, cause floods and other natural disasters. All of this is to remind us of the eventual cessation of all life on earth, if we are from those who have understanding.</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="discovery"><span style="font-size:16px;">Discovery Den</span></h3>
+<p class="note">This is information to share with the kids. What you share and the level of detail will depend on the ages of the kids in your pod. Use your discretion.</p>
+
+<h4>Can water shape the Earth?</h4>
+<ul>
+    <li>Last week, we learned that water is always on the move. But did you know that as water travels, it does a lot of heavy lifting? Water isn&rsquo;t just a drink for plants and animals; it is Allah&rsquo;s most powerful tool for sculpting and shaping the Earth. This week, we are going to look at how soft, liquid water can slice right through solid rock!</li>
+    <li>Allah (SWT) designed water with incredible power. Even a tiny, gentle raindrop has the strength to change the shape of a mountain over time. When rain falls, it doesn&rsquo;t just sit on the surface. It gathers, flows, and carves out beautiful valleys and riverbeds perfectly sized to hold the water He provides.</li>
+</ul>
+
+<h4>But how <em>does</em> it shape the Earth?</h4>
+<ul>
+    <li>Geologists use three special words to describe how water shapes our planet. You can remember them as the <strong>W.E.D.</strong> system:
+        <ul style="margin-top:8px;">
+            <li><strong>Weathering:</strong> When rain falls, rivers rush, or ocean waves crash, water slowly breaks big rocks down into smaller pieces like pebbles, sand, and dirt. Sometimes water even sneaks into cracks in a rock, freezes into ice, and bursts the rock apart!</li>
+            <li><strong>Erosion:</strong> Once the rocks are broken into dirt and sand, the moving water acts like a conveyor belt. Fast-moving rivers and streams pick up these tiny pieces and carry them far away from where they started.</li>
+            <li><strong>Deposition:</strong> The water can&rsquo;t carry the heavy dirt and sand forever. When a fast river slows down &mdash; like when it finally empties into a lake or the ocean &mdash; it drops all the dirt it was carrying. This piled-up dirt builds brand new land, like riverbanks, beaches, and marshlands!</li>
+        </ul>
+    </li>
+</ul>
+
+<h4>What are some examples of this in the state of Texas?</h4>
+<ul>
+    <li><strong>The Grand Canyon of Texas (Weathering &amp; Erosion):</strong> Up in the Texas Panhandle is Palo Duro Canyon, the second-largest canyon in the entire United States! You might think a giant earthquake split the ground open, but it was actually water. Over millions of years, the Prairie Dog Town Fork of the Red River slowly carved its way through the flat rock, digging a canyon that is 800 feet deep and 120 miles long &mdash; leaving behind the harder rock to form tall towers called hoodoos!</li>
+</ul>
+<div class="img-block">
+    <img src="images/image5.jpg" alt="Palo Duro Canyon hoodoos with snow" style="max-width:500px;">
+</div>
+<ul>
+    <li><strong>Our Local Creeks (Erosion):</strong> You don&rsquo;t have to go to a giant canyon to see erosion. If you walk along the <strong>Elm Fork</strong> or any local creek in DFW after a heavy rainstorm, look at the water: it will look muddy and brown. That brown color is actually dirt being eroded away from the riverbanks and carried downstream.</li>
+</ul>
+<div class="img-block">
+    <img src="images/image3.jpg" alt="Elm Fork creek with eroded banks" style="max-width:540px;">
+</div>
+<ul>
+    <li><strong>The Texas Gulf Coast (Deposition):</strong> Remember how the Trinity River flows all the way to the Gulf of Mexico? When the river water finally hits the ocean, it slows down and drops millions of tons of sand and dirt. Over time, this dirt piled up to create the beautiful sandy beaches and barrier islands (like Galveston) that protect our Texas coast! The diagram below depicts rivers feeding into a lake. Where the river enters the water body, the water&rsquo;s flow decelerates, sediments drop out, and a delta forms, depositing a prism of sediment that tapers out toward the lake&rsquo;s interior.</li>
+</ul>
+<div class="img-block">
+    <img src="images/image6.jpg" alt="Delta formation diagram showing rivers, lake, and sediment deposits" style="max-width:600px;">
+    <p class="img-caption">Reference: <a href="https://science.nasa.gov/resource/how-a-delta-forms-where-river-meets-lake/">science.nasa.gov &mdash; How a Delta Forms Where River Meets Lake</a></p>
+</div>
+
+<h4>Does water only shape the top of the Earth?</h4>
+<ul>
+    <li>Water doesn&rsquo;t just shape the top of the earth; it completely changes the <em>inside</em> of the earth, too!</li>
+    <li>When rainwater falls, it picks up a tiny bit of carbon dioxide from the air and soil, making it very slightly acidic (like weak lemon juice). As this water seeps deep underground into certain types of rock (like limestone), it slowly dissolves the rock away. Over thousands of years, this flowing groundwater hollows out massive underground rooms, creating <strong>caves</strong> and <strong>caverns</strong>!</li>
+    <li><strong>Local Landmarks:</strong> We have incredible examples of this right here in Texas! If you ever visit <strong>Inner Space Cavern</strong> in Georgetown or <strong>Natural Bridge Caverns</strong> near San Antonio, you are walking through giant, beautiful rooms carved entirely by slow-moving underground water. Sometimes, the roof of an underground cave gets too thin and collapses, creating a giant hole on the surface called a <strong>sinkhole</strong>.</li>
+</ul>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- PART 2 -->
+<div class="ph" id="part2"><span class="pn">Part 2</span>
+    <h2>Walking with Intention</h2>
+</div>
+<p class="note">Now that we are all up to speed on this week&rsquo;s topic, let&rsquo;s start walking! The following are some conversations and activities to do as you walk. This should take about 30&ndash;60 minutes &mdash; again, nothing longer than the stamina of the kids.</p>
+
+<h3 id="asma"><span style="font-size:16px;">The Most Beautiful of Names</span></h3>
+<p class="note">Introduce the name of Allah and its basic meaning as you start your walk. Encourage the kids to reflect on the name throughout the walk, as well as mentioning it whenever relevant.</p>
+<div class="asma">
+    <div class="aar">اللَّطِيفُ</div>
+    <div class="ab">
+        <div class="nm">Al-Lateef</div>
+        <div class="mn">The Ever Subtle and Kind</div>
+        <p>In this lesson, we learned how slow and gradual the process of developing great things can be. Water erodes at the earth gradually until &mdash; after thousands or millions of years &mdash; we end up with gargantuan cavernous canyons and mighty raging rivers. The work is subtle and gradual, but its compounding effects are incredibly powerful. Al-Lateef, the Ever Subtle and Kind, sometimes does mighty work through means that are not immediately perceptible to us. Seeing this helps us understand that He is doing the same kind of work in our lives: work that is subtle yet mighty, merciful, and magnanimous, if only we learned to trust Him and thoroughly comprehend His attributes.</p>
+    </div>
+</div>
+<div class="ayah">
+    <span class="ar">لَّا تُدْرِكُهُ الْأَبْصَارُ وَهُوَ يُدْرِكُ الْأَبْصَارَ ۖ وَهُوَ اللَّطِيفُ الْخَبِيرُ ١٠٣</span>
+    <p class="tr">&ldquo;No vision can take Him in, but He takes in all vision. He is the All Subtle, the All Aware.&rdquo;</p>
+    <p class="src">Surah Al-An&lsquo;am 6:103</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="observing"><span style="font-size:16px;">Observing on the Move</span></h3>
+<p class="note">Here are some observation prompts to help the kids tune into their environment and engage all of their senses.</p>
+<div class="ag">
+    <div class="ac">
+        <div class="ach">For Kids 1&ndash;4</div>
+        <div class="acb">
+            <p>Can you find traces of something the water moved?</p>
+            <p>What color is the water we see on this walk today and why is it that color?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 5&ndash;8</div>
+        <div class="acb">
+            <p>Pour water slowly over soil and listen with eyes closed as water runs onto it. Does the sound change the more soil gets wet?</p>
+            <p>Now pour water from different heights. How does the splash and erosion change?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 9&ndash;12</div>
+        <div class="acb">
+            <p>If you were a tiny soil particle being washed away, how would that feel? Would you worry where you would travel to?</p>
+            <p>Roots protect the earth for free, everywhere, all the time. What does that mean for the tree?</p>
+        </div>
+    </div>
+</div>
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- PART 3 -->
+<div class="ph" id="part3"><span class="pn">Part 3</span>
+    <h2>Grounding in Gratitude</h2>
+</div>
+<p class="note">Phew, that was a good walk! Let&rsquo;s pause and apply what we have learned and reflect on what we have observed.</p>
+
+<h3 id="stories"><span style="font-size:16px;">Stories for Blooming Hearts</span></h3>
+<p class="note">Share a story from our tradition that ties to this week&rsquo;s topic. Note that creating an engaging storytelling experience is on the storyteller; these are just the basic details. A story told from the heart will reach hearts!</p>
+<div class="story">
+    <div class="sh">Nuh AS, The Ark, and The Flood</div>
+    <div class="sb">
+        <ul>
+            <li>As with all of the Prophets of Allah, Nuh AS consistently called people towards Allah. Day and night, privately and publicly, he gave them dawah and tried to stop them from idol-worship.</li>
+            <li>Nuh AS was so patient that he continued to call people to Allah for 950 years! Yet only a few believed; the rest were arrogant and would mock Nuh AS to the point that they even challenged him to bring on the punishment if there really was one.</li>
+            <li>This arrogance led Allah SWT to tell Nuh AS He was going to send a flood as punishment to the disbelievers. Nuh AS and the believers were to build the largest ship of its kind at that time &mdash; an ark.</li>
+            <li>Day after day, Nuh AS worked at building this large ark while the disbelievers would laugh at him and make fun of him.</li>
+            <li>Finally, the building of the ark was complete. Then Nuh AS was commanded to board a male and female of each animal to the ship along with the few believers.</li>
+            <li>When Allah SWT revealed to Nuh AS that the flood would be coming, Nuh AS tried one last time to warn people &mdash; including his own son and wife &mdash; to board the ship, but they did not believe. Nuh AS&rsquo;s son thought he would be able to find protection by climbing on top of a mountain instead of believing his father.</li>
+            <li>Finally, Allah SWT sent the largest flood ever! Water sprung from the ground and poured down from the sky simultaneously!</li>
+            <li>Those who disbelieved were in the deepest regret, but now it was too late. Nuh AS asked Allah to not leave any disbelievers on the Earth so they would not bother believing people with their falsehood.</li>
+            <li>After the huge flood wiped out all of the people except those on the ark, Allah commanded the earth to swallow back up the water and the believers were able to start a fresh new life together.</li>
+        </ul>
+        <div class="tw">
+            <h5>Takeaways</h5>
+            <ul>
+                <li>We learn from Nuh AS that eventually patience pays off, even if it wasn&rsquo;t in the way that was initially expected. Although only a few believed, they eventually got to start a new life together with no influence from the disbelievers who constantly mocked them. Relief is always on the way.</li>
+                <li>Similarly to how the earth gradually changes in magnificent ways over time with processes such as erosion, Nuh AS and the believers were able to build the largest ship of their time by working hard at it little by little, day by day. With consistent hard work, anything is achievable.</li>
+                <li>This story is an example of how the earth was physically changed by water. All of creation except for those on the ark was wiped out and life was renewed.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="sf">Suggested Resource: <em>Super Stories of the Prophets</em> by Mariam Elgammal</div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="readalouds"><span style="font-size:16px;">Suggested Read-Alouds</span></h3>
+<p class="note">Here are a few book titles to check out related to this week&rsquo;s topic.</p>
+<div class="reads">
+    <div class="rc">
+        <div class="ra">Ages 1&ndash;4</div>
+        <ul>
+            <li><em>When the Storm Comes</em> by Linda Ashman</li>
+            <li><em>I Am the Storm</em> by Jane Yolen and Heidi E. Y. Stemple</li>
+            <li><em>Rain!</em> by Linda Ashman</li>
+        </ul>
+    </div>
+    <div class="rc">
+        <div class="ra">Ages 5&ndash;8</div>
+        <ul>
+            <li><em>Cracking Up: A Story About Erosion</em> by Jacqui Bailey</li>
+            <li><em>Grand Canyon</em> by Jason Chin &mdash; learn how water and time carved out the massive rock walls</li>
+            <li><em>A Drop Around the World</em> by Barbara Shaw McKinney</li>
+        </ul>
+    </div>
+    <div class="rc">
+        <div class="ra">Ages 9&ndash;12</div>
+        <ul>
+            <li><em>Ocean Anatomy: The Curious Parts &amp; Pieces of the World Under the Sea</em> by Julia Rothman</li>
+            <li><em>A Drop of Water: A Book of Science and Wonder</em> by Walter Wick</li>
+        </ul>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="activity"><span style="font-size:16px;">Hands-On Activity</span></h3>
+<p class="note">Time to engage little hands and minds! Additional activities can be found in the Addendum, if needed.</p>
+<p style="font-size:14px;margin-bottom:16px;">Jump to: <a href="#activity-1-4">For Kids 1&ndash;4</a> &nbsp;&middot;&nbsp; <a href="#activity-5-8">For Kids 5&ndash;8</a> &nbsp;&middot;&nbsp; <a href="#activity-9-12">For Kids 9&ndash;12</a></p>
+
+<div class="act">
+    <div class="ah" id="activity-1-4">For Kids 1&ndash;4: Seeing Erosion Up Close</div>
+    <div class="ab2">
+        <div class="img-block">
+            <img src="images/image8.png" alt="Child pouring watering can on dirt slope" style="max-width:320px;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Watering can, ideally one per child</li>
+            <li><em>Alternatively, you can use a bottle and puncture a few holes in the cap</em></li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Find a muddy slope or patch of exposed dirt</li>
+            <li>Look closely at the surface before you pour water: What does it look like? Touch it gently.</li>
+            <li>Pour water gently on the slope, starting slow, then pouring faster</li>
+            <li>Watch what happens to the dirt where the water hits</li>
+            <li>Follow the water as it moves: Where does it go? What does it carry with it?</li>
+            <li>Try repeating the steps on a slope covered with plants. What do you notice?</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">What did you see moving when the water hit the dirt?</p>
+        <p class="da">Little bits of soil loosened and traveled with the water &mdash; that&rsquo;s erosion happening right in front of you.</p>
+        <p class="dq">What happened when you poured water faster?</p>
+        <p class="da">More soil moved. The faster and more water pours, the more it can carry away.</p>
+        <p class="dq">What happened when you poured water where plants covered the slope?</p>
+        <p class="da">The plants prevented erosion because their roots tightly held onto the soil, preventing water from washing it away.</p>
+    </div>
+</div>
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="act">
+    <div class="ah" id="activity-5-8">For Kids 5&ndash;8: What Gives Water Its Power of Erosion?</div>
+    <div class="ab2">
+        <p class="note"><em>Does moving water erode more than still water?</em></p>
+        <div class="img-block">
+            <img src="images/image9.png" alt="Two jars, one still and one being shaken" style="max-width:420px;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>2 jars with leftover nut butter, jelly, or pasta sauce stuck to the walls (jars should be the same size with roughly the same amount of residue)</li>
+            <li>Water</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Fill one jar completely with water and seal the lid. Set it aside and don&rsquo;t touch it.</li>
+            <li>Fill the second jar about halfway with water and seal the lid.</li>
+            <li>Make a prediction: which jar do you think will come out cleaner &mdash; the still one or the shaken one? Write it in your journal.</li>
+            <li>Shake the second jar vigorously for 3 minutes.</li>
+            <li>Open both jars and compare the walls. What do you notice? Record your observations.</li>
+        </ol>
+    </div>
+        <div class="disc">
+            <h5>Discussion</h5>
+            <p class="dq">What happened to the jar you left still?</p>
+            <p class="da">The water may have loosened some residue, but most of it stayed stuck &mdash; still water doesn&rsquo;t have enough energy to pull material off a surface.</p>
+            <p class="dq">What happened to the jar you shook?</p>
+            <p class="da">The moving water created friction and force against the walls, breaking the residue loose and carrying it into the water &mdash; just like a river does to soil and rock.</p>
+            <p class="dq">What does this tell us about erosion?</p>
+            <p class="da">Moving water is far more powerful than still water at wearing away material. The faster and more forceful the water, the more it can carry &mdash; which is why floods cause so much erosion and why rivers carve canyons over time.</p>
+            <p class="dq">Does this prove that moving water always erodes more than still water in nature?</p>
+            <p class="da">Not entirely &mdash; this is a model. In nature, still water can also erode slowly through soaking and chemical breakdown. But this experiment shows us the basic principle: movement adds power.</p>
+        </div>
+</div>
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="act">
+    <div class="ah" id="activity-9-12">For Kids 9&ndash;12: Can We Stop Erosion?</div>
+    <div class="ab2">
+        <p class="note"><em>What protects the earth when rain hits? Can you design something that does the same?</em></p>
+        <div class="img-block">
+            <img src="images/image10.png" alt="Plant with visible roots next to bare dirt mound in tray" style="max-width:420px;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>A small potted plant</li>
+            <li>A watering can, or bottle with holes punctured in the cap to function as a watering can</li>
+            <li>A large container or tray (to catch runoff)</li>
+            <li>Engineering materials: toothpicks, rocks, pebbles, paper, fabric scraps, rubber bands, pipe cleaners. Burlap works particularly well for this experiment.</li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>Trail dirt</li>
+        </ul>
+        <h5>Part 1: Roots vs. No Roots</h5>
+        <ol>
+            <li>Remove the plant from its pot and set it aside carefully in the tray</li>
+            <li>Fill the pot with trail dirt, add a small amount of water, and mix until sticky but not runny. Pack it firmly into the pot.</li>
+            <li>Remove the packed soil from the pot</li>
+            <li>Place both the plant and the packed dirt side by side in your container</li>
+            <li>Make a prediction: Which one will lose more soil when water hits it? Write it in your journal.</li>
+            <li>Using your watering can, sprinkle the same amount of water over both the plant and the bare dirt mound</li>
+            <li>Observe and draw what each looks like before and after in your journal</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">What happened to the bare dirt mound?</p>
+        <p class="da">Water loosened and carried soil away. Without anything holding it together, the dirt had no defense against the force of the water.</p>
+        <p class="dq">What happened to the plant?</p>
+        <p class="da">The roots held the soil in place, slowing erosion significantly. The same water hit both, but the outcome was completely different.</p>
+        <p class="dq">What is the water that collected at the bottom of your container called?</p>
+        <p class="da">Runoff: water that couldn&rsquo;t be absorbed and carried material with it as it moved away.</p>
+    </div>
+    <div class="ab2">
+        <h5>Part 2: Engineer Your Own Solution</h5>
+        <p style="font-style:italic;font-size:14px;color:var(--mut);">Now that you&rsquo;ve seen how roots protect soil, your challenge is to design your own erosion barrier using only the materials you brought.</p>
+        <ol>
+            <li>Create two identical mounds of dirt as you did in the previous experiment, and place them side by side in your tray.</li>
+            <li>Leave one mound completely bare. This is your control.</li>
+            <li>Use your engineering materials to build a barrier or protection system around the second mound.</li>
+            <li>Draw and describe your design in your journal before testing it.</li>
+            <li>Pour the same amount of water over both mounds with your watering can.</li>
+            <li>Observe what happens: Did your solution work? Record the results.</li>
+            <li>Optional: Rebuild and try a completely different approach, then compare which worked better.</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">Did your engineering solution protect the mound? What worked and what didn&rsquo;t?</p>
+        <p class="dq">What real-world structures do humans build to prevent erosion?</p>
+        <p class="da">Retaining walls, terraces, check dams, mulch layers, riprap along riverbanks. Engineers have been solving this problem for centuries.</p>
+        <p class="dq">Which worked better overall &mdash; the plant roots or your engineered solution? Why do you think that is?</p>
+        <p class="da">Allah designed roots to do this naturally, for free, across the entire earth. Our human solutions require materials, maintenance, and effort, and they still don&rsquo;t always match what a living root system does.</p>
+    </div>
+</div>
+
+<p class="note">After completing the activity is a good time to stop for a snack. Power their brains and bodies with something nutritious! Bonus points for avoiding single-use plastics and being good Khulafa. Be sure to leave the area as you found it, or better, following the good manners taught to us by our Prophet &#65018;.</p>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- PART 4 -->
+<div class="ph" id="part4"><span class="pn">Part 4</span>
+    <h2>Slowing the Flow</h2>
+</div>
+<p class="note">Now that this week&rsquo;s walk is just about done, let&rsquo;s wrap it up.</p>
+
+<h3 id="tadabbur"><span style="font-size:16px;">Tadabbur Among the Trees</span></h3>
+<p class="note">Here are some prompts to help wrap up the walk. These prompts can be used to spark a conversation or to fill up your nature journal for today!</p>
+<div class="ag">
+    <div class="ac">
+        <div class="ach">For Kids 1&ndash;4</div>
+        <div class="acb">
+            <p>What is something we can see right now that took a long time to be built?</p>
+            <p>What&rsquo;s something you grew into or learned to do little by little?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 5&ndash;8</div>
+        <div class="acb">
+            <p>We learned that erosion happens gradually over a long period of time. Can you think of other processes that happen gradually?</p>
+            <p>Canyons are deep and cavernous. If you were an ant, what kinds of things might seem like a canyon to you? Draw yourself as a little ant next to those &ldquo;canyons&rdquo;.</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 9&ndash;12</div>
+        <div class="acb">
+            <p>Review the Field Guide and record your observations!</p>
+            <p>Think of different animals shedding their skin, and how it&rsquo;s similar to the erosion of earth. Can you name some and draw them? What ways can humans erode?</p>
+        </div>
+    </div>
+</div>
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- ADDENDUM -->
+<div class="ph" id="addendum"><span class="pn">Addendum</span>
+    <h2>Further Enrichment</h2>
+</div>
+<p class="note">Need more nature? We got you! Here are some additional resources to further enrich your understanding and reflection. These additional resources can be utilized by the pod, by individual families, or a combination of both &mdash; whatever best fits your needs!</p>
+
+<h3 id="prophetic"><span style="font-size:16px;">Prophetic Wisdom</span></h3>
+<p class="note">Find an opportunity to share the wisdom of our Prophet &#65018; as you walk.</p>
+<div class="hadith">
+    <span class="ar">أَحَبُّ الْأَعْمَالِ إِلَى اللهِ أَدْوَمُهَا وَإِنْ قَلَّ</span>
+    <p class="hq">&ldquo;The acts most pleasing to Allah are those which are done continuously, even if they are small.&rdquo;</p>
+    <div class="hrf">Bukhari and Muslim</div>
+    <p style="font-size:15px;margin-top:16px;">This week, we witnessed the power of small and gradual. We saw how canyons and rivers are formed over millennia by the removal of imperceptible amounts of earth over and over again. Your deeds have the potential to be powerful in the same way! In this hadith, the Prophet teaches us that the acts most beloved to Allah &mdash; meaning the best of acts &mdash; do not have to be big and grand; just simply consistent. Small and consistent deeds bear fruit in both this life and the next. What are some small but consistent deeds that you do? What can you incorporate into your routine?</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="ayaat"><span style="font-size:16px;">Additional Ayaat</span></h3>
+
+<div class="ayah">
+    <span class="albl">The Thunder (13:17)</span>
+    <span class="ar">أَنزَلَ مِنَ ٱلسَّمَآءِ مَآءً فَسَالَتْ أَوْدِيَةٌۢ بِقَدَرِهَا فَٱحْتَمَلَ ٱلسَّيْلُ زَبَدًا رَّابِيًا ۚ وَمِمَّا يُوقِدُونَ عَلَيْهِ فِى ٱلنَّارِ ٱبْتِغَآءَ حِلْيَةٍ أَوْ مَتَٰعٍ زَبَدٌ مِّثْلُهُۥ ۚ كَذَٰلِكَ يَضْرِبُ ٱللَّهُ ٱلْحَقَّ وَٱلْبَٰطِلَ ۚ فَأَمَّا ٱلزَّبَدُ فَيَذْهَبُ جُفَآءً ۖ وَأَمَّا مَا يَنفَعُ ٱلنَّاسَ فَيَمْكُثُ فِى ٱلْأَرْضِ ۚ كَذَٰلِكَ يَضْرِبُ ٱللَّهُ ٱلْأَمْثَالَ ١٧</span>
+    <p class="tr">&ldquo;He sends water from the sky that fills riverbeds to overflowing, each according to its measure. The stream carries on its surface a growing layer of froth, like the froth that appears when people melt metals in the fire to make ornaments and tools: in this way Allah illustrates truth and falsehood &mdash; the froth disappears, but what is of benefit to man stays behind &mdash; this is how Allah makes illustrations.&rdquo;</p>
+    <p class="com">One way to understand this parable is that the rain represents divine revelation. Allah sends it down, and our hearts hold as much as each is capable of. Divine revelation acts as purification for our hearts, just as rain fills out rivers and carries away debris and filth. The difficulties Allah puts in our way can have the same purifying effect, just as fire removes impurities from metals. After the flood or fire, only that which is beneficial remains!</p>
+</div>
+
+<div class="ayah">
+    <span class="albl">The Cow (2:74)</span>
+    <span class="ar">ثُمَّ قَسَتْ قُلُوبُكُم مِّنۢ بَعْدِ ذَٰلِكَ فَهِىَ كَٱلْحِجَارَةِ أَوْ أَشَدُّ قَسْوَةً ۚ وَإِنَّ مِنَ ٱلْحِجَارَةِ لَمَا يَتَفَجَّرُ مِنْهُ ٱلْأَنْهَٰرُ ۚ وَإِنَّ مِنْهَا لَمَا يَشَّقَّقُ فَيَخْرُجُ مِنْهُ ٱلْمَآءُ ۚ وَإِنَّ مِنْهَا لَمَا يَهْبِطُ مِنْ خَشْيَةِ ٱللَّهِ ۗ وَمَا ٱللَّهُ بِغَٰفِلٍ عَمَّا تَعْمَلُونَ ٧٤</span>
+    <p class="tr">&ldquo;Even after that, your hearts became as hard as rocks, or even harder, for there are rocks from which streams spring out, and some from which water comes when they split open, and others which fall down in awe of Allah: He is not unaware of what you do.&rdquo;</p>
+    <p class="com">Reflect: of the types of rock mentioned in the ayah, which is like your heart? How does your heart respond to the Quran?</p>
+</div>
+
+<div class="ayah">
+    <span class="albl">The Moon (54:11&ndash;12)</span>
+    <span class="ar">فَفَتَحْنَآ أَبْوَٰبَ ٱلسَّمَآءِ بِمَآءٍ مُّنْهَمِرٍ ١١ وَفَجَّرْنَا ٱلْأَرْضَ عُيُونًا فَٱلْتَقَى ٱلْمَآءُ عَلَىٰٓ أَمْرٍ قَدْ قُدِرَ ١٢</span>
+    <p class="tr">&ldquo;So We opened the gates of the sky with torrential water, burst the earth with gushing springs: the waters met for a preordained purpose.&rdquo;</p>
+    <p class="com">This is a description of the start of the flood that destroyed the people of Nuh &mdash; water surrounded them from all directions, sitting in waiting for the command of its Lord to be unleashed.</p>
+</div>
+
+<div class="ayah">
+    <span class="albl">Ibrahim (14:24&ndash;27)</span>
+    <span class="ar">أَلَمْ تَرَ كَيْفَ ضَرَبَ ٱللَّهُ مَثَلًا كَلِمَةً طَيِّبَةً كَشَجَرَةٍ طَيِّبَةٍ أَصْلُهَا ثَابِتٌ وَفَرْعُهَا فِى ٱلسَّمَآءِ ٢٤ تُؤْتِىٓ أُكُلَهَا كُلَّ حِينٍۭ بِإِذْنِ رَبِّهَا ۗ وَيَضْرِبُ ٱللَّهُ ٱلْأَمْثَالَ لِلنَّاسِ لَعَلَّهُمْ يَتَذَكَّرُونَ ٢٥ وَمَثَلُ كَلِمَةٍ خَبِيثَةٍ كَشَجَرَةٍ خَبِيثَةٍ ٱجْتُثَّتْ مِن فَوْقِ ٱلْأَرْضِ مَا لَهَا مِن قَرَارٍ ٢٦ يُثَبِّتُ ٱللَّهُ ٱلَّذِينَ ءَامَنُوا۟ بِٱلْقَوْلِ ٱلثَّابِتِ فِى ٱلْحَيَوٰةِ ٱلدُّنْيَا وَفِى ٱلْءَاخِرَةِ ۖ وَيُضِلُّ ٱللَّهُ ٱلظَّٰلِمِينَ ۚ وَيَفْعَلُ ٱللَّهُ مَا يَشَآءُ ٢٧</span>
+    <p class="tr">&ldquo;Do you not see how Allah makes comparisons? A good word is like a good tree whose root is firm and whose branches are high in the sky, yielding constant fruit by its Lord&rsquo;s leave &mdash; Allah makes such comparisons for people so that they may reflect &mdash; but an evil word is like a rotten tree, uprooted from the surface of the earth, with no power to endure. Allah will give firmness to those who believe in the firmly rooted word, both in this world and the Hereafter, but the evildoers He leaves to stray: Allah does whatever He will.&rdquo;</p>
+    <p class="com">Not only does a well-rooted tree yield fruit, it also is able to give stability to the earth around it. Likewise, a good word bears beautiful fruit and grants firmness to those around it. A rotten tree yields no fruit, and it is not anchored nor does it anchor!</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="movements"><span style="font-size:16px;">Meaningful Movements</span></h3>
+<p class="note">A flow of movements to get kids&rsquo; energy out at the beginning, or help them calm down at the end of the walk.</p>
+
+<div class="mv">
+    <div class="mvn">1</div>
+    <p>&ldquo;Ya-Lateef, open my heart gently and guide me.&rdquo; Begin by standing barefoot in Mountain pose, arms at your side and gaze forwards. Feel the ground beneath with all five toes. Take a deep inhale and an exhale. Gradually begin to sit back into a chair pose, extend both arms in front of you and alongside your ears, taking a breath. Exhale back into standing. Inhaling again, sit back into an imaginary chair, making sure knees don&rsquo;t go forward past your toes. This time bring both your palms together and twist your torso to the right, hooking your left elbow behind your right knee. Breathing here for a moment, return to center and twist to the left, now with right elbow hooked behind left knee, take a breath and return to midline, gradually standing back up to Mountain pose.</p>
+</div>
+<div class="mv">
+    <div class="mvn">2</div>
+    <p>Step the right foot one step behind you, extend both arms out into a T shape and rotate them so the left arm is in line with your left leg and right arm with right leg. Now hinge at the left hip toward the left leg, reaching left arm down towards left shin or ankle, and right arm flies up overhead. Try to align both arms into a straight line from earth to sky. Feel the earth if you can, hold for a breath and return back to upright.</p>
+</div>
+<div class="mv">
+    <div class="mvn">3</div>
+    <p>Switching stances, pause for a moment and think of the surface of the earth and its changes. Step left foot back, extend both arms out and rotate them with right arm in line with right leg, left arm lined up with left leg. Hinge at the right hip downwards, with right hand reaching for right shin or ankle. Keep legs straight at all times. Reach left arm up to the sky in your <em>Triangle</em> pose.</p>
+</div>
+<div class="mv">
+    <div class="mvn">4</div>
+    <p>Now bring both arms down, rotate your body and bring the back leg in line with the right leg. Hinging at the hips still, let your arms and hands dangle down touching the earth. Think of the layers beneath what you touch. Think of Allah, Master of all creation. Gradually raise both arms and stand back up to Mountain pose. Stay for a few breaths, think of Al-Lateef, who fashioned us with subtlety and gentleness.</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="morenature"><span style="font-size:16px;">More Nature Activities</span></h3>
+<p class="note">Here are more activities to try, whether as a group with your pod or individually at home.</p>
+
+<div class="act">
+    <div class="ah">Sediment Jars</div>
+    <div class="ab2">
+        <p class="note"><em>What settles first when water carries everything away?</em></p>
+        <div class="img-block">
+            <img src="images/image1.png" alt="Sediment jar with visible settled layers" style="max-width:280px;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Clear jar or plastic bottle (one per family)</li>
+            <li>Lid</li>
+            <li>Permanent marker or masking tape to label layers</li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>A good scoop of trail soil (look for a spot with mixed textures &mdash; near a creek bank is ideal)</li>
+            <li>Small pebbles or gravel</li>
+            <li>Water (from a creek or bring a water bottle)</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Fill your jar about halfway with the soil you collected; try to get a mix of dirt, pebbles, and anything else in the ground</li>
+            <li>Fill the rest with water, leaving a small gap at the top</li>
+            <li>Seal the jar and shake it hard for 30 seconds until everything is fully mixed</li>
+            <li>Set it down somewhere flat and still; don&rsquo;t touch it</li>
+            <li>Make a prediction: what will the jar look like if you leave it to sit?</li>
+            <li>Watch for 5&ndash;10 minutes and observe what starts happening. Record each observation in your nature journal with the timestamp.</li>
+            <li>Once all layers are fully settled, mark the jar with tape where you see layers forming.</li>
+        </ol>
+
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">What settled first, the big pieces or the small ones? Why do you think that is?</p>
+        <p class="da">Heavy particles like pebbles and coarse sand sink fast; fine clay and silt float longer and settle last, exactly how riverbeds and lake bottoms form layers over time.</p>
+        <p class="dq">If water from a rainstorm was carrying this soil downstream, where would all this end up?</p>
+        <p class="da">Sedimentation &mdash; the settling of particles &mdash; is how deltas, riverbeds, and floodplains are built up. Allah designed water to both take away and give back.</p>
+        <p class="dq">Can you make any connections between your jar and a river, lake, or pond?</p>
+        <p class="da">Shaking your jar mimics what a fast-moving river does. When you stop shaking and set the jar down, that&rsquo;s what happens when a river slows or empties into a lake or pond &mdash; the water calms and the settling begins. Heavy particles drop fast; lighter ones like fine silt and clay end up near the top, creating the distinct layers you see at the bottom of slow-moving water.</p>
+    </div>
+    <div style="padding:10px 20px;font-size:13px;color:var(--fnt);">Reference: <a href="https://www.timeandtidebell.org/sediment-jar/">timeandtidebell.org</a></div>
+</div>
+
+<div class="act">
+    <div class="ah">How Does Water Carve Canyons in the Earth?</div>
+    <div class="ab2">
+        <p class="note"><em>Can a few drops of water really shape the land?</em></p>
+        <div class="img-block">
+            <img src="images/image4.png" alt="Pipette dripping water onto a dirt mound in a tray" style="max-width:420px;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>A small tray, baking dish, or disposable foil pan</li>
+            <li>A pipette, dropper, or turkey baster</li>
+            <li>Something to prop up one end of the tray (a rock, stick, or water bottle works)</li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>A good scoop of moist trail dirt &mdash; the kind that packs together when you squeeze it</li>
+            <li>Water from a creek or water bottle</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Pack your trail dirt firmly into the tray to form a mound or ridge &mdash; it should be dense enough to hold its shape</li>
+            <li>Prop up one end of the tray so it sits at a slight angle</li>
+            <li>Make a prediction: what do you think will happen when water hits the top of the mound? Write it in your journal.</li>
+            <li>Using your pipette or dropper, slowly drip water onto the top center of the mound, drop by drop &mdash; not a pour</li>
+            <li>Observe and record what you see after every few drops. Where does the water go? What does it leave behind?</li>
+            <li>Keep adding water slowly and watch over 10&ndash;15 minutes. Draw what the mound looks like now compared to when you started.</li>
+        </ol>
+
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">What happened to the dirt where the water hit?</p>
+        <p class="da">The force of each drop displaced material, and as water trickled down, it carved a small channel &mdash; a miniature version of how rivers cut into rock and soil over time.</p>
+        <p class="dq">Where did the dirt that washed away end up?</p>
+        <p class="da">At the bottom of the tray. This is called sedimentation. The same material that erodes from canyon walls eventually settles downstream and builds up new land.</p>
+        <p class="dq">How is this model similar to how real canyons form? How is it different?</p>
+        <p class="da">The process is the same: water carving through material over time. But real canyons take thousands to millions of years. Our model speeds that up so we can see the principle in action.</p>
+        <p class="dq">Where in DFW have you seen water carve or shape the land around you?</p>
+        <p class="da">Creek banks, exposed roots, the walls of the Trinity River corridor &mdash; erosion is happening slowly all around us.</p>
+    </div>
+</div>
+
+<div class="act">
+    <div class="ah">How Do Glaciers Erode Land?</div>
+    <div class="ab2">
+        <p class="note"><em>Can frozen water &mdash; ice &mdash; shape the land too?</em></p>
+        <div class="img-block">
+            <img src="images/image7.png" alt="Ice block acting as glacier on a sand tray" style="max-width:420px;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>A plastic cup (frozen overnight with water to make your &ldquo;glacier&rdquo;)</li>
+            <li>A flat tray or foil pan</li>
+            <li>A lamp or access to direct sunlight</li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>Sand or fine trail dirt (enough to fill the tray in a flat layer)</li>
+        </ul>
+        <h5>Prep (night before)</h5>
+        <ul>
+            <li>Fill your plastic cup with water</li>
+            <li>Freeze overnight until completely solid &mdash; this is your glacier</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Fill your tray with a flat, smooth layer of sand or trail dirt</li>
+            <li>Use your finger to carve a single straight channel down the center &mdash; this is your riverbed</li>
+            <li>Remove the ice from the cup and place it at the top of the tray</li>
+            <li>Shine a lamp on one side of the glacier or place it in direct sunlight</li>
+            <li>Every few minutes, push the glacier forward about an inch down the channel</li>
+            <li>Observe and record in your journal what happens to the sand in front of the glacier, along its sides, and underneath it</li>
+            <li>Once you&rsquo;ve pushed it the full length, remove the glacier and observe what it left behind</li>
+        </ol>
+
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">What happened to the sand in front of the glacier as you pushed it forward?</p>
+        <p class="da">It piled up &mdash; this is called a moraine, the wall of debris pushed ahead of a moving glacier.</p>
+        <p class="dq">What did the sides of the glacier&rsquo;s path look like?</p>
+        <p class="da">Wide, smooth grooves &mdash; glaciers don&rsquo;t just cut narrow channels like rivers; they scrape broad valleys as they move.</p>
+        <p class="dq">What was stuck to the bottom of the ice when you removed it?</p>
+        <p class="da">Sand and grit &mdash; glaciers pick up material and carry it, depositing it far from where it was collected when they eventually melt.</p>
+        <p class="dq">How is glacier erosion similar to water erosion? How is it different?</p>
+        <p class="da">Both carry and deposit sediment, but glaciers move slowly and scrape wide, while rivers cut narrow and deep. Both are Allah using water &mdash; in different states &mdash; to continuously reshape the earth.</p>
+    </div>
+    <div style="padding:10px 20px;font-size:13px;color:var(--fnt);">Resource: <a href="https://www.youtube.com/watch?v=Fem9WUvBY5s">youtube.com &mdash; Glacier Erosion Video</a></div>
+</div>
+
+<ul style="margin-top:16px;">
+    <li>More erosion and weathering experiments from <a href="https://learnlibre.com/difference-between-erosion-and-weathering-science-for-kids/">LearnLibre</a></li>
+</ul>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="olderkids"><span style="font-size:16px;">Information for Older Kids &amp; Printables</span></h3>
+<div class="img-block">
+    <img src="images/image2.jpg" alt="Key Vocabulary Words: Erosion, Sedimentation, Root System, Waterlogging" style="max-width:100%;">
+</div>
+<ul>
+    <li><a href="https://drive.google.com/file/d/1TCrnOtj5DwgHgD-Gef4TGFJ8E__VPfdE/view?usp=drive_link">Weekly Journal Page</a></li>
+    <li><a href="https://drive.google.com/file/d/1psyVu7yoDfxZYIPLtdsvaDncQU6N4H_u/view?usp=drive_link">Weekly Summary Document</a></li>
+    <li><a href="https://drive.google.com/file/d/1BVJJDFF8_eTiIerFGbFhXvOVMI2QZXhj/view?usp=drive_link">The Soil Erosion Field Guide</a></li>
+    <li><a href="https://www.teacherspayteachers.com/Product/Slow-Changes-to-Earth-Weathering-Erosion-Deposition-Anchor-Chart-Activity-1194562">Slow Changes to Earth &mdash; Weathering, Erosion &amp; Deposition Anchor Chart &amp; Activity</a> &mdash; $3 on Teachers Pay Teachers</li>
+</ul>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="footer">&copy; Khulafa Al-Ardh Nature Curriculum &middot; Rhythm: Water &middot; Week 3</div>
+
+</body>
+</html>
