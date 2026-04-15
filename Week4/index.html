@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 4: The Secret Life in Mud</title>
+    <style id="hide-content">body > *:not(#pw-overlay) { display: none !important; }</style>
+    <style>
+        :root {
+            --w: #2B6CB0;
+            --wl: #EBF4FF;
+            --wm: #BEE3F8;
+            --wd: #1A365D;
+            --green: #276749;
+            --gl: #F0FFF4;
+            --sand: #FFF8EE;
+            --sd: #E2CAAA;
+            --rule: #CBD5E0;
+            --acc: #C05621;
+            --ink: #1a1a1a;
+            --mut: #555;
+            --fnt: #888;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--ink);
+            background: #FAFAF7;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        /* COVER */
+        .cover {
+            text-align: center;
+            padding: 52px 24px 40px;
+            border-bottom: 1px solid var(--rule);
+            margin-bottom: 48px;
+        }
+
+        .ey {
+            font-size: 11px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin-bottom: 14px;
+        }
+
+        .ey a {
+            color: var(--w);
+            text-decoration: underline;
+        }
+
+        .cover h1 {
+            font-size: clamp(24px, 5vw, 38px);
+            font-weight: bold;
+            line-height: 1.2;
+            color: var(--wd);
+            margin-bottom: 10px;
+        }
+
+        .cs {
+            font-style: italic;
+            color: var(--mut);
+            font-size: 15px;
+        }
+
+        /* PART HEADERS */
+        .ph {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 48px 0 24px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--w);
+        }
+
+        .pn {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            white-space: nowrap;
+            padding-right: 14px;
+            border-right: 1px solid var(--rule);
+        }
+
+        .ph h2 {
+            font-size: 20px;
+            color: var(--wd);
+        }
+
+        /* TYPOGRAPHY */
+        h3 {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin: 34px 0 12px;
+        }
+
+        h4 {
+            font-size: 16px;
+            color: var(--ink);
+            margin: 20px 0 7px;
+        }
+
+        p {
+            margin-bottom: 12px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul,
+        ol {
+            padding-left: 22px;
+            margin-bottom: 12px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        a {
+            color: var(--w);
+        }
+
+        /* ITALIC NOTE */
+        .note {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--fnt);
+            background: #F5F5F2;
+            border-left: 2px solid var(--rule);
+            padding: 8px 14px;
+            margin-bottom: 16px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* DUA */
+        .dua {
+            background: var(--wl);
+            border-left: 3px solid var(--w);
+            border-radius: 0 6px 6px 0;
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+
+        .ar {
+            font-size: 22px;
+            line-height: 2;
+            text-align: right;
+            direction: rtl;
+            color: var(--wd);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .tr {
+            font-style: italic;
+            color: var(--mut);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .src {
+            font-size: 12px;
+            color: var(--fnt);
+            margin-top: 5px;
+        }
+
+        /* AYAH */
+        .ayah {
+            background: var(--sand);
+            border: 1px solid var(--sd);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .ayah .ar {
+            color: var(--acc);
+            font-size: 20px;
+        }
+
+        .albl {
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: .05em;
+            color: var(--acc);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .com {
+            border-top: 1px solid var(--sd);
+            margin-top: 11px;
+            padding-top: 11px;
+            font-size: 14px;
+            color: var(--mut);
+            font-style: italic;
+        }
+
+        /* ASMA */
+        .asma {
+            background: var(--wd);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 20px 0;
+            display: flex;
+            gap: 22px;
+            align-items: flex-start;
+        }
+
+        .aar {
+            font-size: 28px;
+            line-height: 1.5;
+            color: var(--wm);
+            white-space: nowrap;
+            flex-shrink: 0;
+            direction: rtl;
+        }
+
+        .ab .nm {
+            font-size: 17px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 3px;
+        }
+
+        .ab .mn {
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--wm);
+            margin-bottom: 9px;
+        }
+
+        .ab p {
+            color: rgba(255, 255, 255, .85);
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        /* AGE GRID */
+        .ag {
+            display: flex;
+            gap: 0;
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+
+        .ac {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ac:not(:last-child) {
+            border-right: 1px solid var(--rule);
+        }
+
+        .ach {
+            background: var(--wd);
+            color: white;
+            font-size: 11px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 10px 13px;
+            text-align: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .acb {
+            padding: 13px 15px;
+            font-size: 14px;
+            line-height: 1.65;
+            flex: 1;
+        }
+
+        .ac:nth-child(odd) .acb {
+            background: var(--wl);
+        }
+
+        .ac:nth-child(even) .acb {
+            background: white;
+        }
+
+        .acb p {
+            margin-bottom: 9px;
+        }
+
+        .acb p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media(max-width:560px) {
+            .ag {
+                flex-direction: column;
+            }
+
+            .ac:not(:last-child) {
+                border-right: none;
+                border-bottom: 1px solid var(--rule);
+            }
+
+            .acb {
+                background: var(--wl) !important;
+            }
+
+            .asma {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* STORY */
+        .story {
+            border: 1px solid var(--sd);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+
+        .sh {
+            background: var(--acc);
+            color: white;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .sb {
+            padding: 20px;
+            background: var(--sand);
+        }
+
+        .sb .note {
+            margin-bottom: 13px;
+        }
+
+        .sb ul {
+            padding-left: 20px;
+        }
+
+        .sb li {
+            margin-bottom: 9px;
+            font-size: 15px;
+        }
+
+        .tw {
+            margin-top: 16px;
+            padding-top: 13px;
+            border-top: 1px solid var(--sd);
+        }
+
+        .tw h5 {
+            font-size: 10px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--acc);
+            margin-bottom: 7px;
+        }
+
+        .sf {
+            background: white;
+            border-top: 1px solid var(--sd);
+            padding: 10px 20px;
+            font-size: 12px;
+            color: var(--fnt);
+        }
+
+        /* READ ALOUDS */
+        .reads {
+            display: flex;
+            gap: 10px;
+            margin: 16px 0;
+        }
+
+        .rc {
+            flex: 1;
+            background: var(--wl);
+            border: 1px solid var(--wm);
+            border-radius: 6px;
+            padding: 13px 15px;
+        }
+
+        .ra {
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--w);
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .rc ul {
+            padding-left: 14px;
+        }
+
+        .rc li {
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        @media(max-width:560px) {
+            .reads {
+                flex-direction: column;
+            }
+        }
+
+        /* ACTIVITY CARD */
+        .act {
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+
+        .ah {
+            background: var(--w);
+            color: white;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .ab2 {
+            padding: 20px;
+        }
+
+        .ab2 h5 {
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin: 16px 0 7px;
+        }
+
+        .ab2 h5:first-child {
+            margin-top: 0;
+        }
+
+        .ab2 ul,
+        .ab2 ol {
+            padding-left: 20px;
+            margin-bottom: 9px;
+        }
+
+        .ab2 li {
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .ab2 p {
+            font-size: 15px;
+        }
+
+        /* DISCUSSION */
+        .disc {
+            background: var(--gl);
+            border-top: 1px solid #C6F6D5;
+            padding: 16px 20px;
+        }
+
+        .disc h5 {
+            color: var(--green);
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin: 0 0 11px;
+        }
+
+        .dq {
+            font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 3px;
+            color: #1a4731;
+            font-style: italic;
+        }
+
+        .da {
+            font-size: 14px;
+            color: var(--mut);
+            margin-bottom: 13px;
+            padding-left: 11px;
+            border-left: 2px solid #9AE6B4;
+        }
+
+        .da:last-child {
+            margin-bottom: 0;
+        }
+
+        /* HADITH */
+        .hadith {
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 24px 0;
+            background: white;
+        }
+
+        .hq {
+            font-size: 15px;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--ink);
+            margin: 12px 0;
+            padding-left: 14px;
+            border-left: 3px solid var(--w);
+        }
+
+        .hrf {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--rule);
+            font-size: 15px;
+            color: var(--mut);
+            font-style: italic;
+        }
+
+        .href2 {
+            font-size: 12px;
+            color: var(--fnt);
+        }
+
+        /* MOVEMENTS */
+        .mv {
+            display: flex;
+            gap: 13px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+
+        .mvn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--wl);
+            border: 1.5px solid var(--wm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 12px;
+            color: var(--w);
+            font-weight: bold;
+        }
+
+        .mv p {
+            font-size: 15px;
+            margin: 0;
+        }
+
+        /* MISC */
+        .snack {
+            background: var(--gl);
+            border: 1px solid #C6F6D5;
+            border-radius: 6px;
+            padding: 11px 16px;
+            font-size: 14px;
+            color: var(--green);
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        ul.plain {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        ul.plain li {
+            padding: 3px 0 3px 15px;
+            position: relative;
+            font-size: 15px;
+        }
+
+        ul.plain li::before {
+            content: '\2014';
+            position: absolute;
+            left: 0;
+            color: var(--w);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--rule);
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--fnt);
+        }
+
+        /* NAV MENU */
+        .nav-menu {
+            background: var(--wl);
+            border: 1px solid var(--wm);
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin-bottom: 44px;
+        }
+        .nav-menu-title {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin-bottom: 14px;
+            font-family: Georgia, serif;
+        }
+        .nav-part {
+            margin-bottom: 10px;
+        }
+        .nav-part-label {
+            font-size: 13px;
+            font-weight: bold;
+            color: var(--wd);
+            margin-bottom: 4px;
+        }
+        .nav-part-label a {
+            color: var(--wd);
+            text-decoration: none;
+        }
+        .nav-part-label a:hover { text-decoration: underline; }
+        .nav-sub {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .nav-sub li a {
+            font-size: 12px;
+            color: var(--w);
+            text-decoration: none;
+            background: white;
+            border: 1px solid var(--wm);
+            border-radius: 4px;
+            padding: 3px 10px;
+            display: inline-block;
+        }
+        .nav-sub li a:hover { background: var(--wm); }
+
+        /* BACK TO TOP */
+        .back-top {
+            text-align: right;
+            margin: 32px 0 8px;
+            padding-top: 12px;
+            border-top: 1px solid var(--rule);
+        }
+        .back-top a {
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--fnt);
+            text-decoration: none;
+        }
+        .back-top a:hover { color: var(--w); }
+
+        /* IMAGES */
+        .img-block {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .img-block img {
+            max-width: 100%;
+            border-radius: 6px;
+        }
+        .img-block .img-caption {
+            font-size: 12px;
+            color: var(--fnt);
+            margin-top: 6px;
+        }
+
+        /* PART 2 NOTE */
+        .part2-note {
+            display: inline-block;
+            background: var(--wl);
+            border: 1px solid var(--wm);
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--w);
+            padding: 3px 10px;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="pw-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#FAFAF7;display:flex;align-items:center;justify-content:center;z-index:9999;font-family:Georgia,serif;">
+  <div style="text-align:center;padding:40px;max-width:340px;width:90%;">
+    <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#2B6CB0;margin-bottom:16px;">Khulafa Al-Ardh Nature Pods</div>
+    <h2 style="font-size:22px;color:#1A365D;margin-bottom:8px;">Members Only</h2>
+    <p style="font-size:14px;color:#555;margin-bottom:24px;">Enter the password to access this week&rsquo;s lesson plan.</p>
+    <input id="pw-input" type="password" placeholder="Password" style="width:100%;padding:10px 14px;font-size:16px;border:1px solid #CBD5E0;border-radius:6px;box-sizing:border-box;margin-bottom:4px;outline:none;" />
+    <div style="text-align:right;margin-bottom:12px;">
+      <span onclick="togglePw()" style="font-size:12px;color:#2B6CB0;cursor:pointer;user-select:none;" id="pw-toggle">Show password</span>
+    </div>
+    <button onclick="checkPassword()" style="width:100%;padding:10px;background:#2B6CB0;color:#fff;font-size:15px;border:none;border-radius:6px;cursor:pointer;">Enter</button>
+    <p id="pw-error" style="color:#C05621;font-size:13px;margin-top:12px;display:none;">Incorrect password. Please check with your pod leader.</p>
+  </div>
+</div>
+<script>
+  if (sessionStorage.getItem("kaanp_auth") === "1") {
+    document.getElementById("pw-overlay").style.display = "none";
+    document.getElementById("hide-content").remove();
+  }
+  document.getElementById("pw-input").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") checkPassword();
+  });
+  function togglePw() {
+    var input = document.getElementById("pw-input");
+    var toggle = document.getElementById("pw-toggle");
+    if (input.type === "password") {
+      input.type = "text";
+      toggle.textContent = "Hide password";
+    } else {
+      input.type = "password";
+      toggle.textContent = "Show password";
+    }
+  }
+  function checkPassword() {
+    var val = document.getElementById("pw-input").value;
+    if (val === "KAANP-Water!") {
+      sessionStorage.setItem("kaanp_auth", "1");
+      document.getElementById("pw-overlay").remove();
+      document.getElementById("hide-content").remove();
+    } else {
+      document.getElementById("pw-error").style.display = "block";
+      document.getElementById("pw-input").value = "";
+      document.getElementById("pw-input").focus();
+    }
+  }
+</script>
+
+<div class="cover">
+    <div class="ey">Khulafa Al-Ardh &middot; <a href="../index.html">Rhythm: Water</a> &middot; Week 4</div>
+    <h1>The Secret Life in Mud</h1>
+</div>
+
+<div class="nav-menu" id="top">
+    <div class="nav-menu-title">Jump to section</div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part1">Part 1 &nbsp;|&nbsp; Blessed Beginnings</a></div>
+        <ul class="nav-sub">
+            <li><a href="#duaa">Opening Duaa</a></li>
+            <li><a href="#intro">An Introduction to the Secret Life in Mud</a></li>
+            <li><a href="#discovery">Discovery Den</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part2">Part 2 &nbsp;|&nbsp; Walking with Intention</a></div>
+        <ul class="nav-sub">
+            <li><a href="#asma">The Most Beautiful of Names</a></li>
+            <li><a href="#observing">Observing on the Move</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part3">Part 3 &nbsp;|&nbsp; Grounding in Gratitude</a></div>
+        <ul class="nav-sub">
+            <li><a href="#stories">Stories for Blooming Hearts</a></li>
+            <li><a href="#readalouds">Suggested Read-Alouds</a></li>
+            <li><a href="#activity">Hands-On Activity</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part4">Part 4 &nbsp;|&nbsp; Slowing the Flow</a></div>
+        <ul class="nav-sub">
+            <li><a href="#tadabbur">Tadabbur Among the Trees</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#addendum">Addendum &nbsp;|&nbsp; Further Enrichment</a></div>
+        <ul class="nav-sub">
+            <li><a href="#prophetic">Prophetic Wisdom</a></li>
+            <li><a href="#ayaat">Additional Ayaat</a></li>
+            <li><a href="#movements">Meaningful Movements</a></li>
+            <li><a href="#morenature">More Nature Activities</a></li>
+            <li><a href="#olderkids">Information for Older Kids &amp; Printables</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- PART 1 -->
+<div class="ph" id="part1"><span class="pn">Part 1</span>
+    <h2>Blessed Beginnings</h2>
+</div>
+<p class="note">Set the tone for the walk and introduce the topic before beginning the walk. This should take between 5&ndash;10 minutes &mdash; nothing longer than the attention spans of the kids.</p>
+
+<h3 id="duaa"><span style="font-size:16px;">Opening Duaa</span></h3>
+<p class="note">Start with a duaa for protection from harm and evil. The duaa can be led by either the walk leader or a child who has the duaa memorized.</p>
+<div class="dua">
+    <span class="ar">أَعُوذُ بِكَلِمَاتِ اللهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</span>
+    <p class="tr">&ldquo;I seek refuge in the perfect words of Allah from the evil of what He has created.&rdquo;</p>
+</div>
+<div class="dua">
+    <span class="ar">بِسْمِ اللهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</span>
+    <p class="tr">&ldquo;In the Name of Allah, with whose Name nothing in the earth or the heavens can cause harm. He is the All-Hearing, the All-Knowing.&rdquo;</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="intro"><span style="font-size:16px;">An Introduction to the Secret Life in Mud</span></h3>
+<p class="note">Introduce the topic to the kids. Share the opening ayah and how it ties to the week&rsquo;s topic.</p>
+<div class="ayah">
+    <span class="ar">ذَٰلِكَ عَٰلِمُ الْغَيْبِ وَالشَّهَٰدَةِ الْعَزِيزُ الرَّحِيمُ ۖ الَّذِي أَحْسَنَ كُلَّ شَيْءٍ خَلَقَهُ ۖ وَبَدَأَ خَلْقَ الْإِنسَٰنِ مِن طِينٍ</span>
+    <p class="tr">&ldquo;Such is He who knows all that is unseen as well as what is seen, the Almighty, the Merciful, who gave everything its perfect form. He first created man from clay.&rdquo;</p>
+    <p class="src">Surah As-Sajdah 32:6&ndash;7</p>
+    <p class="com">Human beings are an incredibly complex creation, full of many intricacies and miraculous engineering &mdash; a perfected form as described in this ayah. This ayah also reminds us of our humble beginnings: clay, a mixture of dirt and water. Clay and mud may appear to be inert substances, but even in its raw form, Allah has made mud a haven for many lifeforms. In the world that exists somewhere between earth and water lies an incredible diversity of life: fungi, moss, lichen, decomposers &mdash; all of which quietly and invisibly move along the cycle of life.</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="discovery"><span style="font-size:16px;">Discovery Den</span></h3>
+<p class="note">This is information to share with the kids. What you share and the level of detail will depend on the ages of the kids in your pod. Use your discretion.</p>
+
+<p>So far, we have watched water fall from the sky, rush down the Trinity River, and carve through solid rock. But what happens when water simply lands on the dirt and stays there? It makes <strong>MUD</strong>! Today, we are going to look closely at something most people just wipe off their shoes, and we will discover that mud is actually a secret, bustling city full of life! Did you know that North Texas sits right on top of the <strong>Blackland Prairie</strong>? This means our rich, dark clay soil is the absolute perfect recipe for mud! Unlike sandy dirt that lets water drain away quickly, our heavy clay holds onto rain like a giant sponge. Because it stays wet so long, our local microhabitats are incredibly productive. After a good rainstorm, the dirt along the <strong>Trinity River</strong> and our local Dallas creek trails completely wakes up, transforming into some of the most bustling, biologically active &ldquo;mud cities&rdquo; in the entire region!</p>
+
+<h4>So what exactly is mud made of?</h4>
+<ul>
+    <li>Mud is what happens when solid earth and liquid water mix together. But mud is rarely empty &mdash; it is a giant ecosystem!</li>
+    <li><strong>The Recipe for Mud:</strong> Soil isn&rsquo;t just ground-up rock. Healthy dirt is packed with dead leaves, crushed-up bugs, air, and minerals. When water soaks into this mix, it turns into mud.</li>
+    <li><strong>The Decomposers (Nature&rsquo;s Recycling Crew):</strong> Mud is the perfect, wet home for billions of tiny creatures. Earthworms, roly-polys (pillbugs), and microscopic bacteria chew up dead plants and turn them into rich, healthy soil. Without these muddy recyclers, new plants wouldn&rsquo;t have the food they need to grow!</li>
+    <li><strong>A Safe Hideout:</strong> For many animals, mud is a superpower. Frogs burrow into mud to stay warm during the winter. Elephants roll in it to use it as sunscreen and bug spray! Right here in Texas, crawdaddies (also called mudbugs) dig deep into the muddy banks to build safe underground hideouts, stacking the leftover mud into perfect little chimneys at the surface!</li>
+</ul>
+
+<h4>How big is this habitat?</h4>
+<ul>
+    <li>When we think of habitats, we usually think of giant places like the ocean or a huge forest. But mud is a perfect example of a <strong>microhabitat</strong> &mdash; a small, distinct environment with its own special conditions that supports a very specific community of living things. A mud puddle might look small to us, but to the creatures living inside, it is an entire universe! This universe is created by a very specific recipe: <strong>Water + Clay + Silt + Organic Matter (dead leaves and plants)</strong>. When these four things mix together, they create one of the most productive microhabitats on Planet Earth.</li>
+</ul>
+
+<h4>What lives inside this microhabitat?</h4>
+
+<p>Let&rsquo;s meet the amazing citizens of this muddy metropolis:</p>
+
+<p><strong>1. The Cleanup Crew (Decomposers)</strong> &mdash; Every city needs a garbage and recycling crew, and the mud has the best in the world!</p>
+<ul>
+    <li>Meet the decomposers: <strong>earthworms, pill bugs (roly-polys), millipedes, microscopic nematodes (tiny worms), and bacteria</strong>.</li>
+    <li>Their job is incredible: they eat dead matter &mdash; like fallen leaves and rotting wood &mdash; and convert it back into living nutrients. They are the reason the soil is healthy enough to grow our food!</li>
+</ul>
+
+<p><strong>2. The Fantastic Fungi</strong> &mdash; Did you know mushrooms aren&rsquo;t plants? They actually belong to their very own kingdom of life! <strong>Fungi</strong> don&rsquo;t have roots or seeds.</p>
+<ul>
+    <li>Underneath the mud, fungi grow a massive, invisible web of tiny white threads called <strong>mycelium</strong>.</li>
+    <li>This mycelium acts like the &ldquo;underground internet&rdquo; of the forest. The fungi use this network to feed, decompose dead matter, and even communicate with plant roots to share water and nutrients!</li>
+</ul>
+
+<p><strong>3. The Brave Pioneers: Moss and Lichen</strong> &mdash; If you look at the wet rocks near a muddy puddle, you might see fuzzy green <strong>moss</strong> or crusty, colorful <strong>lichen</strong>.</p>
+<ul>
+    <li>These are called <strong>pioneer plants</strong>. Just like pioneers who explore new lands, moss and lichen are the very first living things to colonize completely bare rocks or wet, empty soil.</li>
+    <li>Unlike ordinary plants, they don&rsquo;t need deep soil to grow. They bravely settle on the hard rock, slowly breaking it down to help create the very first layers of new dirt for other plants to use later.</li>
+</ul>
+
+<h4>The Divine Design: Transformation, Not the End</h4>
+<p>When we look at rotting leaves, fungi, or pill bugs chewing on dead wood, it is easy to think of &ldquo;decay&rdquo; and &ldquo;decomposition&rdquo; as sad things or endings. But Allah (SWT) designed it to be a beautiful transformation. Nothing in Allah&rsquo;s creation is ever wasted. The dead leaves falling into the mud are not an ending; they are the ingredients for new life. The decomposers turn them into the soil that will grow next spring&rsquo;s beautiful flowers.</p>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- PART 2 -->
+<div class="ph" id="part2"><span class="pn">Part 2</span>
+    <h2>Walking with Intention</h2>
+</div>
+<p class="note">Now that we are all up to speed on this week&rsquo;s topic, let&rsquo;s start walking! The following are some conversations and activities to do as you walk. This should take about 30&ndash;60 minutes &mdash; again, nothing longer than the stamina of the kids.</p>
+
+<h3 id="asma"><span style="font-size:16px;">The Most Beautiful of Names</span></h3>
+<p class="note">Introduce the name of Allah and its basic meaning as you start your walk. Encourage the kids to reflect on the name throughout the walk, as well as mentioning it whenever relevant.</p>
+<div class="asma">
+    <div class="aar">الْبَصِيرُ</div>
+    <div class="ab">
+        <div class="nm">Al-Baseer</div>
+        <div class="mn">The All-Seeing</div>
+        <p>There is so much more to mud than initially meets the eye &mdash; that which can be seen with some digging (like insects), that which we can only see parts of (like fungi, moss, and lichen), and that which cannot be seen with the naked eye (like microbes). Not to mention that which is yet to be discovered, and no human has ever laid eyes on! Our power of sight is an incredible blessing, but it is also limited. We know there is so much that exists around us, but we cannot see it. Allah is Al-Baseer, the All-Seeing. His ability to see has no limitations; He sees all that we see and all that is hidden from us. Nothing is hidden from Him, even in the darkest of nights or deepest of depths.</p>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="observing"><span style="font-size:16px;">Observing on the Move</span></h3>
+<p class="note">Here are some observation prompts to help the kids tune into their environment and engage all of their senses.</p>
+<div class="ag">
+    <div class="ac">
+        <div class="ach">For Kids 1&ndash;4</div>
+        <div class="acb">
+            <p>Make or find a puddle of mud and describe what you can see in it.</p>
+            <p>How does mud feel on your fingers? Your skin?</p>
+            <p>How does mud feel when you draw with it?</p>
+            <p>What does mud smell like? Do you like the smell, or is it icky?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 5&ndash;8</div>
+        <div class="acb">
+            <p>Did you know your sense of smell bypasses your brain and goes straight to memory! What smells make you think of mud?</p>
+            <p>The smell of wet mud is called <strong>PETRICHOR</strong>, and it&rsquo;s due to a bacteria.</p>
+            <p>Press some mud gently between your fingertips &mdash; does it feel smooth, gritty, or rocky? Make a small worm made of mud!</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 9&ndash;12</div>
+        <div class="acb">
+            <p>Use a magnifying glass to look at some life in mud. Can you spot any tunnels, casts, or trails?</p>
+            <p>Mud can make sounds like squelch, pop, and gurgle! This is acoustic evidence of air pockets made by organisms below. Bring your ear close to the ground &mdash; what do you hear?</p>
+        </div>
+    </div>
+</div>
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- PART 3 -->
+<div class="ph" id="part3"><span class="pn">Part 3</span>
+    <h2>Grounding in Gratitude</h2>
+</div>
+<p class="note">Phew, that was a good walk! Let&rsquo;s pause and apply what we have learned and reflect on what we have observed.</p>
+
+<h3 id="stories"><span style="font-size:16px;">Stories for Blooming Hearts</span></h3>
+<p class="note">Share a story from our tradition that ties to this week&rsquo;s topic. Note that creating an engaging storytelling experience is on the storyteller; these are just the basic details. A story told from the heart will reach hearts!</p>
+<div class="story">
+    <div class="sh">Allah&rsquo;s Creation from Mud</div>
+    <div class="sb">
+        <ul>
+            <li>Allah SWT had created angels from light who could only obey Allah, jinn from fire who had free choice, and the earth filled with different types of creation.</li>
+            <li>Amongst these creations was a jinn who became so pious that he was raised to the ranks of the angels.</li>
+            <li>One day, Allah SWT created a new creation. He took dirt from all the different parts of the earth and mixed it with water, <em>making it into clay</em>. Allah SWT shaped that clay into the form of the first human, Adam AS, and then blew a soul into him.</li>
+            <li>When Allah SWT introduced him to the angels, they knew of the type of corruption on earth the other creation with choice &mdash; the jinn &mdash; had already made, so they asked Allah if this new creation would be able to do the same as well.</li>
+            <li>Allah SWT affirmed that this new creation from mud would have choice as well, but that He made them to be Khulafa Al-Ardh, Caretakers of the Earth. Allah SWT told the angels that He knows that which they do not, and this reassured them because they have full trust in Allah.</li>
+            <li>He taught Adam AS and humankind things that no other creation knew before.</li>
+            <li>The jinn who was raised to the rank of angels started to become jealous of this new creation.</li>
+            <li>Allah SWT commanded the angels to bow to Adam AS, out of respect. All of them bowed down but the jinn &mdash; he refused. He exclaimed that he was better than this creation made out of dirt, since he, the jinn, was made of fire.</li>
+            <li>Allah SWT removed him from his position, and this jinn made it his mission to be the downfall of humanity. This jinn was Iblis, who became the leader of all Shayateen.</li>
+            <li>His arrogance, pride, and jealousy led him to lose his position in jannah and to be of those who will live and take others to Hell with him.</li>
+        </ul>
+        <div class="tw">
+            <h5>Takeaways</h5>
+            <ul>
+                <li>This story teaches us to be humble since we are all made of dirt.</li>
+                <li>Allah can honor anyone through giving them knowledge and the ability to be close to Him. Where we come from does not make us better than anyone else.</li>
+                <li>We may underestimate something like mud, but Allah SWT can use it for great honor.</li>
+                <li>Like the angels, we may not understand the plan of Allah, but we should put our trust in Him because He knows that which we do not.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="readalouds"><span style="font-size:16px;">Suggested Read-Alouds</span></h3>
+<p class="note">Here are a few book titles to check out related to this week&rsquo;s topic.</p>
+<div class="reads">
+    <div class="rc">
+        <div class="ra">Ages 1&ndash;4</div>
+        <ul>
+            <li><em>Mud</em> by Mary Lyn Ray</li>
+            <li><em>Up in the Garden and Down in the Dirt</em> by Kate Messner</li>
+            <li><em>Worm Weather</em> by Jean Taft</li>
+        </ul>
+    </div>
+    <div class="rc">
+        <div class="ra">Ages 5&ndash;8</div>
+        <ul>
+            <li><em>A Log&rsquo;s Life</em> by Wendy Pfeffer</li>
+            <li><em>Fungus Is Among Us!</em> by Joy Keller</li>
+            <li><em>Yucky Worms</em> by Vivian French</li>
+        </ul>
+    </div>
+    <div class="rc">
+        <div class="ra">Ages 9&ndash;12</div>
+        <ul>
+            <li><em>Humongous Fungus</em> by DK (Written by Lynne Boddy)</li>
+            <li><em>Nature Anatomy: The Curious Parts and Pieces of the Natural World</em> by Julia Rothman</li>
+            <li><em>Rotten! Vultures, Beetles, Slime, and Nature&rsquo;s Other Decomposers</em> by Anita Sanchez</li>
+        </ul>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="activity"><span style="font-size:16px;">Hands-On Activity</span></h3>
+<p class="note">Time to engage little hands and minds! Additional activities can be found in the Addendum, if needed.</p>
+<p style="font-size:14px;margin-bottom:16px;">Jump to: <a href="#activity-1-4">For Kids 1&ndash;4</a> &nbsp;&middot;&nbsp; <a href="#activity-5-8">For Kids 5&ndash;8</a> &nbsp;&middot;&nbsp; <a href="#activity-9-12">For Kids 9&ndash;12</a></p>
+
+<div class="act">
+    <div class="ah" id="activity-1-4">For Kids 1&ndash;4: Mud Sensory Exploration</div>
+    <div class="ab2">
+        <div class="img-block">
+            <img src="images/image7.png" alt="Children exploring mud in a tray with magnifying glasses and sticks" style="width:300px;max-width:100%;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Tray or mat</li>
+            <li>Small containers</li>
+            <li>Magnifying glasses</li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>Mud (gathered from trail)</li>
+            <li>Sticks for gentle digging</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Scoop some mud onto the tray and let kids freely explore: squeeze it, poke it, smell it, draw in it with a stick.</li>
+            <li>As they play, gently dig alongside them.</li>
+            <li>Pause whenever you uncover something living: a worm, a pill bug, a clump of white threads under a log.</li>
+            <li>Name what you find simply: &ldquo;That&rsquo;s a worm &mdash; it eats old leaves and turns them into soil.&rdquo;</li>
+            <li>Let there be no pressure to identify everything. The goal is wonder and connection through touch and smell.</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">What does the mud feel like in your hands?</p>
+        <p class="da">Encourage them to describe it &mdash; squishy, cold, sticky, smooth. Every description is right!</p>
+        <p class="dq">Did you find anything alive in the mud? What did it look like?</p>
+        <p class="da">Worms, pill bugs, and other little creatures live in the mud and help turn old leaves back into soil.</p>
+        <p class="dq">What did the mud smell like? Do you like that smell?</p>
+        <p class="da">That earthy smell is called petrichor &mdash; it comes from tiny bacteria living in the mud. Allah put even the smell of mud in the hands of His creation!</p>
+    </div>
+</div>
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="act">
+    <div class="ah" id="activity-5-8">For Kids 5&ndash;8: Log Lift Creature Hunt</div>
+    <div class="ab2">
+        <div class="img-block">
+            <img src="images/image4.png" alt="Life under a log including insects, fungi, and soil organisms" style="width:400px;max-width:100%;">
+            <p class="img-caption">Image reference: <a href="https://www.northeastohioparent.com/featured-videos/life-under-a-log-nature-challenge/">northeastohioparent.com</a></p>
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Magnifying glass</li>
+            <li>Small container for temporary observation</li>
+            <li>Simple field ID card for common invertebrates (<a href="https://drive.google.com/file/d/1c4awFYPsQtQ3_aHsNiLpdmX3mC0QmzqL/view?usp=drive_link">printable</a>)</li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>A rotting log or large rock to lift, damp leaf litter, mud near a creek edge</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Find a rotting log or a wet patch of leaf litter near the trail.</li>
+            <li>Carefully lift and look underneath. Count every living thing you see &mdash; note its color, how many legs it has (or if it has none), and how it moves.</li>
+            <li>Look for white fuzzy threads on the underside of the log &mdash; this is mycelium, the body of a fungus.</li>
+            <li>Try to name the <em>role</em> of each creature you find: is it a decomposer? A predator? Just passing through?</li>
+            <li>Sketch your favorite creature in your journal.</li>
+            <li>Put the log back exactly as you found it. It&rsquo;s their home.</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <ul>
+            <li>How many different creatures did you find? Did they all look like they belonged together, or did it feel like a whole neighborhood under there?</li>
+            <li>Why do you think so many things live under a log specifically? What does the log give them?</li>
+            <li>The mycelium threads you saw are actually the main body of the fungus &mdash; the mushroom is just the fruit. Does that change how you think about fungi?</li>
+            <li>We put the log back because it&rsquo;s their home. What does that tell us about how we should move through nature?</li>
+            <li>There are many microscopic things in the mud that you cannot see, but Allah, Al-Baseer, can. Knowing He sees everything, how does that make you feel or change the way you act?</li>
+        </ul>
+    </div>
+</div>
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="act">
+    <div class="ah" id="activity-9-12">For Kids 9&ndash;12: Microhabitat Mapping</div>
+    <div class="ab2">
+        <div class="img-block">
+            <img src="images/image3.png" alt="Hands drawing a food web in a nature journal next to a stick-bordered patch of soil" style="width:310px;max-width:100%;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Field journal</li>
+            <li>Pencil</li>
+            <li>Ruler</li>
+            <li>Magnifying glass</li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>None</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Pick a 1-meter patch of moist ground, mud, or leaf litter near the trail edge. Mark its rough boundaries with a few sticks.</li>
+            <li>Spend 5&ndash;10 minutes documenting every organism you can find in your patch: plants, fungi, invertebrates, any animal signs (tracks, holes, frass). Inspect things closely with your magnifying glass.</li>
+            <li>In your journal, draw a simple food web: arrows showing who eats what in your patch. Include at least one producer, one decomposer, and one predator.</li>
+        </ol>
+        <ul>
+            <li><strong>Producer</strong> &mdash; a living thing that makes its own food from sunlight (moss, algae, small plants)</li>
+            <li><strong>Decomposer</strong> &mdash; a living thing that breaks down dead matter and returns nutrients to the soil (fungi, worms, bacteria)</li>
+            <li><strong>Predator</strong> &mdash; a living thing that hunts and eats other animals (beetles, centipedes, spiders)</li>
+        </ul>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <ul>
+            <li>What was the most abundant organism in your patch? What does that tell you about this habitat?</li>
+            <li>Did anything surprise you &mdash; something you expected to find but didn&rsquo;t, or something you didn&rsquo;t expect at all?</li>
+            <li>Look at your food web: if you removed one organism, which removal would cause the most damage to the whole system? Why?</li>
+            <li>What would happen to your patch if all the fungi disappeared?</li>
+            <li>Allah designed every creature in your patch with a specific role. Which role do you think is the most important, and does it match what humans typically pay attention to?</li>
+        </ul>
+    </div>
+</div>
+
+<p class="note">After completing the activity is a good time to stop for a snack. Power their brains and bodies with something nutritious! Bonus points for avoiding single-use plastics and being good Khulafa. Be sure to leave the area as you found it, or better, following the good manners taught to us by our Prophet &#65018;.</p>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- PART 4 -->
+<div class="ph" id="part4"><span class="pn">Part 4</span>
+    <h2>Slowing the Flow</h2>
+</div>
+<p class="note">Now that this week&rsquo;s walk is just about done, let&rsquo;s wrap it up.</p>
+
+<h3 id="tadabbur"><span style="font-size:16px;">Tadabbur Among the Trees</span></h3>
+<p class="note">Here are some prompts to help wrap up the walk. These prompts can be used to spark a conversation or to fill up your nature journal for today!</p>
+<div class="ag">
+    <div class="ac">
+        <div class="ach">For Kids 1&ndash;4</div>
+        <div class="acb">
+            <p>What are blessings we have because of mud?</p>
+            <p>What does Al-Baseer see in the mud?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 5&ndash;8</div>
+        <div class="acb">
+            <p>Look at a patch of mud near you &mdash; draw what you might find if you were to dig into it.</p>
+            <p>Imagine you can communicate the way fungi do! Who would you communicate with? What would you say?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 9&ndash;12</div>
+        <div class="acb">
+            <p>Imagine all the secret life in mud and its microscopic scale. Using the measurements from the printable in the <a href="#olderkids">Addendum</a>, can you draw some of the life that may live under the earth?</p>
+        </div>
+    </div>
+</div>
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- ADDENDUM -->
+<div class="ph" id="addendum"><span class="pn">Addendum</span>
+    <h2>Further Enrichment</h2>
+</div>
+<p class="note">Need more nature? We got you! Here are some additional resources to further enrich your understanding and reflection. These additional resources can be utilized by the pod, by individual families, or a combination of both &mdash; whatever best fits your needs!</p>
+
+<h3 id="prophetic"><span style="font-size:16px;">Prophetic Wisdom</span></h3>
+<p class="note">Find an opportunity to share the wisdom of our Prophet &#65018; as you walk.</p>
+<div class="hadith">
+    <span class="ar">جَاءَتْ سَحَابَةٌ فَمَطَرَتْ حَتَّى سَالَ السَّقْفُ، وَكَانَ مِنْ جَرِيدِ النَّخْلِ، فَأُقِيمَتِ الصَّلَاةُ، فَرَأَيْتُ رَسُولَ اللهِ ﷺ يَسْجُدُ فِي الْمَاءِ وَالطِّينِ، حَتَّى رَأَيْتُ أَثَرَ الطِّينِ فِي جَبْهَتِهِ</span>
+    <p class="hq">&ldquo;A cloud came and it rained till the roof started leaking &mdash; and in those days the roof used to be made of the branches of date-palms. The iqama was pronounced and I saw Allah&rsquo;s Messenger (&#65018;) prostrating in water and mud, and even I saw the mark of mud on his forehead.&rdquo;</p>
+    <div class="hrf">Narrated by Abu Sa&lsquo;eed Al-Khudri &mdash; Sahih Al-Bukhari 699</div>
+    <p style="font-size:15px;margin-top:16px;">This hadith gives us insight into the humble home and masjid the Prophet &#65018; had. Rain and mud did not stop him from salah, nor from making sujood in it. This also teaches us that mud is clean and pure &mdash; having mud on us does not mean we are unclean for salah. The Prophet &#65018; must have loved salah so much that rain and making sujood in mud was not a deterrent for him. How do you think it would feel? Would you try it?</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="ayaat"><span style="font-size:16px;">Additional Ayaat</span></h3>
+
+<div class="ayah">
+    <span class="albl">Those Who Set the Ranks (37:11)</span>
+    <span class="ar">فَاسْتَفْتِهِمْ أَهُمْ أَشَدُّ خَلْقًا أَم مَّنْ خَلَقْنَا ۚ إِنَّا خَلَقْنَاهُم مِّن طِينٍ لَّازِبٍ</span>
+    <p class="tr">&ldquo;So [Prophet], ask the disbelievers: is it harder to create them than other beings We have created? We created them from sticky clay.&rdquo;</p>
+    <p class="com">This is a line of questioning to humble those who think too highly of themselves: you started off as sticky clay, and it was Allah that transformed that into who you are today. Remember your humble origins, remember your Creator.</p>
+</div>
+
+<div class="ayah">
+    <span class="albl">The Pilgrimage (22:5)</span>
+    <span class="ar">يَٰٓأَيُّهَا ٱلنَّاسُ إِن كُنتُمْ فِى رَيْبٍ مِّنَ ٱلْبَعْثِ فَإِنَّا خَلَقْنَٰكُم مِّن تُرَابٍ ثُمَّ مِن نُّطْفَةٍ ثُمَّ مِنْ عَلَقَةٍ ثُمَّ مِن مُّضْغَةٍ مُّخَلَّقَةٍ وَغَيْرِ مُخَلَّقَةٍ لِّنُبَيِّنَ لَكُمْ ۚ وَنُقِرُّ فِى ٱلْأَرْحَامِ مَا نَشَآءُ إِلَىٰٓ أَجَلٍ مُّسَمًّى ثُمَّ نُخْرِجُكُمْ طِفْلًا ثُمَّ لِتَبْلُغُوٓا۟ أَشُدَّكُمْ ۖ وَمِنكُم مَّن يُتَوَفَّىٰ وَمِنكُم مَّن يُرَدُّ إِلَىٰٓ أَرْذَلِ ٱلْعُمُرِ لِكَيْلَا يَعْلَمَ مِنۢ بَعْدِ عِلْمٍ شَيْـًٔا ۚ وَتَرَى ٱلْأَرْضَ هَامِدَةً فَإِذَآ أَنزَلْنَا عَلَيْهَا ٱلْمَآءَ ٱهْتَزَّتْ وَرَبَتْ وَأَنۢبَتَتْ مِن كُلِّ زَوْجٍۭ بَهِيجٍ</span>
+    <p class="tr">&ldquo;People, [remember,] if you doubt the Resurrection, that We created you from dust, then a drop of fluid, then a clinging form, then a lump of flesh, both shaped and unshaped: We mean to make Our power clear to you. Whatever We choose We cause to remain in the womb for an appointed time, then We bring you forth as infants and then you grow and reach maturity. Some die young and some are left to live on to such an age that they forget all they once knew. You sometimes see the earth lifeless, yet when We send down water it stirs and swells and produces every kind of joyous growth.&rdquo;</p>
+    <p class="com">In this ayah, Allah depicts for us the distinct stages that every human life has gone through in order to become a fully fledged human. Our complex bodies started off from nothing, and will return to nothing, only to be brought back on Judgement Day by the One who initially gave them life &mdash; so how can anyone doubt Allah&rsquo;s power to resurrect us once more!</p>
+</div>
+
+<div class="ayah">
+    <span class="albl">Qaf (50:4)</span>
+    <span class="ar">قَدْ عَلِمْنَا مَا تَنقُصُ ٱلْأَرْضُ مِنْهُمْ ۖ وَعِندَنَا كِتَٰبٌ حَفِيظٌ</span>
+    <p class="tr">&ldquo;We know very well what the earth takes away from them: We keep a comprehensive record.&rdquo;</p>
+    <p class="com">When we die, our bodies are put into the earth. Our physical bodies decompose, partly through the organisms we learned about today. Allah knows exactly what was taken by which organism; the decomposition of every cell is in a record.</p>
+</div>
+
+<div class="ayah">
+    <span class="albl">The Cow (2:264)</span>
+    <span class="ar">يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تُبْطِلُوا۟ صَدَقَٰتِكُم بِٱلْمَنِّ وَٱلْأَذَىٰ كَٱلَّذِى يُنفِقُ مَالَهُۥ رِئَآءَ ٱلنَّاسِ وَلَا يُؤْمِنُ بِٱللَّهِ وَٱلْيَوْمِ ٱلْءَاخِرِ ۖ فَمَثَلُهُۥ كَمَثَلِ صَفْوَانٍ عَلَيْهِ تُرَابٌ فَأَصَابَهُۥ وَابِلٌ فَتَرَكَهُۥ صَلْدًا ۖ لَّا يَقْدِرُونَ عَلَىٰ شَىْءٍ مِّمَّا كَسَبُوا۟ ۗ وَٱللَّهُ لَا يَهْدِى ٱلْقَوْمَ ٱلْكَٰفِرِينَ</span>
+    <p class="tr">&ldquo;You who believe, do not cancel out your charitable deeds with reminders and hurtful words, like someone who spends his wealth only to be seen by people, not believing in Allah and the Last Day. Such a person is like a rock with earth on it: heavy rain falls and leaves it completely bare. Such people get no rewards for their works: Allah does not guide the disbelievers.&rdquo;</p>
+    <p class="com">A person who donates money in order to show off has a shallow veneer of goodness, just as a rock covered in moss may give the impression of greenery and life. However, just as moss can be easily wiped away, the false appearance of goodness on a hypocrite can be exposed just as easily!</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="movements"><span style="font-size:16px;">Meaningful Movements</span></h3>
+<p class="note">A flow of movements to get kids&rsquo; energy out at the beginning, or help them calm down at the end of the walk.</p>
+
+<div class="mv">
+    <div class="mvn">1</div>
+    <p>Begin seated by closing your eyes and thinking of Allah who knows the seen and the unseen. Extend your legs out in front of you. Imagine you are gradually melting into the mud&hellip; feel the earth holding the underside of your body. Gently begin rocking side to side; you can also place your hands behind your knees and do a rocking motion with your feet off the ground.</p>
+</div>
+<div class="mv">
+    <div class="mvn">2</div>
+    <p>Slow down and reach both arms up. Imagine reaching out for the sun shining down on the earth. Now bring both arms down, crouch forward and down on all fours like a cat!</p>
+</div>
+<div class="mv">
+    <div class="mvn">3</div>
+    <p>Slowly bring your chest down to the ground, imagine sinking into the mud below you! How many life forms live underneath! Take an inhale and exhale closer to the ground and push your chest away from the ground with an inhale.</p>
+</div>
+<div class="mv">
+    <div class="mvn">4</div>
+    <p>Extend both of your legs stepping back into a plank. Make sure hands are firm into the ground, all fingers spread apart. Think of the strong earth holding everything together, by the will of Allah!</p>
+</div>
+<div class="mv">
+    <div class="mvn">5</div>
+    <p>Holding the pose, try to sink your body slowly lower down, imagine being inside the mud layers and meeting different creatures like worms and decomposers! Hello!</p>
+</div>
+<div class="mv">
+    <div class="mvn">6</div>
+    <p>Now push your chest away from the earth, extending both arms, bending your back, like a worm peeking up from the soil.</p>
+</div>
+<div class="mv">
+    <div class="mvn">7</div>
+    <p>Bring your head back to center and push your hips back and up. Like a bent tree, with branches on the ground.</p>
+</div>
+<div class="mv">
+    <div class="mvn">8</div>
+    <p>Pedal feet slowly, tap opposite hand to knee (crossing midline) on opposite side, with slow deep breaths. Now gradually crawl with both hands back towards your feet, like an inchworm backing up. Imagine the worms that wiggle through tunnels. Once your hands reach your ankles, bring your hips down to a seated position. Bring palms on your knees, close your eyes and with slow breaths, think of the deep underground, where everything is quiet&hellip; roots resting, worms still, the soil calm and full of life. SubhanAllah, Allah is the Lord of the seen and the unseen!</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="morenature"><span style="font-size:16px;">More Nature Activities</span></h3>
+<p class="note">Here are more activities to try, whether as a group with your pod or individually at home.</p>
+
+<div class="act">
+    <div class="ah">Sediment Jars: What Is Mud Composed Of?</div>
+    <div class="ab2">
+        <p>Mud looks like one thing. This jar will show you many things.</p>
+        <div class="img-block">
+            <img src="images/image1.png" alt="Clear jar with layered sediment showing gravel, silt, clay, and floating organic matter" style="width:250px;max-width:100%;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Clear jar or plastic bottle (one per family)</li>
+            <li>Lid</li>
+            <li>Masking tape and permanent marker to label layers</li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>A good scoop of mud from the trail (creek bank mud is ideal; the wetter and messier the better)</li>
+            <li>Water (from the creek or bring a water bottle)</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Pack your jar about halfway with mud. Try to scoop from a few inches deep, not just the surface.</li>
+            <li>Fill the rest with water, leaving a small gap at the top.</li>
+            <li>Seal the jar and shake hard for 30 seconds until everything is fully mixed and murky.</li>
+            <li>Set it somewhere flat and still. Don&rsquo;t touch it.</li>
+            <li>Before anything settles, make a prediction in your journal: how many layers do you think will form?</li>
+            <li>Watch for 5&ndash;10 minutes and record what you notice. What&rsquo;s moving? What&rsquo;s sinking? What&rsquo;s still floating?</li>
+            <li>Once layers have formed, use tape to mark and label each one.</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <ul>
+            <li>How many layers formed? What do you think each one is made of?</li>
+            <li>The layer at the bottom is coarse sand and gravel &mdash; heavy, drops fast. The middle layer is silt. The top of the settled material is fine clay. Anything still floating is organic matter &mdash; tiny bits of leaf, root, and living organisms. That organic layer is what makes mud alive rather than just wet dirt.</li>
+            <li>Creek bank mud, pond bottom mud, and open trail mud all have different ratios of these ingredients. Which kind do you think has the most organic matter? Which would have the most clay?</li>
+            <li>The creatures we found today &mdash; worms, pill bugs, fungal threads &mdash; which layer of your jar do you think they actually live in, and why?</li>
+            <li>Allah designed mud not as one substance but as a layered community of materials, each with a different role. Does that change how you think about what we were digging through today?</li>
+        </ul>
+    </div>
+    <div style="padding:10px 20px;font-size:13px;color:var(--fnt);">Reference: <a href="https://www.timeandtidebell.org/sediment-jar/">timeandtidebell.org/sediment-jar/</a></div>
+</div>
+
+<div class="act">
+    <div class="ah">For Kids 9&ndash;12: Worm Dissection</div>
+    <div class="ab2">
+        <p class="note"><em>This activity is done at home after the walk. Reference video: <a href="https://www.youtube.com/watch?v=8p-GAX4Xb2A">Earthworm Dissection</a></em></p>
+        <div class="img-block">
+            <img src="images/image2.png" alt="Earthworm dissection pinned open showing internal organs" style="width:370px;max-width:100%;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>1&ndash;2 live earthworms (collected from your yard after rain, or purchased from a bait shop)</li>
+            <li>Rubbing alcohol (70%)</li>
+            <li>Small container with lid</li>
+            <li>Dissection tray or foam board (a styrofoam food tray works)</li>
+            <li>Pins or thumbtacks</li>
+            <li>Small scissors or a craft knife (adult use)</li>
+            <li>Hand lens or magnifying glass</li>
+            <li>Printed earthworm anatomy diagram</li>
+            <li>Pencil and journal for sketching</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Place the worm in a small container with a few drops of rubbing alcohol for 5&ndash;10 minutes to sedate it. It will stop moving but remain alive.</li>
+            <li>Place the sedated worm dorsal side up (the darker side) on your foam board and pin it gently at the head and tail ends to hold it in place.</li>
+            <li>Using small scissors, make a shallow cut along the dorsal midline from the clitellum (the thick band) toward the head. Take your time &mdash; you are only cutting through the body wall, not digging deep.</li>
+            <li>Pin back the body wall on each side to expose the interior.</li>
+            <li>Using your diagram, identify and locate as many structures as you can: the clitellum, the five pairs of hearts (aortic arches), the digestive tract running the full length of the body, and the segmentation of the coelom.</li>
+            <li>Sketch what you see and label it. Compare your sketch to the printed diagram &mdash; what matches? What surprised you?</li>
+            <li>When finished, wrap the worm carefully and dispose of it respectfully. Wash hands thoroughly.</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <ul>
+            <li>The worm has five pairs of hearts. What does that tell you about how important circulation is to an organism that lives in soil?</li>
+            <li>Every system you found &mdash; digestive, circulatory, muscular &mdash; is doing real work in the mud we walked through today. How does seeing the inside change how you think about what a worm actually does?</li>
+            <li>Allah created this level of complexity in something most people step over without a second thought. What does that mean about the things we haven&rsquo;t looked at closely yet?</li>
+        </ul>
+    </div>
+</div>
+
+<div class="act">
+    <div class="ah">Mud Pie Making</div>
+    <div class="ab2">
+        <p>Create a beautiful work of art with mud!</p>
+        <div class="img-block">
+            <img src="images/image5.png" alt="Mud pies decorated with flowers, pebbles, and petals on a creek bank" style="width:330px;max-width:100%;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Old bowls, pots, or muffin tins</li>
+            <li>Mixing stick or old spoon</li>
+            <li>Small container of water</li>
+            <li>Old towel for cleanup</li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>Mud or moist soil</li>
+            <li>Decorating materials: pebbles, leaves, petals, twigs, seed pods</li>
+        </ul>
+        <h5>Activity</h5>
+        <p>Find a good mud source on the trail &mdash; creek edges and shaded soil work best.</p>
+        <ol>
+            <li>Mix mud and water until it feels like thick dough &mdash; not too soupy, not too dry.</li>
+            <li>Pack mud into bowls or muffin tins, or shape directly on the ground with bare hands.</li>
+            <li>Decorate with whatever nature provides &mdash; press in petals, poke in twigs, arrange pebbles.</li>
+            <li>Take a photo of your creation before heading back.</li>
+        </ol>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="olderkids"><span style="font-size:16px;">Information for Older Kids &amp; Printables</span></h3>
+<div class="img-block">
+    <img src="images/image6.jpg" alt="Secret life in the mud infographic showing soil food web: bacteria, fungi, nematodes, springtails, earthworms, protozoa with size scale" style="width:720px;max-width:100%;">
+</div>
+<ul>
+    <li><a href="https://drive.google.com/file/d/1c4awFYPsQtQ3_aHsNiLpdmX3mC0QmzqL/view?usp=drive_link">Field Guide: What will you find in the mud today?</a></li>
+    <li><a href="https://thekidshouldseethis.com/post/the-wood-wide-web-how-trees-secretly-talk-to-and-share-with-each-other">The Wood Wide Web: How trees secretly talk to and share with each other</a></li>
+    <li><a href="https://drive.google.com/file/d/1_Rj9Ihn2b5vDJVK-ZUyZcm3Lqy4G1XCk/view?usp=drive_link">Weekly Journal Page</a></li>
+    <li><a href="https://drive.google.com/file/d/17pb8c_Z12OD4JJ5Z2Hsk0wRA8r2kzwWQ/view?usp=drive_link">Weekly Summary Document</a></li>
+</ul>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="footer">&copy; Khulafa Al-Ardh Nature Curriculum &middot; Rhythm: Water &middot; Week 4</div>
+
+</body>
+</html>
