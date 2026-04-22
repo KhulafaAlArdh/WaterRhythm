@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 5: Birds and Mammals of the Water</title>
+    <style id="hide-content">body > *:not(#pw-overlay) { display: none !important; }</style>
+    <style>
+        :root {
+            --w: #2B6CB0;
+            --wl: #EBF4FF;
+            --wm: #BEE3F8;
+            --wd: #1A365D;
+            --green: #276749;
+            --gl: #F0FFF4;
+            --sand: #FFF8EE;
+            --sd: #E2CAAA;
+            --rule: #CBD5E0;
+            --acc: #C05621;
+            --ink: #1a1a1a;
+            --mut: #555;
+            --fnt: #888;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--ink);
+            background: #FAFAF7;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        /* COVER */
+        .cover {
+            text-align: center;
+            padding: 52px 24px 40px;
+            border-bottom: 1px solid var(--rule);
+            margin-bottom: 48px;
+        }
+
+        .ey {
+            font-size: 11px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin-bottom: 14px;
+        }
+
+        .ey a {
+            color: var(--w);
+            text-decoration: underline;
+        }
+
+        .cover h1 {
+            font-size: clamp(24px, 5vw, 38px);
+            font-weight: bold;
+            line-height: 1.2;
+            color: var(--wd);
+            margin-bottom: 10px;
+        }
+
+        .cs {
+            font-style: italic;
+            color: var(--mut);
+            font-size: 15px;
+        }
+
+        /* PART HEADERS */
+        .ph {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 48px 0 24px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--w);
+        }
+
+        .pn {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            white-space: nowrap;
+            padding-right: 14px;
+            border-right: 1px solid var(--rule);
+        }
+
+        .ph h2 {
+            font-size: 20px;
+            color: var(--wd);
+        }
+
+        /* TYPOGRAPHY */
+        h3 {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin: 34px 0 12px;
+        }
+
+        h4 {
+            font-size: 16px;
+            color: var(--ink);
+            margin: 20px 0 7px;
+        }
+
+        p {
+            margin-bottom: 12px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul,
+        ol {
+            padding-left: 22px;
+            margin-bottom: 12px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        a {
+            color: var(--w);
+        }
+
+        /* ITALIC NOTE */
+        .note {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--fnt);
+            background: #F5F5F2;
+            border-left: 2px solid var(--rule);
+            padding: 8px 14px;
+            margin-bottom: 16px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* DUA */
+        .dua {
+            background: var(--wl);
+            border-left: 3px solid var(--w);
+            border-radius: 0 6px 6px 0;
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+
+        .ar {
+            font-size: 22px;
+            line-height: 2;
+            text-align: right;
+            direction: rtl;
+            color: var(--wd);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .tr {
+            font-style: italic;
+            color: var(--mut);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .src {
+            font-size: 12px;
+            color: var(--fnt);
+            margin-top: 5px;
+        }
+
+        /* AYAH */
+        .ayah {
+            background: var(--sand);
+            border: 1px solid var(--sd);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .ayah .ar {
+            color: var(--acc);
+            font-size: 20px;
+        }
+
+        .albl {
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: .05em;
+            color: var(--acc);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .com {
+            border-top: 1px solid var(--sd);
+            margin-top: 11px;
+            padding-top: 11px;
+            font-size: 14px;
+            color: var(--mut);
+            font-style: italic;
+        }
+
+        /* ASMA */
+        .asma {
+            background: var(--wd);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 20px 0;
+            display: flex;
+            gap: 22px;
+            align-items: flex-start;
+        }
+
+        .aar {
+            font-size: 28px;
+            line-height: 1.5;
+            color: var(--wm);
+            white-space: nowrap;
+            flex-shrink: 0;
+            direction: rtl;
+        }
+
+        .ab .nm {
+            font-size: 17px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 3px;
+        }
+
+        .ab .mn {
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--wm);
+            margin-bottom: 9px;
+        }
+
+        .ab p {
+            color: rgba(255, 255, 255, .85);
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        /* AGE GRID */
+        .ag {
+            display: flex;
+            gap: 0;
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+
+        .ac {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ac:not(:last-child) {
+            border-right: 1px solid var(--rule);
+        }
+
+        .ach {
+            background: var(--wd);
+            color: white;
+            font-size: 11px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 10px 13px;
+            text-align: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .acb {
+            padding: 13px 15px;
+            font-size: 14px;
+            line-height: 1.65;
+            flex: 1;
+        }
+
+        .ac:nth-child(odd) .acb {
+            background: var(--wl);
+        }
+
+        .ac:nth-child(even) .acb {
+            background: white;
+        }
+
+        .acb p {
+            margin-bottom: 9px;
+        }
+
+        .acb p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media(max-width:560px) {
+            .ag {
+                flex-direction: column;
+            }
+
+            .ac:not(:last-child) {
+                border-right: none;
+                border-bottom: 1px solid var(--rule);
+            }
+
+            .acb {
+                background: var(--wl) !important;
+            }
+
+            .asma {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* STORY */
+        .story {
+            border: 1px solid var(--sd);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+
+        .sh {
+            background: var(--acc);
+            color: white;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .sb {
+            padding: 20px;
+            background: var(--sand);
+        }
+
+        .sb .note {
+            margin-bottom: 13px;
+        }
+
+        .sb ul {
+            padding-left: 20px;
+        }
+
+        .sb li {
+            margin-bottom: 9px;
+            font-size: 15px;
+        }
+
+        .tw {
+            margin-top: 16px;
+            padding-top: 13px;
+            border-top: 1px solid var(--sd);
+        }
+
+        .tw h5 {
+            font-size: 10px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--acc);
+            margin-bottom: 7px;
+        }
+
+        .sf {
+            background: white;
+            border-top: 1px solid var(--sd);
+            padding: 10px 20px;
+            font-size: 12px;
+            color: var(--fnt);
+        }
+
+        /* READ ALOUDS */
+        .reads {
+            display: flex;
+            gap: 10px;
+            margin: 16px 0;
+        }
+
+        .rc {
+            flex: 1;
+            background: var(--wl);
+            border: 1px solid var(--wm);
+            border-radius: 6px;
+            padding: 13px 15px;
+        }
+
+        .ra {
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--w);
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .rc ul {
+            padding-left: 14px;
+        }
+
+        .rc li {
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        @media(max-width:560px) {
+            .reads {
+                flex-direction: column;
+            }
+        }
+
+        /* ACTIVITY CARD */
+        .act {
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+
+        .ah {
+            background: var(--w);
+            color: white;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .ab2 {
+            padding: 20px;
+        }
+
+        .ab2 h5 {
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin: 16px 0 7px;
+        }
+
+        .ab2 h5:first-child {
+            margin-top: 0;
+        }
+
+        .ab2 ul,
+        .ab2 ol {
+            padding-left: 20px;
+            margin-bottom: 9px;
+        }
+
+        .ab2 li {
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .ab2 p {
+            font-size: 15px;
+        }
+
+        /* DISCUSSION */
+        .disc {
+            background: var(--gl);
+            border-top: 1px solid #C6F6D5;
+            padding: 16px 20px;
+        }
+
+        .disc h5 {
+            color: var(--green);
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin: 0 0 11px;
+        }
+
+        .dq {
+            font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 3px;
+            color: #1a4731;
+            font-style: italic;
+        }
+
+        .da {
+            font-size: 14px;
+            color: var(--mut);
+            margin-bottom: 13px;
+            padding-left: 11px;
+            border-left: 2px solid #9AE6B4;
+        }
+
+        .da:last-child {
+            margin-bottom: 0;
+        }
+
+        /* HADITH */
+        .hadith {
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 24px 0;
+            background: white;
+        }
+
+        .hq {
+            font-size: 15px;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--ink);
+            margin: 12px 0;
+            padding-left: 14px;
+            border-left: 3px solid var(--w);
+        }
+
+        .hrf {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--rule);
+            font-size: 15px;
+            color: var(--mut);
+            font-style: italic;
+        }
+
+        /* MOVEMENTS */
+        .mv {
+            display: flex;
+            gap: 13px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+
+        .mvn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--wl);
+            border: 1.5px solid var(--wm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 12px;
+            color: var(--w);
+            font-weight: bold;
+        }
+
+        .mv p {
+            font-size: 15px;
+            margin: 0;
+        }
+
+        /* MISC */
+        .snack {
+            background: var(--gl);
+            border: 1px solid #C6F6D5;
+            border-radius: 6px;
+            padding: 11px 16px;
+            font-size: 14px;
+            color: var(--green);
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        ul.plain {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        ul.plain li {
+            padding: 3px 0 3px 15px;
+            position: relative;
+            font-size: 15px;
+        }
+
+        ul.plain li::before {
+            content: '\2014';
+            position: absolute;
+            left: 0;
+            color: var(--w);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--rule);
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--fnt);
+        }
+
+        /* NAV MENU */
+        .nav-menu {
+            background: var(--wl);
+            border: 1px solid var(--wm);
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin-bottom: 44px;
+        }
+        .nav-menu-title {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin-bottom: 14px;
+            font-family: Georgia, serif;
+        }
+        .nav-part {
+            margin-bottom: 10px;
+        }
+        .nav-part-label {
+            font-size: 13px;
+            font-weight: bold;
+            color: var(--wd);
+            margin-bottom: 4px;
+        }
+        .nav-part-label a {
+            color: var(--wd);
+            text-decoration: none;
+        }
+        .nav-part-label a:hover { text-decoration: underline; }
+        .nav-sub {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .nav-sub li a {
+            font-size: 12px;
+            color: var(--w);
+            text-decoration: none;
+            background: white;
+            border: 1px solid var(--wm);
+            border-radius: 4px;
+            padding: 3px 10px;
+            display: inline-block;
+        }
+        .nav-sub li a:hover { background: var(--wm); }
+
+        /* BACK TO TOP */
+        .back-top {
+            text-align: right;
+            margin: 32px 0 8px;
+            padding-top: 12px;
+            border-top: 1px solid var(--rule);
+        }
+        .back-top a {
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--fnt);
+            text-decoration: none;
+        }
+        .back-top a:hover { color: var(--w); }
+
+        /* IMAGES */
+        .img-block {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .img-block img {
+            max-width: 100%;
+            border-radius: 6px;
+        }
+        .img-block .img-caption {
+            font-size: 12px;
+            color: var(--fnt);
+            margin-top: 6px;
+        }
+
+        /* SECTION SUBTITLE */
+        .sub-h {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--ink);
+            margin: 24px 0 8px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="pw-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#FAFAF7;display:flex;align-items:center;justify-content:center;z-index:9999;font-family:Georgia,serif;">
+  <div style="text-align:center;padding:40px;max-width:340px;width:90%;">
+    <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#2B6CB0;margin-bottom:16px;">Khulafa Al-Ardh Nature Pods</div>
+    <h2 style="font-size:22px;color:#1A365D;margin-bottom:8px;">Members Only</h2>
+    <p style="font-size:14px;color:#555;margin-bottom:24px;">Enter the password to access this week&rsquo;s lesson plan.</p>
+    <input id="pw-input" type="password" placeholder="Password" style="width:100%;padding:10px 14px;font-size:16px;border:1px solid #CBD5E0;border-radius:6px;box-sizing:border-box;margin-bottom:4px;outline:none;" />
+    <div style="text-align:right;margin-bottom:12px;">
+      <span onclick="togglePw()" style="font-size:12px;color:#2B6CB0;cursor:pointer;user-select:none;" id="pw-toggle">Show password</span>
+    </div>
+    <button onclick="checkPassword()" style="width:100%;padding:10px;background:#2B6CB0;color:#fff;font-size:15px;border:none;border-radius:6px;cursor:pointer;">Enter</button>
+    <p id="pw-error" style="color:#C05621;font-size:13px;margin-top:12px;display:none;">Incorrect password. Please check with your pod leader.</p>
+  </div>
+</div>
+<script>
+  if (sessionStorage.getItem("kaanp_auth") === "1") {
+    document.getElementById("pw-overlay").style.display = "none";
+    document.getElementById("hide-content").remove();
+  }
+  document.getElementById("pw-input").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") checkPassword();
+  });
+  function togglePw() {
+    var input = document.getElementById("pw-input");
+    var toggle = document.getElementById("pw-toggle");
+    if (input.type === "password") {
+      input.type = "text";
+      toggle.textContent = "Hide password";
+    } else {
+      input.type = "password";
+      toggle.textContent = "Show password";
+    }
+  }
+  function checkPassword() {
+    var val = document.getElementById("pw-input").value;
+    if (val === "KAANP-Water!") {
+      sessionStorage.setItem("kaanp_auth", "1");
+      document.getElementById("pw-overlay").remove();
+      document.getElementById("hide-content").remove();
+    } else {
+      document.getElementById("pw-error").style.display = "block";
+      document.getElementById("pw-input").value = "";
+      document.getElementById("pw-input").focus();
+    }
+  }
+</script>
+
+<div class="cover">
+    <div class="ey">Khulafa Al-Ardh &middot; <a href="../index.html">Rhythm: Water</a> &middot; Week 5</div>
+    <h1>Birds and Mammals of the Water</h1>
+</div>
+
+<div class="nav-menu" id="top">
+    <div class="nav-menu-title">Jump to section</div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part1">Part 1 &nbsp;|&nbsp; Blessed Beginnings</a></div>
+        <ul class="nav-sub">
+            <li><a href="#duaa">Opening Duaa</a></li>
+            <li><a href="#intro">An Introduction</a></li>
+            <li><a href="#discovery">Discovery Den</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part2">Part 2 &nbsp;|&nbsp; Walking with Intention</a></div>
+        <ul class="nav-sub">
+            <li><a href="#asma">The Most Beautiful of Names</a></li>
+            <li><a href="#observing">Observing on the Move</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part3">Part 3 &nbsp;|&nbsp; Grounding in Gratitude</a></div>
+        <ul class="nav-sub">
+            <li><a href="#stories">Stories for Blooming Hearts</a></li>
+            <li><a href="#readalouds">Suggested Read-Alouds</a></li>
+            <li><a href="#activity">Hands-On Activity</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part4">Part 4 &nbsp;|&nbsp; Slowing the Flow</a></div>
+        <ul class="nav-sub">
+            <li><a href="#tadabbur">Tadabbur Among the Trees</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#addendum">Addendum &nbsp;|&nbsp; Further Enrichment</a></div>
+        <ul class="nav-sub">
+            <li><a href="#prophetic">Prophetic Wisdom</a></li>
+            <li><a href="#ayaat">Additional Ayaat</a></li>
+            <li><a href="#movements">Meaningful Movements</a></li>
+            <li><a href="#morenature">More Nature Activities</a></li>
+            <li><a href="#art">Artistic Expressions</a></li>
+            <li><a href="#olderkids">Information for Older Kids &amp; Printables</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- PART 1 -->
+<div class="ph" id="part1"><span class="pn">Part 1</span>
+    <h2>Blessed Beginnings</h2>
+</div>
+<p class="note">Set the tone for the walk and introduce the topic before beginning the walk. This should take between 5&ndash;10 minutes &mdash; nothing longer than the attention spans of the kids.</p>
+
+<h3 id="duaa"><span style="font-size:16px;">Opening Duaa</span></h3>
+<p class="note">Start with a duaa for protection from harm and evil. The duaa can be led by either the walk leader or a child who has the duaa memorized.</p>
+<div class="dua">
+    <span class="ar">أَعُوذُ بِكَلِمَاتِ اللهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</span>
+    <p class="tr">&ldquo;I seek refuge in the perfect words of Allah from the evil of what He has created.&rdquo;</p>
+</div>
+<div class="dua">
+    <span class="ar">بِسْمِ اللهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</span>
+    <p class="tr">&ldquo;In the Name of Allah, with whose Name nothing in the earth or the heavens can cause harm. He is the All-Hearing, the All-Knowing.&rdquo;</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="intro"><span style="font-size:16px;">An Introduction to Birds and Mammals of the Water</span></h3>
+<p class="note">Introduce the topic to the kids. Share the opening ayah and how it ties to the week&rsquo;s topic.</p>
+<div class="ayah">
+    <span class="ar">وَقَالُوا۟ لَوْلَا نُزِّلَ عَلَيْهِ ءَايَةٌ مِّن رَّبِّهِۦ ۖ قُلْ إِنَّ ٱللَّهَ قَادِرٌ عَلَىٰٓ أَن يُنَزِّلَ ءَايَةً وَلَٰكِنَّ أَكْثَرَهُمْ لَا يَعْلَمُونَ ۝ وَمَا مِن دَآبَّةٍ فِى ٱلْأَرْضِ وَلَا طَٰٓئِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّآ أُمَمٌ أَمْثَالُكُم ۚ مَّا فَرَّطْنَا فِى ٱلْكِتَٰبِ مِن شَىْءٍ ۚ ثُمَّ إِلَىٰ رَبِّهِمْ يُحْشَرُونَ</span>
+    <p class="tr">&ldquo;They also say, &lsquo;Why has no sign been sent down to him from his Lord?&rsquo; Say, &lsquo;Allah certainly has the power to send down a sign,&rsquo; though most of them do not know: all the creatures that crawl on the earth and those that fly with their wings are communities like yourselves. We have missed nothing out of the Record &mdash; in the end they will be gathered to their Lord.&rdquo;</p>
+    <p class="src">Surah Al-An&lsquo;am 6:37&ndash;38</p>
+    <p class="com">This ayah teaches us that all creatures form communities, just as we do. Last week, we explored the communities found in mud. This week, we will learn about the various animal communities that live in and around water, with a focus on warm-blooded animals. Studying these animals is an act of worship and contemplation &mdash; it is not simply an exercise in observation! When the disbelievers asked for a miracle from the Prophet, this is what Allah directed their attention to: the way animals build community is enough of a sign and a miracle!</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="discovery"><span style="font-size:16px;">Discovery Den</span></h3>
+<p class="note">This is information to share with the kids. What you share and the level of detail will depend on the ages of the kids in your pod. Use your discretion.</p>
+
+<p>Over the last few weeks, we have studied how water flows, shapes the earth, and creates bustling mud cities. But water doesn&rsquo;t just grow plants; it is a giant playground, dining room, and home for some of the most amazing animals on Earth! Today, we are looking at the birds and mammals who spend their lives splashing, swimming, and diving. Allah perfectly designed certain birds (the two-legged) and mammals (the four-legged) with special tools to survive in the water!</p>
+
+<h4>Amazing Water Adaptations</h4>
+<p>When humans go swimming, we need flippers, goggles, and towels. But water animals are born with built-in swimming gear! Scientists call these special body parts <strong>adaptations</strong>. Please print the <a href="https://drive.google.com/file/d/1Ihze_iNPko1j5bxbru406eWfUlJ2ppLa/view?usp=drive_link">accompanying chart</a> with examples.</p>
+
+<ul>
+    <li><strong>Waterproof Wardrobes:</strong> Nobody likes wearing cold, wet clothes. To stay dry, ducks and geese have a special gland near their tails that produces oil. They spread this oil all over their feathers using their beaks, creating a waterproof shield! Mammals like beavers and river otters have incredibly dense, thick fur that traps a layer of air against their skin, keeping them perfectly dry and warm even in freezing water. Many water mammals also carry a layer of fat just beneath their skin that acts like a built-in wetsuit, slowing heat loss no matter how cold the water gets. Whales and seals have thick blubber layers. Closer to home, otters and beavers along the Trinity River rely on a combination of dense fur and a thin fat layer to stay warm in North Texas winters.</li>
+    <li><strong>Built-in Paddles:</strong> If you want to swim fast, tiny feet won&rsquo;t help. Allah gave ducks, swans, and pelicans webbed feet &mdash; skin stretched between their toes that acts like giant paddles. Beavers have webbed back feet and a wide, flat tail that steers them like a boat&rsquo;s steering oar!</li>
+    <li><strong>Specialized Tools:</strong> Herons have long, skinny legs so they can wade into deep water without getting their tummy feathers wet, and spear-like beaks to snatch fish. Beavers have giant, orange teeth coated in iron so they can chop down trees to build their watery homes!</li>
+    <li><strong>Built-in Ballast:</strong> Ever notice how a duck sits perfectly on the water without effort &mdash; never sinking, never tipping? Allah designed water birds and mammals with just the right density to float naturally. Some go further: cormorants have denser bones to help them sink and chase fish, and grebes can squeeze air from their feathers mid-dive to control exactly how deep they go.</li>
+</ul>
+
+<h4>Local Landmarks: Our DFW Water Neighbors</h4>
+<p>If you visit the <strong>Elm Fork</strong>, <strong>Lake Lewisville</strong>, or the wetlands at the <strong>Trinity River Audubon Center</strong>, you don&rsquo;t have to look hard to find these amazing creatures in our own backyard!</p>
+
+<ul>
+    <li><strong>The Great Blue Heron (The Silent Fisherman):</strong> If you walk quietly near the edge of almost any creek in North Texas, you might see a bird that looks like a tall, grey dinosaur standing perfectly still in the shallows. This is the Great Blue Heron, patiently waiting to strike a fish!</li>
+    <li><strong>The Snowy Egret (The Golden-Slippered Hunter):</strong> Egrets are the beautiful, bright white cousins of the Great Blue Heron. The Snowy Egret has a brilliant hunting trick: Allah gave them bright yellow feet that look like golden slippers! They stand in the shallow water and wiggle their bright toes in the mud. The fish think the yellow toes are worms, and when they swim over to eat them, the Egret strikes! You will see these elegant white birds wading in the shallows of almost every lake and pond in the DFW area, especially around Lake Lewisville.</li>
+    <li><strong>The Belted Kingfisher (The Diving Acrobat):</strong> While herons wade in the water, the Kingfisher hunts from the sky! They sit on branches high above the water, hovering like a helicopter when they spot a fish, and then dive head-first like a dart into the water to catch it. These birds love the wooded creeks of the Elm Fork. You will usually hear them before you see them &mdash; they have a loud, chattering, rattling call that sounds like a dry piece of wood being scraped!</li>
+    <li><strong>The Mallard Duck (The Dabbler):</strong> You will see these everywhere, especially the males with their bright green heads. They are called &ldquo;dabblers&rdquo; because instead of diving deep, they tip entirely upside down with their tails in the air to grab bugs and plants from the shallow mud!</li>
+    <li><strong>The American Beaver (Nature&rsquo;s Engineer):</strong> Yes, we have beavers in Dallas! They live in our local rivers and creeks. They are famous for chewing down trees and stacking the wood to create dams. These dams actually slow down the water, creating deep, safe ponds where other animals can live. They are the only mammal (besides humans!) that actively changes the shape of their habitat.</li>
+    <li><strong>The Nutria (The Imposter Beaver):</strong> Nutria (or coypu) look a lot like beavers, but they have skinny, rat-like tails instead of flat, paddle tails, and large white whiskers. If you see what looks like a small beaver swimming in a local pond or creek in North Texas, it is very likely a nutria! They are actually an <em>invasive species</em> (originally from South America). They teach us an important lesson about the balance of Allah&rsquo;s ecosystems: because they don&rsquo;t have natural predators here, they eat too many wetland plants, which can cause the riverbanks to <em>erode</em> (slowly be destroyed).</li>
+    <li><strong>The North American River Otter (The Playful Swimmer):</strong> Otters are built for underwater acrobatics. They have long, torpedo-shaped bodies, webbed toes, and a thick, muscular tail that acts like a propeller. They can hold their breath for up to 8 minutes! For a long time, otters had disappeared from our area because the water was too polluted. But because of hard work by local conservationists to clean up the Trinity River, the otters are making a huge comeback! You can sometimes spot them playing and sliding down muddy banks into the river.</li>
+</ul>
+
+<p>We have learned a lot about how animals survive in the water, and Islam teaches us that we also have a responsibility to share water with them. When we visit our local lakes and rivers, we must never pollute them or leave trash behind. Keeping the water clean is one way of showing mercy to the ducks, herons, beavers, and other animals who rely on it!</p>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- PART 2 -->
+<div class="ph" id="part2"><span class="pn">Part 2</span>
+    <h2>Walking with Intention</h2>
+</div>
+<p class="note">Now that we are all up to speed on this week&rsquo;s topic, let&rsquo;s start walking! The following are some conversations and activities to do as you walk. This should take about 30&ndash;60 minutes &mdash; again, nothing longer than the stamina of the kids.</p>
+
+<h3 id="asma"><span style="font-size:16px;">The Most Beautiful of Names</span></h3>
+<p class="note">Introduce the name of Allah and its basic meaning as you start your walk. Encourage the kids to reflect on the name throughout the walk, as well as mentioning it whenever relevant.</p>
+<div class="asma">
+    <div class="aar">الْمُقْسِطُ</div>
+    <div class="ab">
+        <div class="nm">Al-Muqsit</div>
+        <div class="mn">The Equitable</div>
+        <p>The way water is distributed throughout the planet is not even. There are wetlands and rainforests in some parts of the planet, and dry, arid deserts in others. It may not be even, but it is balanced &mdash; Allah is Al-Muqsit, the Equitable, and He has granted the animals in their respective environments the proper adaptations for surviving according to the level of water available to them. Just as Allah is Equitable with other creation, He is with us as well. We are not all given <em>rizq</em> equally, but that does not negate the quality of Al-Muqsit: there is a balance, and though we may not see it or fully understand it, we accept that it is there because we see it in other parts of creation.</p>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="observing"><span style="font-size:16px;">Observing on the Move</span></h3>
+<p class="note">Here are some observation prompts to help the kids tune into their environment and engage all of their senses.</p>
+<div class="ag">
+    <div class="ac">
+        <div class="ach">For Kids 1&ndash;4</div>
+        <div class="acb">
+            <p>Move in slow motion like a hunting heron. Freeze when you &ldquo;spot a fish,&rdquo; then strike fast!</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 5&ndash;8</div>
+        <div class="acb">
+            <p>How long can you hold your breath? Compare to how long diving ducks stay under (some 20&ndash;30 seconds, others longer).</p>
+            <p>Observe what a bird in the water is doing: is it wading, diving, feeding, drinking, bathing, or something else?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 9&ndash;12</div>
+        <div class="acb">
+            <p>Use the Merlin ID app to identify some local birds, record their birdsong, and try to mimic it! Note observations in your journal.</p>
+        </div>
+    </div>
+</div>
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- PART 3 -->
+<div class="ph" id="part3"><span class="pn">Part 3</span>
+    <h2>Grounding in Gratitude</h2>
+</div>
+<p class="note">Phew, that was a good walk! Let&rsquo;s pause and apply what we have learned and reflect on what we have observed.</p>
+
+<h3 id="stories"><span style="font-size:16px;">Stories for Blooming Hearts</span></h3>
+<p class="note">Share a story from our tradition that ties to this week&rsquo;s topic. Note that creating an engaging storytelling experience is on the storyteller; these are just the basic details. A story told from the heart will reach hearts!</p>
+<div class="story">
+    <div class="sh"><em>Yunus AS in the Belly of the Whale</em></div>
+    <div class="sb">
+        <ul>
+            <li>Yunus AS was one of the noble Prophets of Allah. Like the other prophets, he was tasked with teaching people about Allah, the Last Day, the Hereafter, and to warn them against believing in idols.</li>
+            <li>Despite years and years of giving dawah, Yunus AS&rsquo;s people did not listen to him nor believe in him. They even mocked him, daring him to bring on the punishment if it was truly possible, so he decided to pack up and leave town, fearing punishment may come to them. However, Allah had not told him to leave.</li>
+            <li>Yunus AS boarded a boat to leave town. During his tumultuous journey, the boat rocked back and forth and they needed to get rid of things to stay afloat. The passengers threw their belongings in the sea but it was still not enough. They would have to get rid of one of the passengers.</li>
+            <li>As was their custom, they drew lots to decide fairly who would have to go. Despite them knowing that Yunus AS was such a good person and not wanting to throw him overboard, his was the name that kept getting picked over and over!</li>
+            <li>They threw Yunus AS overboard and when he landed in the sea, a whale swallowed him up! Of course, all of this was Allah&rsquo;s plan to teach us a lesson.</li>
+            <li>While in the belly of the whale, in the darkness of the night, in the darkness of the ocean, Yunus AS began to make the dua:</li>
+        </ul>
+        <div class="dua" style="margin:16px 0;">
+            <span class="ar">لَّآ إِلَٰهَ إِلَّآ أَنتَ سُبْحَٰنَكَ إِنِّى كُنتُ مِنَ ٱلظَّٰلِمِينَ</span>
+            <p class="tr">&ldquo;There is no god worthy of worship except You. Glory be to You! I have certainly done wrong.&rdquo; (21:87)</p>
+        </div>
+        <ul>
+            <li>Allah SWT accepted his dua and had the whale spit Yunus AS out so he was able to make it to the shore.</li>
+            <li>He was given shade under a gourd (pumpkin) vine, which was exactly what he needed to heal from his ordeal in the belly of the whale.</li>
+            <li>Meanwhile, in his town of Nineveh (in present-day Iraq), Allah SWT made the sky red with signs of punishment until the people were so frightened that they began to call out to Allah, asking for His forgiveness and mercy. They made dua for Yunus AS&rsquo;s return so they could listen to him and follow him. Allah SWT accepted their tawba.</li>
+            <li>When Yunus AS returned to town, he returned to believers who were ready to listen to him and follow his guidance.</li>
+        </ul>
+        <p class="src">Suggested Resource: <em>Super Stories of the Prophets</em> by Mariam Elgammal</p>
+        <div class="tw">
+            <h5>Takeaways</h5>
+            <ul>
+                <li>We learn from this story not to give up on our responsibilities. Yunus AS left his people and stopped preaching to them without Allah&rsquo;s permission, hence Allah put him through this test.</li>
+                <li>This story is a powerful reminder of the benefits of turning back to Allah in tawba, and especially of the Dua of Yunus AS.</li>
+                <li>No matter how difficult a challenge you may go through, know that Allah is with you and can help you through your struggles.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="readalouds"><span style="font-size:16px;">Suggested Read-Alouds</span></h3>
+<p class="note">Here are a few book titles to check out related to this week&rsquo;s topic.</p>
+<div class="reads">
+    <div class="rc">
+        <div class="ra">Ages 1&ndash;4</div>
+        <ul>
+            <li><em>In the Small, Small Pond</em> by Denise Fleming</li>
+            <li><em>Have You Seen My Duckling?</em> by Nancy Tafuri</li>
+        </ul>
+    </div>
+    <div class="rc">
+        <div class="ra">Ages 5&ndash;8</div>
+        <ul>
+            <li><em>Over and Under the Pond</em> by Kate Messner</li>
+            <li><em>Just Ducks!</em> by Nicola Davies</li>
+            <li><em>Beaver at Long Pond</em> by William T. George</li>
+        </ul>
+    </div>
+    <div class="rc">
+        <div class="ra">Ages 9&ndash;12</div>
+        <ul>
+            <li><em>Beavers: The Superpower Field Guide</em> by Rachel Poliquin</li>
+            <li><em>One Small Square: Pond</em> by Donald Silver</li>
+        </ul>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="activity"><span style="font-size:16px;">Hands-On Activity</span></h3>
+<p class="note">Time to engage little hands and minds! Additional activities can be found in the &ldquo;Further Enrichment&rdquo; section, if needed.</p>
+<p style="font-size:14px;margin-bottom:16px;">Jump to: <a href="#activity-1-4">For Kids 1&ndash;4</a> &nbsp;&middot;&nbsp; <a href="#activity-5-8">For Kids 5&ndash;8</a> &nbsp;&middot;&nbsp; <a href="#activity-9-12">For Kids 9&ndash;12</a></p>
+
+<div class="act">
+    <div class="ah" id="activity-1-4">For Kids 1&ndash;4: Waterproof Duck Coat</div>
+    <div class="ab2">
+        <p><em>Why doesn&rsquo;t a duck get soaked? Let&rsquo;s find out how oil keeps water birds dry and warm.</em></p>
+        <div class="img-block">
+            <img src="images/image5.png" alt="Duck with water beading off its feathers" style="width:380px;max-width:100%;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>2 pieces of plain white paper per child</li>
+            <li>White wax crayon or a plain candle</li>
+            <li>Water in a spray bottle</li>
+            <li>Blue food coloring (optional but makes it more dramatic)</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Tell the kids: one piece of paper is a regular bird, the other is a duck with its special oil coat.</li>
+            <li>Have them color the &ldquo;duck&rdquo; paper heavily with the white wax crayon or candle; cover it well, even though they can&rsquo;t see it. This represents the duck&rsquo;s natural oil.</li>
+            <li>Add a few drops of blue food coloring to the spray bottle water and mix.</li>
+            <li>Spray both papers at the same time and watch what happens.</li>
+            <li>The &ldquo;regular bird&rdquo; paper soaks the water straight in. On the &ldquo;duck&rdquo; paper, water beads up and rolls off.</li>
+            <li>Connect it back: Allah gave ducks a special gland that coats their feathers in oil, just like the wax on their paper. That&rsquo;s what keeps them dry and warm.</li>
+        </ol>
+        <p style="font-size:13px;color:var(--fnt);margin-top:12px;">Alternate activity for this age group in the <a href="#morenature">addendum</a>: Webbed Feet Paddle Test</p>
+    </div>
+</div>
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="act">
+    <div class="ah" id="activity-5-8">For Kids 5&ndash;8: Blubber Glove</div>
+    <div class="ab2">
+        <p><em>Mammals that live in and around cold water &mdash; like otters, beavers, and muskrats right here in North Texas &mdash; need to stay warm even when the water is cold. This is how Allah protected them.</em></p>
+        <div class="img-block">
+            <img src="images/image7.png" alt="Hand inside a ziplock bag in a bowl of ice water demonstrating blubber insulation" style="width:280px;max-width:100%;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>2 large ziplock bags per child (quart or gallon size)</li>
+            <li>1 container of shortening (Crisco)</li>
+            <li>Large bowl or tub filled with cold water and ice</li>
+            <li>Plastic gloves or extra bags to keep hands clean</li>
+            <li>Paper towels</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Prepare the &ldquo;blubber glove&rdquo;: scoop a generous layer of shortening into one ziplock bag. Place a second bag inside it, folding the inner bag&rsquo;s opening back over the outer one so the shortening is sandwiched between the two bags &mdash; creating a sealed fat layer.</li>
+            <li>Have each child put one hand inside the blubber glove and leave the other hand bare.</li>
+            <li>Submerge both hands in the ice water at the same time.</li>
+            <li>Which hand feels cold? Which feels protected?</li>
+            <li>Pull both hands out and compare.</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">Which hand felt cold and which felt protected, and why?</p>
+        <p class="da">The hand inside the blubber glove stayed warm because the fat layer slows heat from escaping the body. Fat doesn&rsquo;t conduct heat well, so the cold water couldn&rsquo;t pull warmth away as quickly.</p>
+        <p class="dq">What animals use blubber or fat layers to survive in cold water?</p>
+        <p class="da">Whales, seals, and walruses have thick blubber layers. Closer to home, otters, beavers, and muskrats &mdash; all found along the Trinity River and local creeks right here in DFW &mdash; rely on a combination of dense fur and a thin fat layer to stay warm.</p>
+        <p class="dq">Do birds have insulating fat too? What else do they do to stay warm?</p>
+        <p class="da">Water fowl also have insulating fat. Additionally, they stay warm through waterproof feathers that trap a layer of air against their skin. That air acts as insulation, just like the fat layer in the glove. A soaked, unpreened bird loses that air pocket and gets cold fast, which is why waterproofing and insulation work together.</p>
+        <p class="dq">Allah gave each creature exactly what it needs for where it lives. Why do you think He gave otters fur and fat instead of feathers?</p>
+        <p class="da">Open reflection. Otters need to move fast and flexibly through water; a sleek fur coat serves them better than feathers would. Every design choice fits the creature&rsquo;s life perfectly.</p>
+    </div>
+</div>
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="act">
+    <div class="ah" id="activity-9-12">For Kids 9&ndash;12: Waterproof Feathers &amp; the Waterproofing Challenge</div>
+    <div class="ab2">
+        <p><em>Before this activity, look for a bird near the water: a Great Blue Heron, a duck, or even a grackle near the pond. Notice how even after splashing, their feathers never look soaked. Why?</em></p>
+        <div class="img-block">
+            <img src="images/image2.png" alt="Feather with water droplets beading on its surface" style="width:440px;max-width:100%;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>1&ndash;2 craft feathers per child</li>
+            <li>Small tray or shallow bowl of water</li>
+            <li>Tissues or cotton balls</li>
+            <li>Small dropper or spoon for dripping water</li>
+            <li>A selection of waterproofing candidates: petroleum jelly (Vaseline), beeswax, coconut oil, olive oil, lip balm &mdash; bring 2&ndash;3 options</li>
+            <li>Squares of fabric or paper towel (one per waterproofing candidate, plus one untreated control)</li>
+        </ul>
+        <p class="note">Note: Collecting wild bird feathers is illegal under the Migratory Bird Treaty Act &mdash; use craft feathers for this activity.</p>
+        <h5>Part 1: Observe the feather</h5>
+        <ol>
+            <li>Drip water onto the feather and watch it bead and roll off. Now drip the same amount onto a tissue or cotton ball. Notice how it soaks straight through.</li>
+            <li>Gently stroke the feather from base to tip &mdash; this is preening. Run your fingers against the grain and watch the feather &ldquo;unzip,&rdquo; then smooth it back together.</li>
+            <li>Dip the tissue in the water and hold it up. That&rsquo;s a coat with no waterproofing.</li>
+            <li>Discuss: birds have a preen gland near their tail that produces natural oil. They spread it through their feathers with their beak &mdash; a built-in raincoat that Allah designed perfectly.</li>
+        </ol>
+        <h5>Part 2: Engineering challenge</h5>
+        <ol>
+            <li>Allah created birds with waterproofing. Challenge the kids to waterproof fabric and predict which material they think will work best before testing anything.</li>
+            <li>Give each child a set of fabric/paper towel squares. Leave one untreated as a control, then rub a different substance into each of the remaining squares.</li>
+            <li>Drip the same amount of water on each square and observe. Draw attention to where water beads vs. where it soaks in. Ask: which one behaves most like the feather did?</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">What made the best-performing material work? Was it thickness, texture, or how well it bonded to the fabric?</p>
+        <p class="da">The oilier and smoother substances (petroleum jelly, coconut oil) tend to fill the tiny gaps between fibers and repel water. Thicker doesn&rsquo;t always mean better &mdash; it&rsquo;s about how well it coats the surface.</p>
+        <p class="dq">Birds preen multiple times a day and constantly re-apply their oil. Why do you think that is?</p>
+        <p class="da">The oil wears off over time through swimming, rain, rubbing against things, and sun exposure. Without regular re-application, their feathers would eventually get waterlogged, making them heavy, cold, and unable to fly.</p>
+        <p class="dq">What would happen to a duck that couldn&rsquo;t preen?</p>
+        <p class="da">Its feathers would lose their waterproofing and the duck could actually get hypothermia &mdash; cold water would reach the skin. This is why oil spills are so devastating to waterbirds; the oil coats their feathers and destroys their natural waterproofing.</p>
+        <p class="dq">Allah designed the preen gland to produce exactly the right oil for each bird&rsquo;s habitat. What does that tell us about how He designed creation?</p>
+        <p class="da">Open reflection &mdash; every detail has a purpose, nothing is accidental.</p>
+    </div>
+</div>
+
+<p class="note">After completing the activity is a good time to stop for a snack. Power their brains and bodies with something nutritious! Bonus points for avoiding single-use plastics and being good Khulafa. Be sure to leave the area as you found it, or better, following the good manners taught to us by our Prophet &#65018;.</p>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- PART 4 -->
+<div class="ph" id="part4"><span class="pn">Part 4</span>
+    <h2>Slowing the Flow</h2>
+</div>
+<p class="note">Now that this week&rsquo;s walk is just about done, let&rsquo;s wrap it up.</p>
+
+<h3 id="tadabbur"><span style="font-size:16px;">Tadabbur Among the Trees</span></h3>
+<p class="note">Here are some prompts to help wrap up the walk. These prompts can be used to spark a conversation or to fill up your nature journal for today!</p>
+<div class="ag">
+    <div class="ac">
+        <div class="ach">For Kids 1&ndash;4</div>
+        <div class="acb">
+            <p>How long can you play in the water before it starts to affect your skin/body? Is there anything you wear or do to stay in the water longer?</p>
+            <p>How would your life be different if you lived in the water all the time?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 5&ndash;8</div>
+        <div class="acb">
+            <p>If you were to spend most of your time in water, would you want to keep warm with a blubber suit or a waterproof feather suit? Draw yourself in your suit of choice.</p>
+            <p>Write a story about your favorite water bird or mammal.</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 9&ndash;12</div>
+        <div class="acb">
+            <p>Think of some of the birds that rest in water and draw them.</p>
+            <p>List some of the aquatic animals that you know. Can you group them by their physical features and size?</p>
+        </div>
+    </div>
+</div>
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- ADDENDUM -->
+<div class="ph" id="addendum"><span class="pn">Addendum</span>
+    <h2>Further Enrichment</h2>
+</div>
+<p class="note">Need more nature? We got you! Here are some additional resources to further enrich your understanding and reflection. These additional resources can be utilized by the pod, by individual families, or a combination of both &mdash; whatever best fits your needs!</p>
+
+<h3 id="prophetic"><span style="font-size:16px;">Prophetic Wisdom</span></h3>
+<p class="note">Find an opportunity to share the wisdom of our Prophet &#65018; as you walk.</p>
+<div class="hadith">
+    <span class="ar" style="font-size:20px;">يَدْخُلُ الْجَنَّةَ أَقْوَامٌ أَفْئِدَتُهُمْ مِثْلُ أَفْئِدَةِ الطَّيْرِ</span>
+    <p class="hq">&ldquo;Peoples will enter paradise with hearts like the hearts of birds.&rdquo;</p>
+    <div class="hrf">Abu Huraira &mdash; Sahih Muslim 2840</div>
+    <p style="font-size:15px;margin-top:16px;">This hadith shows us that we can benefit and learn from animals spiritually. Scholars explain that having hearts like birds means we should strive to have hearts &ldquo;(1) with no jealousy, rancour, deceit, or hatred; (2) in trepidation, being on their guard; (3) with complete trust, as birds trust God for their food&rdquo; (Mishkat Al-Masabih 5625). May Allah make us have clean, cautious hearts full of tawakkul like the birds! Ameen.</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="ayaat"><span style="font-size:16px;">Additional Ayaat</span></h3>
+
+<div class="ayah">
+    <span class="albl">The Crouching (45:3&ndash;4)</span>
+    <span class="ar">إِنَّ فِى ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ لَءَايَٰتٍ لِّلْمُؤْمِنِينَ ۝ وَفِى خَلْقِكُمْ وَمَا يَبُثُّ مِن دَآبَّةٍ ءَايَٰتٌ لِّقَوْمٍ يُوقِنُونَ</span>
+    <p class="tr">&ldquo;There are signs in the heavens and the earth for those who believe: in the creation of you, in the creatures Allah scattered on earth, there are signs for people of sure faith.&rdquo;</p>
+</div>
+
+<div class="ayah">
+    <span class="albl">The Spider (29:60)</span>
+    <span class="ar">وَكَأَيِّن مِّن دَآبَّةٍ لَّا تَحْمِلُ رِزْقَهَا ٱللَّهُ يَرْزُقُهَا وَإِيَّاكُمْ ۚ وَهُوَ ٱلسَّمِيعُ ٱلْعَلِيمُ</span>
+    <p class="tr">&ldquo;How many are the creatures who do not store their sustenance! Allah sustains them and you: He alone is the All Hearing, the All Knowing.&rdquo;</p>
+    <p class="com">What are some animals that store their sustenance? What are animals that seek their food each day at a time? All are being provided for by Allah, regardless of how they attain their provisions. And so are we.</p>
+</div>
+
+<div class="ayah">
+    <span class="albl">The Night Journey (17:44)</span>
+    <span class="ar">تُسَبِّحُ لَهُ ٱلسَّمَٰوَٰتُ ٱلسَّبْعُ وَٱلْأَرْضُ وَمَن فِيهِنَّ ۚ وَإِن مِّن شَىْءٍ إِلَّا يُسَبِّحُ بِحَمْدِهِۦ وَلَٰكِن لَّا تَفْقَهُونَ تَسْبِيحَهُمْ ۗ إِنَّهُۥ كَانَ حَلِيمًا غَفُورًا</span>
+    <p class="tr">&ldquo;The seven heavens and the earth and everyone in them glorify Him. There is not a single thing that does not celebrate His praise, though you do not understand their praise: He is most forbearing, most forgiving.&rdquo;</p>
+    <p class="com">Everything you see around you glorifies Allah in its own way, though we do not understand how. What are some things you see around you right now that are doing <em>tasbeeh</em>? Why don&rsquo;t you join them for a moment?</p>
+</div>
+
+<div class="ayah">
+    <span class="albl">Originator (35:27&ndash;28)</span>
+    <span class="ar">أَلَمْ تَرَ أَنَّ ٱللَّهَ أَنزَلَ مِنَ ٱلسَّمَآءِ مَآءً فَأَخْرَجْنَا بِهِۦ ثَمَرَٰتٍ مُّخْتَلِفًا أَلْوَٰنُهَا ۚ وَمِنَ ٱلْجِبَالِ جُدَدٌۢ بِيضٌ وَحُمْرٌ مُّخْتَلِفٌ أَلْوَٰنُهَا وَغَرَابِيبُ سُودٌ ۝ وَمِنَ ٱلنَّاسِ وَٱلدَّوَآبِّ وَٱلْأَنْعَٰمِ مُخْتَلِفٌ أَلْوَٰنُهُۥ كَذَٰلِكَ ۗ إِنَّمَا يَخْشَى ٱللَّهَ مِنْ عِبَادِهِ ٱلْعُلَمَٰٓؤُا۟ ۗ إِنَّ ٱللَّهَ عَزِيزٌ غَفُورٌ</span>
+    <p class="tr">&ldquo;Have you not considered how Allah sends water down from the sky and that We produce with it fruits of varied colours; that there are in the mountains layers of white and red of various hues, and jet black; that there are various colours among human beings, wild animals, and livestock too? It is those of His servants who have knowledge who stand in true awe of Allah. Allah is almighty, most forgiving.&rdquo;</p>
+    <p class="com">What different colorations did you see on animals today? What about in other parts of creation? This variety of color is a sign from Allah, as well as a mercy to us &mdash; He beautified the world for us to enjoy and to connect to Him!</p>
+</div>
+
+<div class="ayah">
+    <span class="albl">The Pilgrimage (22:18)</span>
+    <span class="ar">أَلَمْ تَرَ أَنَّ ٱللَّهَ يَسْجُدُ لَهُۥ مَن فِى ٱلسَّمَٰوَٰتِ وَمَن فِى ٱلْأَرْضِ وَٱلشَّمْسُ وَٱلْقَمَرُ وَٱلنُّجُومُ وَٱلْجِبَالُ وَٱلشَّجَرُ وَٱلدَّوَآبُّ وَكَثِيرٌ مِّنَ ٱلنَّاسِ ۖ وَكَثِيرٌ حَقَّ عَلَيْهِ ٱلْعَذَابُ ۗ وَمَن يُهِنِ ٱللَّهُ فَمَا لَهُۥ مِن مُّكْرِمٍ ۚ إِنَّ ٱللَّهَ يَفْعَلُ مَا يَشَآءُ</span>
+    <p class="tr">&ldquo;Do you not realize [Prophet] that everything in the heavens and earth submits to Allah: the sun, the moon, the stars, the mountains, the trees, and the animals? So do many human beings, though for many others punishment is well deserved. Anyone disgraced by Allah will have no one to honour him: Allah does whatever He will.&rdquo;</p>
+    <p class="com">Almost all of creation submits to the will of Allah. Humans are given the choice. Will we be like the vast majority of creation and do the natural thing by submitting to our Creator, or be within the minority that deviates from the natural by disobeying Him?</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="movements"><span style="font-size:16px;">Meaningful Movements</span></h3>
+<p class="note">A flow of movements to get kids&rsquo; energy out at the beginning, or help them calm down at the end of the walk.</p>
+
+<div class="mv">
+    <div class="mvn">1</div>
+    <p>Begin by thinking of Salaam/Peace within you. Stand tall and open your arms wide like a pelican spreading its wings. Take a slow deep breath in as you lift your arms up, then breathe out slowly as you swoop them gently down, bending your knees like you&rsquo;re gliding in to land on the water. Stay here for a breath, then rise slowly and repeat for a few more slow sweeps.</p>
+</div>
+<div class="mv">
+    <div class="mvn">2</div>
+    <p>Next transition to a flamingo! Slowly shift your weight on one leg and bring your palms pressed together. Balance on one foot, then slowly tuck your chin toward your chest and look down. Notice how much harder balance is now! Hold for a few slow breaths, then lift your head back up. Switch feet and repeat on the other side.</p>
+</div>
+<div class="mv">
+    <div class="mvn">3</div>
+    <p>Now make your way down to the ground, lay on your back, listening to the sounds of water. Imagine that you&rsquo;re a sea otter floating! Place your hands on your belly. Breathe in slowly and feel your belly rise like the otter&rsquo;s tummy above the water. Breathe out and feel it fall. On each exhale, let your arms float out wide. You can also lift your head for a belly crunch while you float your arms up and down as you breathe.</p>
+</div>
+<div class="mv">
+    <div class="mvn">4</div>
+    <p>Now bring yourself up to a seated position and think of swans. Swans paddle calmly on top of water but work hard underneath! Sit tall with a long graceful neck, take a deep inhale and roll your shoulders up to your ears, and with an exhale, roll them down your back and away from your ears. Keep your legs crisscrossed, flex your feet at the ankles, squeeze your toes and then extend and release them slowly, one foot then the other, like paddling. Breathe slow and steady the whole time.</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="morenature"><span style="font-size:16px;">More Nature Activities</span></h3>
+<p class="note">Here are more activities to try, whether as a group with your pod or individually at home.</p>
+
+<div class="act">
+    <div class="ah">For Kids 1&ndash;4: Webbed Feet Paddle Test</div>
+    <div class="ab2">
+        <p><em>Watch how Allah designed ducks, otters, and beavers with built-in paddles &mdash; and try it yourself!</em></p>
+        <div class="img-block">
+            <img src="images/image6.png" alt="Webbed foot paddle experiment with popsicle sticks and plastic wrap in a water tub" style="width:300px;max-width:100%;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>3 popsicle sticks per child</li>
+            <li>Saran wrap / plastic wrap</li>
+            <li>Tape</li>
+            <li>Scissors</li>
+            <li>Small tub or basin filled with water</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Tape 3 popsicle sticks side by side, leaving a little space between them, like spread-out fingers.</li>
+            <li>Cut a piece of Saran wrap and stretch it across the sticks, covering the gaps between them. Wrap the Saran multiple times or tape it down on both sides. This is your &ldquo;webbed foot.&rdquo;</li>
+            <li>Fill a tub with water.</li>
+            <li>First, dip just 3 fingers into the water and paddle. Feel how much (or how little) water your fingers push.</li>
+            <li>Now use the webbed stick paddle and feel the difference: it catches and pushes much more water with every stroke.</li>
+            <li>Talk about it: which one would help you swim faster? Allah gave water animals like ducks, otters, and beavers this exact design &mdash; a wider surface to push more water with less effort.</li>
+        </ol>
+        <p style="font-size:13px;color:var(--fnt);margin-top:12px;">Video tutorial: <a href="https://www.youtube.com/watch?v=RNcpGf3kDH8">Link</a></p>
+    </div>
+</div>
+
+<div class="act">
+    <div class="ah">For Kids 5&ndash;8: Bird Beak Challenge</div>
+    <div class="ab2">
+        <p><em>Every bird&rsquo;s beak is perfectly designed for what and where it eats. Try them all and feel the difference.</em></p>
+        <div class="img-block">
+            <img src="images/image9.png" alt="Chart showing different bird beak types and their feeding adaptations" style="width:320px;max-width:100%;">
+        </div>
+        <h5>The &ldquo;Beaks&rdquo;</h5>
+        <ul>
+            <li>Chopsticks or long wooden skewers (heron&rsquo;s spear)</li>
+            <li>Slotted spoon or small strainer (duck&rsquo;s bill)</li>
+            <li>Tweezers or clothespin (small songbird&rsquo;s beak)</li>
+            <li>Small paper cup or soup ladle (pelican&rsquo;s scoop)</li>
+        </ul>
+        <h5>The &ldquo;Habitats and Food&rdquo;</h5>
+        <ul>
+            <li>Tall narrow vase or plastic bottle with top cut off, filled with water and floating grapes or marshmallows (deep water)</li>
+            <li>Wide shallow bowl filled with water and mud or sand, with small beads or dry beans mixed in (muddy shallows)</li>
+            <li>Plate of dry rice or sunflower seeds (dry land)</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Set up the three habitats on a table before the kids arrive.</li>
+            <li>Hand a child the duck bill (slotted spoon) and give them 15 seconds to pick up seeds from the dry plate. Watch them struggle &mdash; a flat spoon is terrible at grabbing tiny seeds.</li>
+            <li>Now move the same child to the muddy shallows bowl with the same spoon. Watch it scoop up beans while water and sand drain right through &mdash; exactly what a real duck&rsquo;s bill does.</li>
+            <li>Switch to the heron&rsquo;s spear (chopsticks) and ask them to retrieve a grape from the tall vase without knocking it over. Only a long, precise tool reaches.</li>
+            <li>Rotate kids through the stations, swapping beaks and habitats so everyone gets to feel what works and what doesn&rsquo;t.</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">Which beak worked in more than one habitat? Which only worked in one?</p>
+        <p class="da">Specialist beaks (heron&rsquo;s spear, pelican&rsquo;s scoop) are highly effective in one setting but useless elsewhere. The tweezers work across a few habitats but aren&rsquo;t exceptional in any. Allah designed each beak for a specific life, not a general one.</p>
+        <p class="dq">What would happen to a heron if its wetland dried up?</p>
+        <p class="da">Its spear-beak is useless on dry land seeds or in muddy shallows. Habitat loss hits specialist animals hardest: their design only works in one place.</p>
+        <p class="dq">Which &ldquo;beak&rdquo; felt most satisfying to use and why?</p>
+        <p class="da">Draw out the idea that the right tool in the right context feels effortless, while the wrong one feels frustrating no matter how hard you try.</p>
+    </div>
+</div>
+
+<div class="act">
+    <div class="ah">For Kids 5&ndash;12: Beaver Dam Engineering Challenge</div>
+    <div class="ab2">
+        <p><em>Beavers are some of the most remarkable engineers in the animal world &mdash; and they do it all with their teeth, claws, and instinct. Can your team build something that holds back water?</em></p>
+        <div class="img-block">
+            <img src="images/image4.png" alt="Beaver dam built from sticks and mud in a river with autumn trees" style="width:440px;max-width:100%;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Large plastic tray, bin, or use a shallow section of a natural stream if available</li>
+            <li>Water (if not near a natural source)</li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>Sticks of varying sizes</li>
+            <li>Mud (collected on site)</li>
+            <li>Leaves, bark, pebbles</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Set the challenge: build a dam across your tray or a section of stream that slows or holds back water. You have 10 minutes.</li>
+            <li>Collect your materials from the surrounding area: sticks, mud, leaves, stones.</li>
+            <li>Build! Encourage teams to experiment with layering (sticks first, then mud packed in, then more sticks).</li>
+            <li>Test by slowly pouring water on one side or allowing the stream to flow. How well does it hold?</li>
+            <li>Observe what happens over time: does the mud seal tighten as it gets wet? Does anything shift or break?</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">What was the weakest point in your dam and what would you fix?</p>
+        <p class="da">Usually gaps between sticks where mud didn&rsquo;t seal. Beavers solve this by constantly patching and reinforcing. Maintenance never stops.</p>
+        <p class="dq">Why do beavers bother building dams at all?</p>
+        <p class="da">The pond they create does everything: deep water doesn&rsquo;t freeze solid in winter so they can swim to food stores under the ice, the depth hides their lodge entrance from predators, and the wetland it creates supports an entire ecosystem of animals that depend on it.</p>
+        <p class="dq">Allah gave beavers no blueprints and no teachers, yet every beaver builds the same way. What does that tell us?</p>
+        <p class="da">Open reflection. For ages 9&ndash;12: Give them 5 minutes to redesign after the first test. What did they change? Did it hold better?</p>
+    </div>
+</div>
+
+<div class="act">
+    <div class="ah">For Kids 5&ndash;12: Floating Nest Challenge</div>
+    <div class="ab2">
+        <p><em>Grebes, water birds found on Texas lakes and reservoirs, build nests that float on the surface of the water, anchored to reeds. They rise and fall with the water level, never flooding. Can you build one that holds an &ldquo;egg&rdquo;?</em></p>
+        <div class="img-block">
+            <img src="images/image3.png" alt="Duck or grebe sitting on a floating nest made from reeds and plant material" style="width:430px;max-width:100%;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Small rock or large marble per team (the &ldquo;egg&rdquo;)</li>
+            <li>Large bowl or tub of water for testing</li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>Reeds, sticks, leaves, dried grasses, seed heads &mdash; whatever is available on the trail</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Introduce the challenge: build a floating nest from natural materials that (a) floats, and (b) holds the &ldquo;egg&rdquo; without it falling off or sinking.</li>
+            <li>Collect materials along the trail before settling in to build.</li>
+            <li>Build your nest: weave, stack, and layer as needed.</li>
+            <li>Place it in the water. Does it float? Place the egg in the center. Does it hold?</li>
+            <li>Gently create small waves. Does the nest survive the movement?</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">What materials floated best and which sank? Did that surprise you?</p>
+        <p class="da">Dense or waterlogged materials sink fast. Dry, fibrous, and hollow materials trap air and float. Allah has taught grebes which material to select.</p>
+        <p class="dq">How did you distribute the weight of the egg?</p>
+        <p class="da">A wide, flat base spreads weight across more surface area. A narrow or lopsided nest tips easily, which is the same challenge a real grebe faces.</p>
+        <p class="dq">Allah designed the grebe to build a floating home with no tools and no instruction. What does that mean for how we think about instinct?</p>
+        <p class="da">Open reflection. For ages 9&ndash;12: Redesign after the first test. What one change made the biggest difference?</p>
+    </div>
+</div>
+
+<div class="act">
+    <div class="ah">For Kids 9&ndash;12: Hollow Bones vs. Dense Bones</div>
+    <div class="ab2">
+        <p><em>Diving birds like grebes and cormorants can actually adjust how deep they sink by controlling how much air is in their bones and air sacs. Most birds have hollow bones to stay light, but not all of them.</em></p>
+        <div class="img-block">
+            <img src="images/image1.png" alt="Clear container with straw and wooden dowel demonstrating hollow vs solid density" style="width:340px;max-width:100%;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>2 similarly sized objects of very different weight (e.g., a solid wooden dowel vs. a straw of the same length; or a solid rubber ball vs. a ping pong ball)</li>
+            <li>A basin or tub of water</li>
+            <li>A kitchen scale (optional but great)</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Before testing: hold one object in each hand. Which feels heavier? Make a prediction: which will float, which will sink, which will do something in between?</li>
+            <li>Place both objects in the water. Observe: does the denser one sink faster? Does the hollow one float or bob?</li>
+            <li>If using a scale: weigh both objects and calculate the difference. How much less does the hollow one weigh?</li>
+            <li>Note that some diving birds like cormorants actually have denser bones than most birds. It helps them sink below the surface to chase fish. Not all birds are built the same way.</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">Most birds have hollow bones for flight, but cormorants have denser bones to help them dive. What does that trade-off mean?</p>
+        <p class="da">Denser bones make cormorants heavier and less efficient in the air, but far more effective underwater. They&rsquo;re built for diving first, flying second. Allah optimized each creature for its primary role.</p>
+        <p class="dq">If a bird has hollow bones and still needs to dive, how does it manage?</p>
+        <p class="da">Some birds compensate through the angle they enter the water, strong swimming strokes, and using their wings as paddles underwater. Gannets dive from great heights and use the momentum of impact to plunge deep despite being relatively light-boned.</p>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="art"><span style="font-size:16px;">Artistic Expressions</span></h3>
+<p class="note">Let your heart guide you to create a beautiful work of nature art. Use Allah&rsquo;s divine creations as inspiration!</p>
+
+<div class="act">
+    <div class="ah">Feather Printing</div>
+    <div class="ab2">
+        <p>Press, layer, and build your own plumage.</p>
+        <div class="img-block">
+            <img src="images/image8.png" alt="Feather prints in purple paint on white paper next to a real feather" style="width:400px;max-width:100%;">
+            <p class="img-caption">Reference tutorial: <a href="https://earlylearningideas.com/paint-with-feathers/">earlylearningideas.com</a></p>
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Craft feathers in a few sizes</li>
+            <li>Washable paint in several colors</li>
+            <li>Paper (cardstock works best)</li>
+            <li>Small paint trays or paper plates for spreading paint</li>
+            <li>Wet wipes or damp cloth for cleanup</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Spread a thin layer of paint onto the tray or plate.</li>
+            <li>Press the feather gently into the paint, coating one side evenly.</li>
+            <li>Press the painted feather onto the paper &mdash; experiment with pressure, angle, and overlap.</li>
+            <li>Layer different feathers and colors to build up a wing or full bird plumage pattern.</li>
+            <li>Try dragging the feather lightly across the page for a different texture, or pressing just the tip for fine detail.</li>
+        </ol>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="olderkids"><span style="font-size:16px;">Information for Older Kids &amp; Printables</span></h3>
+<ul>
+    <li><a href="https://drive.google.com/file/d/1iYCPMwuhbedrjy6d4IaOrhk5GVXQlqQ8/view?usp=drive_link">Weekly journal page</a></li>
+    <li><a href="https://drive.google.com/file/d/1vrNJjJEmE-0kM3yS9LBC52M5DH3M4UKN/view?usp=drive_link">Weekly summary document</a></li>
+    <li><a href="https://drive.google.com/file/d/1Ihze_iNPko1j5bxbru406eWfUlJ2ppLa/view?usp=drive_link">Printable charts: Water adaptations, water animals bingo, beak adaptations</a></li>
+    <li><a href="https://avianreport.com/guide-wetland-birds-texas/">Wetland Birds of Texas</a></li>
+    <li><a href="https://www.sciencejournalforkids.org/wp-content/uploads/2021/01/Allis_shad_article.pdf">Why are catfish bad neighbors for allis shad? | Science Journal for Kids</a></li>
+    <li><a href="https://www.sciencejournalforkids.org/wp-content/uploads/2025/04/whale-dna_article.pdf">How did mammals evolve to live in the sea?</a></li>
+</ul>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="footer">&copy; Khulafa Al-Ardh Nature Curriculum &middot; Rhythm: Water &middot; Week 5</div>
+
+</body>
+</html>
