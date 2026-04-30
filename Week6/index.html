@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 6: In and Around the Water: Cold-Blooded Life</title>
+    <style id="hide-content">body > *:not(#pw-overlay) { display: none !important; }</style>
+    <style>
+        :root {
+            --w: #2B6CB0;
+            --wl: #EBF4FF;
+            --wm: #BEE3F8;
+            --wd: #1A365D;
+            --green: #276749;
+            --gl: #F0FFF4;
+            --sand: #FFF8EE;
+            --sd: #E2CAAA;
+            --rule: #CBD5E0;
+            --acc: #C05621;
+            --ink: #1a1a1a;
+            --mut: #555;
+            --fnt: #888;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--ink);
+            background: #FAFAF7;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        /* COVER */
+        .cover {
+            text-align: center;
+            padding: 52px 24px 40px;
+            border-bottom: 1px solid var(--rule);
+            margin-bottom: 48px;
+        }
+
+        .ey {
+            font-size: 11px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin-bottom: 14px;
+        }
+
+        .ey a {
+            color: var(--w);
+            text-decoration: underline;
+        }
+
+        .cover h1 {
+            font-size: clamp(24px, 5vw, 38px);
+            font-weight: bold;
+            line-height: 1.2;
+            color: var(--wd);
+            margin-bottom: 10px;
+        }
+
+        .cs {
+            font-style: italic;
+            color: var(--mut);
+            font-size: 15px;
+        }
+
+        /* PART HEADERS */
+        .ph {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 48px 0 24px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--w);
+        }
+
+        .pn {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            white-space: nowrap;
+            padding-right: 14px;
+            border-right: 1px solid var(--rule);
+        }
+
+        .ph h2 {
+            font-size: 20px;
+            color: var(--wd);
+        }
+
+        /* TYPOGRAPHY */
+        h3 {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin: 34px 0 12px;
+        }
+
+        h4 {
+            font-size: 16px;
+            color: var(--ink);
+            margin: 20px 0 7px;
+        }
+
+        p {
+            margin-bottom: 12px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul,
+        ol {
+            padding-left: 22px;
+            margin-bottom: 12px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        a {
+            color: var(--w);
+        }
+
+        /* ITALIC NOTE */
+        .note {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--fnt);
+            background: #F5F5F2;
+            border-left: 2px solid var(--rule);
+            padding: 8px 14px;
+            margin-bottom: 16px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* DUA */
+        .dua {
+            background: var(--wl);
+            border-left: 3px solid var(--w);
+            border-radius: 0 6px 6px 0;
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+
+        .ar {
+            font-size: 22px;
+            line-height: 2;
+            text-align: right;
+            direction: rtl;
+            color: var(--wd);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .tr {
+            font-style: italic;
+            color: var(--mut);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .src {
+            font-size: 12px;
+            color: var(--fnt);
+            margin-top: 5px;
+        }
+
+        /* AYAH */
+        .ayah {
+            background: var(--sand);
+            border: 1px solid var(--sd);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .ayah .ar {
+            color: var(--acc);
+            font-size: 20px;
+        }
+
+        .albl {
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: .05em;
+            color: var(--acc);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .com {
+            border-top: 1px solid var(--sd);
+            margin-top: 11px;
+            padding-top: 11px;
+            font-size: 14px;
+            color: var(--mut);
+            font-style: italic;
+        }
+
+        /* ASMA */
+        .asma {
+            background: var(--wd);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 20px 0;
+            display: flex;
+            gap: 22px;
+            align-items: flex-start;
+        }
+
+        .aar {
+            font-size: 28px;
+            line-height: 1.5;
+            color: var(--wm);
+            white-space: nowrap;
+            flex-shrink: 0;
+            direction: rtl;
+        }
+
+        .ab .nm {
+            font-size: 17px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 3px;
+        }
+
+        .ab .mn {
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--wm);
+            margin-bottom: 9px;
+        }
+
+        .ab p {
+            color: rgba(255, 255, 255, .85);
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        /* AGE GRID */
+        .ag {
+            display: flex;
+            gap: 0;
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+
+        .ac {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ac:not(:last-child) {
+            border-right: 1px solid var(--rule);
+        }
+
+        .ach {
+            background: var(--wd);
+            color: white;
+            font-size: 11px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 10px 13px;
+            text-align: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .acb {
+            padding: 13px 15px;
+            font-size: 14px;
+            line-height: 1.65;
+            flex: 1;
+        }
+
+        .ac:nth-child(odd) .acb {
+            background: var(--wl);
+        }
+
+        .ac:nth-child(even) .acb {
+            background: white;
+        }
+
+        .acb p {
+            margin-bottom: 9px;
+        }
+
+        .acb p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media(max-width:560px) {
+            .ag {
+                flex-direction: column;
+            }
+
+            .ac:not(:last-child) {
+                border-right: none;
+                border-bottom: 1px solid var(--rule);
+            }
+
+            .acb {
+                background: var(--wl) !important;
+            }
+
+            .asma {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* STORY */
+        .story {
+            border: 1px solid var(--sd);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+
+        .sh {
+            background: var(--acc);
+            color: white;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .sb {
+            padding: 20px;
+            background: var(--sand);
+        }
+
+        .sb .note {
+            margin-bottom: 13px;
+        }
+
+        .sb ul {
+            padding-left: 20px;
+        }
+
+        .sb li {
+            margin-bottom: 9px;
+            font-size: 15px;
+        }
+
+        .tw {
+            margin-top: 16px;
+            padding-top: 13px;
+            border-top: 1px solid var(--sd);
+        }
+
+        .tw h5 {
+            font-size: 10px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--acc);
+            margin-bottom: 7px;
+        }
+
+        .sf {
+            background: white;
+            border-top: 1px solid var(--sd);
+            padding: 10px 20px;
+            font-size: 12px;
+            color: var(--fnt);
+        }
+
+        /* READ ALOUDS */
+        .reads {
+            display: flex;
+            gap: 10px;
+            margin: 16px 0;
+        }
+
+        .rc {
+            flex: 1;
+            background: var(--wl);
+            border: 1px solid var(--wm);
+            border-radius: 6px;
+            padding: 13px 15px;
+        }
+
+        .ra {
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--w);
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .rc ul {
+            padding-left: 14px;
+        }
+
+        .rc li {
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        @media(max-width:560px) {
+            .reads {
+                flex-direction: column;
+            }
+        }
+
+        /* ACTIVITY CARD */
+        .act {
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+
+        .ah {
+            background: var(--w);
+            color: white;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .ab2 {
+            padding: 20px;
+        }
+
+        .ab2 h5 {
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin: 16px 0 7px;
+        }
+
+        .ab2 h5:first-child {
+            margin-top: 0;
+        }
+
+        .ab2 ul,
+        .ab2 ol {
+            padding-left: 20px;
+            margin-bottom: 9px;
+        }
+
+        .ab2 li {
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .ab2 p {
+            font-size: 15px;
+        }
+
+        /* DISCUSSION */
+        .disc {
+            background: var(--gl);
+            border-top: 1px solid #C6F6D5;
+            padding: 16px 20px;
+        }
+
+        .disc h5 {
+            color: var(--green);
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin: 0 0 11px;
+        }
+
+        .dq {
+            font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 3px;
+            color: #1a4731;
+            font-style: italic;
+        }
+
+        .da {
+            font-size: 14px;
+            color: var(--mut);
+            margin-bottom: 13px;
+            padding-left: 11px;
+            border-left: 2px solid #9AE6B4;
+        }
+
+        .da:last-child {
+            margin-bottom: 0;
+        }
+
+        /* HADITH */
+        .hadith {
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 24px 0;
+            background: white;
+        }
+
+        .hq {
+            font-size: 15px;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--ink);
+            margin: 12px 0;
+            padding-left: 14px;
+            border-left: 3px solid var(--w);
+        }
+
+        .hrf {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--rule);
+            font-size: 15px;
+            color: var(--mut);
+            font-style: italic;
+        }
+
+        /* MOVEMENTS */
+        .mv {
+            display: flex;
+            gap: 13px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+
+        .mvn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--wl);
+            border: 1.5px solid var(--wm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 12px;
+            color: var(--w);
+            font-weight: bold;
+        }
+
+        .mv p {
+            font-size: 15px;
+            margin: 0;
+        }
+
+        /* MISC */
+        .snack {
+            background: var(--gl);
+            border: 1px solid #C6F6D5;
+            border-radius: 6px;
+            padding: 11px 16px;
+            font-size: 14px;
+            color: var(--green);
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        ul.plain {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        ul.plain li {
+            padding: 3px 0 3px 15px;
+            position: relative;
+            font-size: 15px;
+        }
+
+        ul.plain li::before {
+            content: '\2014';
+            position: absolute;
+            left: 0;
+            color: var(--w);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--rule);
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--fnt);
+        }
+
+        /* NAV MENU */
+        .nav-menu {
+            background: var(--wl);
+            border: 1px solid var(--wm);
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin-bottom: 44px;
+        }
+        .nav-menu-title {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin-bottom: 14px;
+            font-family: Georgia, serif;
+        }
+        .nav-part {
+            margin-bottom: 10px;
+        }
+        .nav-part-label {
+            font-size: 13px;
+            font-weight: bold;
+            color: var(--wd);
+            margin-bottom: 4px;
+        }
+        .nav-part-label a {
+            color: var(--wd);
+            text-decoration: none;
+        }
+        .nav-part-label a:hover { text-decoration: underline; }
+        .nav-sub {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .nav-sub li a {
+            font-size: 12px;
+            color: var(--w);
+            text-decoration: none;
+            background: white;
+            border: 1px solid var(--wm);
+            border-radius: 4px;
+            padding: 3px 10px;
+            display: inline-block;
+        }
+        .nav-sub li a:hover { background: var(--wm); }
+
+        /* BACK TO TOP */
+        .back-top {
+            text-align: right;
+            margin: 32px 0 8px;
+            padding-top: 12px;
+            border-top: 1px solid var(--rule);
+        }
+        .back-top a {
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--fnt);
+            text-decoration: none;
+        }
+        .back-top a:hover { color: var(--w); }
+
+        /* IMAGES */
+        .img-block {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .img-block img {
+            max-width: 100%;
+            border-radius: 6px;
+        }
+        .img-block .img-caption {
+            font-size: 12px;
+            color: var(--fnt);
+            margin-top: 6px;
+        }
+
+        /* SECTION SUBTITLE */
+        .sub-h {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--ink);
+            margin: 24px 0 8px;
+        }
+
+        /* CHARACTER CONNECTION */
+        .char-connect {
+            background: #F0F4FF;
+            border: 1px solid #C3D0EE;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+        .char-connect h4 {
+            color: var(--wd);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .char-connect p {
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="pw-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#FAFAF7;display:flex;align-items:center;justify-content:center;z-index:9999;font-family:Georgia,serif;">
+  <div style="text-align:center;padding:40px;max-width:340px;width:90%;">
+    <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#2B6CB0;margin-bottom:16px;">Khulafa Al-Ardh Nature Pods</div>
+    <h2 style="font-size:22px;color:#1A365D;margin-bottom:8px;">Members Only</h2>
+    <p style="font-size:14px;color:#555;margin-bottom:24px;">Enter the password to access this week&rsquo;s lesson plan.</p>
+    <input id="pw-input" type="password" placeholder="Password" style="width:100%;padding:10px 14px;font-size:16px;border:1px solid #CBD5E0;border-radius:6px;box-sizing:border-box;margin-bottom:4px;outline:none;" />
+    <div style="text-align:right;margin-bottom:12px;">
+      <span onclick="togglePw()" style="font-size:12px;color:#2B6CB0;cursor:pointer;user-select:none;" id="pw-toggle">Show password</span>
+    </div>
+    <button onclick="checkPassword()" style="width:100%;padding:10px;background:#2B6CB0;color:#fff;font-size:15px;border:none;border-radius:6px;cursor:pointer;">Enter</button>
+    <p id="pw-error" style="color:#C05621;font-size:13px;margin-top:12px;display:none;">Incorrect password. Please check with your pod leader.</p>
+  </div>
+</div>
+<script>
+  if (sessionStorage.getItem("kaanp_auth") === "1") {
+    document.getElementById("pw-overlay").style.display = "none";
+    document.getElementById("hide-content").remove();
+  }
+  document.getElementById("pw-input").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") checkPassword();
+  });
+  function togglePw() {
+    var input = document.getElementById("pw-input");
+    var toggle = document.getElementById("pw-toggle");
+    if (input.type === "password") {
+      input.type = "text";
+      toggle.textContent = "Hide password";
+    } else {
+      input.type = "password";
+      toggle.textContent = "Show password";
+    }
+  }
+  function checkPassword() {
+    var val = document.getElementById("pw-input").value;
+    if (val === "KAANP-Water!") {
+      sessionStorage.setItem("kaanp_auth", "1");
+      document.getElementById("pw-overlay").remove();
+      document.getElementById("hide-content").remove();
+    } else {
+      document.getElementById("pw-error").style.display = "block";
+      document.getElementById("pw-input").value = "";
+      document.getElementById("pw-input").focus();
+    }
+  }
+</script>
+
+<div class="cover">
+    <div class="ey">Khulafa Al-Ardh &middot; <a href="../index.html">Rhythm: Water</a> &middot; Week 6</div>
+    <h1>In and Around the Water: Cold-Blooded Life</h1>
+</div>
+
+<div class="nav-menu" id="top">
+    <div class="nav-menu-title">Jump to section</div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part1">Part 1 &nbsp;|&nbsp; Blessed Beginnings</a></div>
+        <ul class="nav-sub">
+            <li><a href="#duaa">Opening Duaa</a></li>
+            <li><a href="#intro">An Introduction</a></li>
+            <li><a href="#discovery">Discovery Den</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part2">Part 2 &nbsp;|&nbsp; Walking with Intention</a></div>
+        <ul class="nav-sub">
+            <li><a href="#asma">The Most Beautiful of Names</a></li>
+            <li><a href="#observing">Observing on the Move</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part3">Part 3 &nbsp;|&nbsp; Grounding in Gratitude</a></div>
+        <ul class="nav-sub">
+            <li><a href="#stories">Stories for Blooming Hearts</a></li>
+            <li><a href="#readalouds">Suggested Read-Alouds</a></li>
+            <li><a href="#activity">Hands-On Activity</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part4">Part 4 &nbsp;|&nbsp; Slowing the Flow</a></div>
+        <ul class="nav-sub">
+            <li><a href="#tadabbur">Tadabbur Among the Trees</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#addendum">Addendum &nbsp;|&nbsp; Further Enrichment</a></div>
+        <ul class="nav-sub">
+            <li><a href="#prophetic">Prophetic Wisdom</a></li>
+            <li><a href="#ayaat">Additional Ayaat</a></li>
+            <li><a href="#movements">Meaningful Movements</a></li>
+            <li><a href="#morenature">More Nature Activities</a></li>
+            <li><a href="#art">Artistic Expressions</a></li>
+            <li><a href="#olderkids">Information for Older Kids &amp; Printables</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- PART 1 -->
+<div class="ph" id="part1"><span class="pn">Part 1</span>
+    <h2>Blessed Beginnings</h2>
+</div>
+<p class="note">Set the tone for the walk and introduce the topic before beginning the walk. This should take between 5&ndash;10 minutes &mdash; nothing longer than the attention spans of the kids.</p>
+
+<h3 id="duaa"><span style="font-size:16px;">Opening Duaa</span></h3>
+<p class="note">Start with a duaa for protection from harm and evil. The duaa can be led by either the walk leader or a child who has the duaa memorized.</p>
+<div class="dua">
+    <span class="ar">أَعُوذُ بِكَلِمَاتِ اللهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</span>
+    <p class="tr">&ldquo;I seek refuge in the perfect words of Allah from the evil of what He has created.&rdquo;</p>
+</div>
+<div class="dua">
+    <span class="ar">بِسْمِ اللهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</span>
+    <p class="tr">&ldquo;In the Name of Allah, with whose Name nothing in the earth or the heavens can cause harm. He is the All-Hearing, the All-Knowing.&rdquo;</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="intro"><span style="font-size:16px;">An Introduction to Cold-Blooded Life</span></h3>
+<p class="note">Introduce the topic to the kids. Share the opening ayah and how it ties to the week&rsquo;s topic.</p>
+<div class="ayah">
+    <span class="ar">وَٱللَّهُ خَلَقَ كُلَّ دَآبَّةٍ مِّن مَّآءٍ ۖ فَمِنْهُم مَّن يَمْشِى عَلَىٰ بَطْنِهِۦ وَمِنْهُم مَّن يَمْشِى عَلَىٰ رِجْلَيْنِ وَمِنْهُم مَّن يَمْشِى عَلَىٰٓ أَرْبَعٍ ۚ يَخْلُقُ ٱللَّهُ مَا يَشَآءُ ۚ إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ</span>
+    <p class="tr">&ldquo;Allah has created every animal from water. Of them some move on their bellies, some move on two legs and some on four. Allah creates whatever He wills. Surely Allah has power over everything.&rdquo;</p>
+    <p class="src">Surah An-Nur 24:45</p>
+    <p class="com">We have seen how animals form communities just as we do, and how that is an incredible sign from Allah. In this ayah, Allah highlights the diversity found in the way different animals move about: belly crawling, bipedalism, quadrupedalism, and more. Today, we will study animals that have unique locomotion &mdash; some terrestrial, some aquatic, and some a combination of both. What these creatures have in common is not how they move, but how they regulate their body temperature. Today, we will study cold-blooded animals, or animals who rely on external environmental conditions to help regulate their body temperature.</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="discovery"><span style="font-size:16px;">Discovery Den</span></h3>
+<p class="note">This is information to share with the kids. What you share and the level of detail will depend on the ages of the kids in your pod. Use your discretion.</p>
+
+<p>Last week, we looked at the birds and mammals that splash in our local waters, all wrapped in waterproof feathers and warm, waterproof fur. But what about the animals that don&rsquo;t have fur or feathers to keep them warm? Today, we are exploring the secret lives of fish, amphibians, reptiles, and macroinvertebrates &mdash; the incredible &ldquo;cold-blooded&rdquo; creatures that call our creeks and lakes home!</p>
+
+<h4>The Divine Design: Perfect Form and Guidance</h4>
+<p>When we look at a turtle baking in the sun or a frog resting in the cool mud, we are watching Allah&rsquo;s perfect programming in action. Allah didn&rsquo;t give a turtle a built-in heater like He gave a beaver. Instead, He gave the turtle a different <em>form</em> (a dark shell to absorb heat) and <em>guidance</em> (the instinct to climb onto a sunny log). Every single creature, no matter how weird or slimy, was given exactly what it needs to survive!</p>
+
+<h4>The Science: What is &ldquo;Cold-Blooded&rdquo;?</h4>
+<p>Scientists use the word <strong>Ectothermic</strong> (ecto = outside, thermic = heat) for cold-blooded animals.</p>
+<ul>
+    <li><strong>Solar-Powered Animals:</strong> Humans are warm-blooded; our bodies act like little ovens to keep us at 98.6&deg;F, no matter how cold it is outside. Ectotherms (reptiles, amphibians, and fish) cannot make their own body heat. Their body temperature is exactly the same as the air or water around them!</li>
+    <li><strong>Nature&rsquo;s Thermostats:</strong> Because they can&rsquo;t sweat or shiver, they have to use their <em>behavior</em> to control their temperature. If a turtle is cold, it acts like a solar panel and basks in the sun. If it gets too hot, it slides back into the cool water.</li>
+    <li><strong>The Temperature Trick: Pause or Fast-Forward!</strong> Because macroinvertebrates are cold-blooded, the creek&rsquo;s temperature acts like a remote control for their bodies. Cold winter water hits &ldquo;pause,&rdquo; causing them to slow down, eat less, and burrow into the mud to sleep. But when spring warms the water, it hits &ldquo;fast-forward!&rdquo; The heat gives them the energy to become highly active, grow rapidly, and transform into adults &mdash; though they will smartly migrate to deeper, cooler pools if the shallow water gets too hot and loses oxygen in the peak of a Texas summer.</li>
+</ul>
+
+<h4>The Four Cold-Blooded Water Families</h4>
+<p>To understand who lives in the creek, we divide these solar-powered creatures into four main families:</p>
+<ul>
+    <li><strong>Fish:</strong> Live entirely underwater and breathe through gills.</li>
+    <li><strong>Amphibians (Frogs, Toads, Salamanders):</strong> Start their lives underwater breathing with gills (like tadpoles), but grow lungs once they mature in order to live on land. They have smooth, wet skin.</li>
+    <li><strong>Reptiles (Turtles, Snakes, Alligators):</strong> Have dry, scaly skin and lay leathery eggs on land, even though they spend most of their time swimming.</li>
+    <li><strong>Invertebrates (The Spineless Wonders):</strong> This is the biggest family of all! These are animals without a backbone. Instead of bones on the inside, many wear a hard armor shell on the outside (an exoskeleton), while others are completely soft-bodied. They are the tiny engines that keep the whole creek food web running! <em>(Examples: Crawdaddies, Snails, Dragonfly Nymphs, Mosquito Larvae, Water Striders)</em></li>
+</ul>
+
+<h4>Local Landmarks: The DFW Ectotherms</h4>
+<p>If you walk the trails near <strong>Lake Grapevine</strong> or the <strong>Elm Fork of the Trinity River</strong> on a sunny day, you are guaranteed to see these local residents! Please print the <a href="https://drive.google.com/file/d/13Qu5Oi-TiCmuSejlU2ZO85SoYkUeWxum/view?usp=drive_link">field guide</a> of common cold-blooded animals found in our local water systems, as well as the <a href="https://drive.google.com/file/d/17MYJRRZHlwhchxJAiN2gtRubq0mpccbT/view?usp=drive_link">chart</a> showing their coverings for adapting to their environment.</p>
+
+<ul>
+    <li><strong>The Red-Eared Slider (The Sunbather):</strong> This is the most common water turtle in Texas! They have a distinct red stripe behind their eye. You will often see them stacked on top of each other on logs in the water, trying to catch the most sunlight.</li>
+    <li><strong>The Diamondback Water Snake (The Swimmer):</strong> Many people are scared of snakes near the water, but this common North Texas snake is entirely non-venomous and harmless! They love to eat small fish and frogs. <em>(Note for Trackers: Even though they are safe, a good Khalifah always gives wild animals plenty of space!)</em></li>
+    <li><strong>The Alligator Gar (The River Dinosaur):</strong> This is one of the coolest fish in the Trinity River. They have long, narrow snouts filled with teeth, just like an alligator, and scales that are tough like armor. They look like prehistoric dinosaurs and can grow up to 8 feet long!</li>
+    <li><strong>Blanchard&rsquo;s Cricket Frog (The Tiny Jumper):</strong> A tiny, warty amphibian that lives on the muddy banks of our creeks. You usually hear them before you see them &mdash; their croak sounds exactly like two glass marbles clicking together!</li>
+</ul>
+
+<p>If you take a dip-net to the edges of the <strong>Elm Fork</strong>, you will find an alien world operating right under the surface!</p>
+
+<ul>
+    <li><strong>Dragonfly Nymphs (The Underwater Dragons):</strong> Before getting wings, baby dragonflies live entirely underwater! They are fierce hunters with spring-loaded jaws that shoot out to grab mosquito larvae or tadpoles.</li>
+    <li><strong>Water Striders (The Surface Skaters):</strong> These bugs use microscopic, water-repellent hairs on their legs to trap air bubbles. This lets them literally skate on the &ldquo;skin&rdquo; of the water (surface tension) without sinking!</li>
+    <li><strong>Mosquito Larvae (The Snorkelers):</strong> Baby mosquitoes look like tiny wiggling worms. Allah designed them with a tube on their tails that they use just like a snorkel, hanging upside down at the surface to breathe!</li>
+    <li><strong>Freshwater Snails (The Creek Sweepers):</strong> Nature&rsquo;s cleanup crew! They use a special tongue covered in thousands of microscopic teeth (like sandpaper) to scrape algae off underwater rocks.</li>
+    <li><strong>Crawdaddies (The Escape Artists):</strong> These mini freshwater lobsters wear heavy armor but breathe through hidden gills. To escape a heron, they flip their powerful fan-like tails to shoot backward in a cloud of mud!</li>
+</ul>
+
+<div class="char-connect">
+    <h4>Character Connection: The Wisdom of Stillness (<em>Muraqabah</em>)</h4>
+    <p>Cold-blooded animals are the absolute masters of stillness. A heron might stand still to hunt, but a turtle or a frog can sit perfectly motionless on a log for hours, just absorbing the sun and blending into their environment.</p>
+    <p style="margin-top:10px;">We live in a world that is always moving, rushing, and making noise. Sometimes, we forget to just stop and be still. In Islam, taking time to be quiet, still, and reflect on Allah&rsquo;s creation is a beautiful practice called <strong>Muraqabah</strong> (mindfulness or deep reflection).</p>
+    <p style="margin-top:10px;">When we see a turtle basking silently on a log at the local creek, it can be a gentle reminder for us to sit still, take a deep breath, clear our minds, and quietly say <em>SubhanAllah</em> (Glory be to Allah) for the beautiful world around us.</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- PART 2 -->
+<div class="ph" id="part2"><span class="pn">Part 2</span>
+    <h2>Walking with Intention</h2>
+</div>
+<p class="note">Now that we are all up to speed on this week&rsquo;s topic, let&rsquo;s start walking! The following are some conversations and activities to do as you walk. This should take about 30&ndash;60 minutes &mdash; again, nothing longer than the stamina of the kids.</p>
+
+<h3 id="asma"><span style="font-size:16px;">The Most Beautiful of Names</span></h3>
+<p class="note">Introduce the name of Allah and its basic meaning as you start your walk. Encourage the kids to reflect on the name throughout the walk, as well as mentioning it whenever relevant.</p>
+<div class="asma">
+    <div class="aar">الْبَدِيعُ</div>
+    <div class="ab">
+        <div class="nm">Al-Badee&lsquo;</div>
+        <div class="mn">The Originator</div>
+        <p>We have witnessed such incredible diversity in the animals we have studied &mdash; differences in their movement, their textures, how they eat and sustain themselves, and even how they regulate their body temperatures. And there is so much more diversity yet to be explored. All of this is the work of Al-Badee&lsquo;, the One Who Originated all that is novel, wonderful, marvelous, and unique! These animals and their systems are perfectly designed by their Creator. There is no better inspiration for human innovation than Allah&rsquo;s creation. Biomimicry is a means of problem solving by looking at natural models, systems, and elements. Even those who deny Allah cannot deny the spectacular marvel of His creation. If only they understood that the Creator is infinitely more amazing than His creation, and is capable of so much more than we can imagine!</p>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="observing"><span style="font-size:16px;">Observing on the Move</span></h3>
+<p class="note">Here are some observation prompts to help the kids tune into their environment and engage all of their senses.</p>
+<div class="ag">
+    <div class="ac">
+        <div class="ach">For Kids 1&ndash;4</div>
+        <div class="acb">
+            <p>Are there any cold-blooded creatures you see and can feel? How do they feel? Slimy, hard, cold, wet&hellip;?</p>
+            <p>Do you hear any cold-blooded animals making sounds? What do they sound like?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 5&ndash;8</div>
+        <div class="acb">
+            <p>How many slithery creatures can you observe today? On land and in the water?</p>
+            <p>How might the skin of a frog feel compared to that of an alligator? How might that be different from ours?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 9&ndash;12</div>
+        <div class="acb">
+            <p>Can you tell the difference between a crocodile and an alligator?</p>
+            <p>How do cold-blooded animals regulate their temperature compared to warm-blooded animals?</p>
+        </div>
+    </div>
+</div>
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- PART 3 -->
+<div class="ph" id="part3"><span class="pn">Part 3</span>
+    <h2>Grounding in Gratitude</h2>
+</div>
+<p class="note">Phew, that was a good walk! Let&rsquo;s pause and apply what we have learned and reflect on what we have observed.</p>
+
+<h3 id="stories"><span style="font-size:16px;">Stories for Blooming Hearts</span></h3>
+<p class="note">Share a story from our tradition that ties to this week&rsquo;s topic. Note that creating an engaging storytelling experience is on the storyteller; these are just the basic details. A story told from the heart will reach hearts!</p>
+<div class="story">
+    <div class="sh"><em>Musa AS and the Fish</em></div>
+    <div class="sb">
+        <ul>
+            <li>Musa AS was blessed with the miracle of the Tawrah and being able to speak to Allah SWT directly. When Musa AS was given the Tablets and was allowed to speak with Allah directly, he asked Allah, &ldquo;Who is more knowledgeable than me?&rdquo;</li>
+            <li>Allah SWT informed him that there was actually a man named Khidr that was more knowledgeable than Musa AS and lived on far away islands.</li>
+            <li>Musa AS asked Allah how he would find Khidr. Allah SWT told him that he would find Khidr at the rock on the shore. Musa AS asked how he would know where that location was. Allah SWT told him to take a fish with him and wherever the fish would escape from them is where they will find the rock and Khidr.</li>
+            <li>With sincerity and a thirst to learn, Musa AS set off on a journey with his student and assistant, Yusha&rsquo; bin Nun, to meet this man with knowledge given especially from Allah &mdash; Al-Khidr. Musa AS told Yusha&rsquo;, &ldquo;Let me know if the fish falls or gets lost from us.&rdquo;</li>
+            <li>As they were traveling, the fish slipped out of their bag and jumped back into the ocean!</li>
+            <li>When it was time to eat, Musa AS asked Yusha&rsquo; bin Nun to take the fish out.</li>
+            <li>Yusha&rsquo; told Musa AS that the fish had actually jumped out of the bag earlier but he forgot to tell Musa AS.</li>
+            <li>They returned to the place where the fish slipped out of the bag and sure enough it was where the rock was that Allah SWT had told Musa AS about.</li>
+            <li>Finally, Musa AS met Khidr, the teacher he&rsquo;d been traveling to learn from!</li>
+        </ul>
+        <p style="font-size:14px;color:var(--fnt);margin-top:12px;">Suggested Resource: Tafsir of Surat Al-Kahf, Ayat 60&ndash;65</p>
+        <div class="tw">
+            <h5>Takeaways</h5>
+            <ul>
+                <li>This story shows us the beautiful humility Musa AS had and his thirst to seek knowledge. He was willing to travel great lengths to meet this teacher and learn from him.</li>
+                <li>The dead fish jumping back into the sea may seem strange, but Allah is able to make any miracle happen!</li>
+                <li>This story teaches us to trust in the plan of Allah. Even though things may seem to go wrong at times (like losing the fish), it can actually lead us to something better (like Musa AS meeting Khidr).</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="readalouds"><span style="font-size:16px;">Suggested Read-Alouds</span></h3>
+<p class="note">Here are a few book titles to check out related to this week&rsquo;s topic.</p>
+<div class="reads">
+    <div class="rc">
+        <div class="ra">Ages 1&ndash;4</div>
+        <ul>
+            <li><em>Turtle Splash! Countdown at the Pond</em> by Cathryn Falwell</li>
+            <li><em>Fish is Fish</em> by Leo Lionni</li>
+            <li><em>Jump, Frog, Jump!</em> by Robert Kalan</li>
+        </ul>
+    </div>
+    <div class="rc">
+        <div class="ra">Ages 5&ndash;8</div>
+        <ul>
+            <li><em>A Place for Turtles</em> by Melissa Stewart</li>
+            <li><em>Joan Procter, Dragon Doctor</em> by Patricia Valdez</li>
+            <li><em>Growing Frogs</em> by Vivian French</li>
+        </ul>
+    </div>
+    <div class="rc">
+        <div class="ra">Ages 9&ndash;12</div>
+        <ul>
+            <li><em>The Snake Scientist</em> by Sy Montgomery</li>
+            <li><em>The Turtle of Oman</em> by Naomi Shihab Nye</li>
+        </ul>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="activity"><span style="font-size:16px;">Hands-On Activity</span></h3>
+<p class="note">Time to engage little hands and minds! Additional activities can be found in the &ldquo;Further Enrichment&rdquo; section, if needed.</p>
+<p style="font-size:14px;margin-bottom:16px;">Jump to: <a href="#activity-1-4">For Kids 1&ndash;4</a> &nbsp;&middot;&nbsp; <a href="#activity-5-8">For Kids 5&ndash;8</a> &nbsp;&middot;&nbsp; <a href="#activity-9-12">For Kids 9&ndash;12</a></p>
+
+<div class="act">
+    <div class="ah" id="activity-1-4">For Kids 1&ndash;4: Creek Life Peek</div>
+    <div class="ab2">
+        <p><em>What lives in the water that we can&rsquo;t always see? Let&rsquo;s take a little peek and find out.</em></p>
+        <div class="img-block">
+            <img src="images/image4.png" alt="Child with magnifying glass examining creek water in a clear cup" style="max-width:380px;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Small clear plastic cups (one per child)</li>
+            <li>Magnifying glass</li>
+            <li>Nets</li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>Creek water, submerged leaf litter, small rocks, and sticks &mdash; scooped from a shallow section of the creek bank</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Have an adult use a net to agitate the bottom of a shallow creek and stir up rocks.</li>
+            <li>An adult should scoop a small amount of water from the creek edge into each child&rsquo;s clear cup &mdash; just an inch or two deep.</li>
+            <li>Hold the cup up to the light or set it on a white surface. Watch. Wait. Don&rsquo;t shake it.</li>
+            <li>Look closely: do you see anything moving? A tiny wiggle? A little speck swimming?</li>
+            <li>Hold the magnifying glass over the top of the cup. What do you see now that you couldn&rsquo;t see before?</li>
+            <li>Describe what you see together: Does it swim fast or slow? Does it have a tail? Does it curl up?</li>
+            <li>See if you can identify the creatures using the printable ID card.</li>
+            <li>When you&rsquo;re done looking, gently pour the water back to the creek edge.</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">What do you see in your cup?</p>
+        <p class="da">Water! And maybe&hellip; something tiny moving around in it. Those tiny things are animals. They live in the creek just like fish do, only much much smaller.</p>
+        <p class="dq">Why do animals live in the water?</p>
+        <p class="da">Water gives them food, shelter, and a safe place to grow. Allah put them there on purpose: every creek is full of life, even when it looks empty.</p>
+        <p class="dq">What happens when we look through the magnifying glass?</p>
+        <p class="da">Things look bigger! We can see things our eyes couldn&rsquo;t find on their own. Allah made some of His creatures very small, too small to see without help. That&rsquo;s a wonder in itself.</p>
+        <p class="dq">Should we keep the animals in our cup or put them back?</p>
+        <p class="da">Put them back &mdash; the creek is their home, not our cup. We are guests when we visit the creek. Good guests leave things the way they found them.</p>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="act">
+    <div class="ah" id="activity-5-8">For Kids 5&ndash;8: Creek Critter Hunt</div>
+    <div class="ab2">
+        <p><em>Scientists who study water health look for tiny creatures called macroinvertebrates &mdash; animals without backbones that live at the bottom of creeks. Today we&rsquo;re going to find them, name them, and see what they can tell us about our creek.</em></p>
+        <div class="img-block">
+            <img src="images/image2.png" alt="White tray with macroinvertebrates from the creek being examined with a magnifying glass" style="max-width:440px;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Nets</li>
+            <li>Shallow white tray or baking pan</li>
+            <li>Small clear plastic cups (one per child)</li>
+            <li>Plastic spoon or pipette for moving creatures</li>
+            <li>Magnifying glass</li>
+            <li><a href="http://www.texasthestateofwater.org/screening/publications/pwd_lf_k0700_1118a.pdf">Creek Critter Hunt Card</a> (printed, one per child)</li>
+            <li>Pencils and clipboards</li>
+            <li>Bucket or large container with lid (for the leader to collect the sample)</li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>Creek water, submerged leaf litter, small rocks, and sticks &mdash; scooped from a shallow section of the creek bank</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Use a net to agitate the bottom of a shallow creek and stir up rocks.</li>
+            <li>Collect a small amount of water and pour into the white tray &mdash; about an inch of water. Children can also collect small samples in their individual cups.</li>
+            <li>Wait quietly for one minute. Watch for movement before you touch anything.</li>
+            <li>Gently swirl leaves and rinse rocks into the water. Check undersides of rocks with your magnifying glass.</li>
+            <li>When you spot a creature, use the spoon or pipette to scoop it gently to one side of the tray.</li>
+            <li>Look at the Creek Critter Hunt Card. Can you find a picture that matches? Circle it or put a tally mark next to it.</li>
+            <li>How many different kinds did you find? Count them up.</li>
+            <li>Return everything &mdash; water, leaves, rocks, creatures &mdash; gently back to the creek.</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">What did you find in your tray?</p>
+        <p class="da">Accept all answers. Prompt: did it have legs? A shell? Did it swim or crawl? Even tiny worms and specks count. Everything living in that water has a job.</p>
+        <p class="dq">Were some creatures easy to spot and some hard to find?</p>
+        <p class="da">Some blend in with the mud or leaves &mdash; that&rsquo;s called camouflage. Allah gave them that for protection. Smaller creatures often hide between layers of leaves or under rocks.</p>
+        <p class="dq">Did you find more than one kind of creature, or just one kind?</p>
+        <p class="da">Finding lots of different kinds is a sign the water is healthy. A creek with only one kind of creature, especially worms, might be telling us something is wrong.</p>
+        <p class="dq">What do you think these tiny creatures eat? What eats them?</p>
+        <p class="da">Many eat algae, leaves, or bacteria on rocks. Fish, frogs, and birds eat them. They are a link in Allah&rsquo;s food chain &mdash; remove them, and everything above them suffers.</p>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="act">
+    <div class="ah" id="activity-9-12">For Kids 9&ndash;12: Macroinvertebrate Bioassessment</div>
+    <div class="ab2">
+        <p><em>Real freshwater science used by ecologists and citizen scientists, including the Texas Stream Team. A &ldquo;macroinvertebrate&rdquo; is a small water creature without a backbone, big enough to see without a microscope, such as dragonfly nymphs, snails, crayfish, worms. Some species can only survive in clean water; others tolerate pollution. Counting them tells us how healthy a creek is.</em></p>
+        <div class="img-block">
+            <img src="images/image1.png" alt="White tray with macroinvertebrates and Creek Critter Scorecard on clipboard" style="max-width:480px;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Two or three shallow white pans, baking trays, or clear bins (white surface makes tiny creatures easy to spot)</li>
+            <li>Plastic forceps or tweezers (gentler than fingers for small creatures)</li>
+            <li>Plastic spoons or pipettes (eye droppers) for moving very small critters</li>
+            <li>Magnifying glasses</li>
+            <li>Small clear cups or jars for sorting different kinds</li>
+            <li><a href="http://www.texasthestateofwater.org/screening/publications/pwd_lf_k0700_1118a.pdf">Creek Critter Scorecard</a> (printed, one per child or pair)</li>
+            <li>Pencils and clipboards</li>
+            <li>Bucket or large container with lid (for the leader to collect the sample)</li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>Creek water, submerged leaf litter, small rocks, and sticks, scooped from a shallow section of the creek bank</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Find a shallow, slow-moving section of the creek with rocks, leaves, or underwater vegetation &mdash; these are the hiding spots.</li>
+            <li>Fill the white tray about an inch deep with creek water and set it on the bank.</li>
+            <li><strong>Kick sample:</strong> Place the net on the creek bottom, downstream of you. Gently shuffle and disturb the rocks and gravel with your feet for about 30 seconds upstream of the net. The current carries dislodged creatures right into the mesh. Empty the net&rsquo;s contents into the tray.</li>
+            <li><strong>Leaf and rock sample:</strong> Pick up a handful of submerged dead leaves and rinse them in the tray. Carefully turn over rocks and brush their undersides into the water with your fingers.</li>
+            <li>Wait 1&ndash;2 minutes. As the water settles, small creatures will start moving &mdash; that&rsquo;s when you&rsquo;ll spot them.</li>
+            <li><strong>Pick the bugs:</strong> Use forceps or a plastic spoon to gently lift each creature into a separate sorting cup. <strong>Sort by physical features.</strong> Group similar-looking creatures together: how many legs? Tails? A shell? A case? A flat or rounded body?</li>
+            <li><strong>Identify and tally.</strong> Use the Creek Critter Scorecard to match each kind of creature. Check the box for every kind you find. Then count up: how many kinds did you find in Group 1 (sensitive)? Group 2 (somewhat sensitive)? Group 3 (tolerant)?</li>
+            <li><strong>Add up your score</strong> and read the rating on the scorecard. Higher score means healthier water.</li>
+            <li>Gently return every creature to the creek before leaving.</li>
+        </ol>
+        <p style="font-size:13px;color:var(--fnt);margin-top:12px;">Reference: Adapted from Texas Parks and Wildlife Department&rsquo;s <em>Bug Picking Macroinvertebrate Field Study</em> &mdash; <a href="https://tpwd.texas.gov/publications/pwdpubs/media/pwd_lf_k0700_1117a.pdf">link</a></p>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">What conclusion can you draw if you found species in Group 3, but not in Groups 1 or 2?</p>
+        <p class="da">The water is likely polluted or low in oxygen. Only the toughest creatures can survive. It doesn&rsquo;t mean the creek is dead &mdash; but it&rsquo;s a sign something may be wrong upstream or nearby.</p>
+        <p class="dq">What can we conclude if we found several different kinds in all three groups?</p>
+        <p class="da">The creek is likely healthy. A variety of creatures, especially sensitive ones, means the water is clean enough to support different kinds of life. Diversity is a sign of balance in the ecosystem Allah created.</p>
+        <p class="dq">What might be happening upstream that could be affecting water quality? Think about lawns, parking lots, farms, construction, storm drains.</p>
+        <p class="da">Fertilizers and pesticides from lawns or farms wash in when it rains. Parking lots and roads send oil, chemicals, and litter through storm drains directly into creeks. Construction stirs up sediment that smothers stream bottom creatures. Trash blocks sunlight and uses up oxygen as it breaks down.</p>
+        <p class="dq">Based on what we found, what is the status of our creek: Not Polluted, OK, or Polluted?</p>
+        <p class="da">Sensitive creatures are the base of the food web: mayfly nymphs and caddisfly larvae are what many fish, frogs, and birds eat. If they disappear, the animals that eat them struggle too. Healthy macroinvertebrates = healthy creek = healthy wildlife.</p>
+    </div>
+</div>
+
+<p class="note">After completing the activity is a good time to stop for a snack. Power their brains and bodies with something nutritious! Bonus points for avoiding single-use plastics and being good Khulafa. Be sure to leave the area as you found it, or better, following the good manners taught to us by our Prophet &#65018;.</p>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- PART 4 -->
+<div class="ph" id="part4"><span class="pn">Part 4</span>
+    <h2>Slowing the Flow</h2>
+</div>
+<p class="note">Now that this week&rsquo;s walk is just about done, let&rsquo;s wrap it up.</p>
+
+<h3 id="tadabbur"><span style="font-size:16px;">Tadabbur Among the Trees</span></h3>
+<p class="note">Here are some prompts to help wrap up the walk. These prompts can be used to spark a conversation or to fill up your nature journal for today!</p>
+<div class="ag">
+    <div class="ac">
+        <div class="ach">For Kids 1&ndash;4</div>
+        <div class="acb">
+            <p>Do you see any cold-blooded creatures sitting still? What do you think they&rsquo;re thinking?</p>
+            <p>What cold-blooded creatures around you are moving? What might they be doing?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 5&ndash;8</div>
+        <div class="acb">
+            <p>How would life be different if you were cold-blooded? Think of one thing you would not be able to do if you couldn&rsquo;t make your own body heat!</p>
+            <p>How would you keep yourself warm if you were cold-blooded?</p>
+            <p>Draw one creature you saw or learned about today and label what makes it unique.</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 9&ndash;12</div>
+        <div class="acb">
+            <p>Use the field guide and make note of all the cold-blooded creatures you can spot today. What features and adaptations do they have? What makes them similar?</p>
+            <p>A turtle&rsquo;s shell covers its soft body from the harsh environment. As Muslims, what can we do to protect our hearts from Shaitaan?</p>
+        </div>
+    </div>
+</div>
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- ADDENDUM -->
+<div class="ph" id="addendum"><span class="pn">Addendum</span>
+    <h2>Further Enrichment</h2>
+</div>
+<p class="note">Need more nature? We got you! Here are some additional resources to further enrich your understanding and reflection. These additional resources can be utilized by the pod, by individual families, or a combination of both &mdash; whatever best fits your needs!</p>
+
+<h3 id="prophetic"><span style="font-size:16px;">Prophetic Wisdom</span></h3>
+<p class="note">Find an opportunity to share the wisdom of our Prophet &#65018; as you walk.</p>
+<div class="hadith">
+    <span class="ar" style="font-size:20px;">إِنَّهُ لَيَسْتَغْفِرُ لِلْعَالِمِ مَنْ فِي السَّمَوَاتِ وَمَنْ فِي الْأَرْضِ حَتَّى الْحِيتَانِ فِي الْبَحْرِ</span>
+    <p class="hq">&ldquo;Everyone in the universe, in the heavens and on earth, prays for forgiveness for the scholar, even the fish in the sea.&rdquo;</p>
+    <div class="hrf">Abu Dharr &mdash; Sunan Ibn Majah 239</div>
+    <p style="font-size:15px;margin-top:16px;">This beautiful hadith demonstrates how connected we are to Allah&rsquo;s creation in the sea and that we can even be in the duaa of animals. Some scholars say part of the reason that fish will make dua for scholars (and in another hadith it is mentioned about students on the path of seeking knowledge of the deen) is because people who learn and implement the deen do right by the earth and all of Allah&rsquo;s creation. Conversely, people who are not conscious of Allah nor care about His creation may do things that harm the earth, including fish in the sea, as we see with different types of pollution, trash, and overconsumption.</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="ayaat"><span style="font-size:16px;">Additional Ayaat</span></h3>
+
+<div class="ayah">
+    <span class="albl">The Cow (2:117)</span>
+    <span class="ar">بَدِيعُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ ۖ وَإِذَا قَضَىٰٓ أَمْرًا فَإِنَّمَا يَقُولُ لَهُۥ كُن فَيَكُونُ</span>
+    <p class="tr">&ldquo;He is the Originator of the heavens and the earth, and when He decrees something, He says only, &lsquo;Be,&rsquo; and it is.&rdquo;</p>
+    <p class="com">All of the amazing things we see in creation is a result of a single command from Al-Badee&rsquo;: Be! And it is. SubhanAllah!</p>
+</div>
+
+<p><strong>The stories of Musa AS in the Quran have several mentions of some of the cold-blooded animals we learned about today. Which ones can you think of?</strong></p>
+
+<div class="ayah">
+    <span class="albl">The Heights (7:107)</span>
+    <span class="ar">فَأَلْقَىٰ عَصَاهُ فَإِذَا هِيَ ثُعْبَانٌ مُّبِينٌ</span>
+    <p class="tr">&ldquo;So Moses threw his staff and &mdash; lo and behold! &mdash; it was a snake, clear to all.&rdquo;</p>
+    <p class="com">In the most famous of the stories of Musa AS, Allah sent him to call Firawn to Islam and to leave his evil ways. As a way of strengthening his message and proving its divine origin, Allah blessed Musa AS with several miracles. One of these miracles was Musa&rsquo;s staff turning into a giant snake when he threw it, and for it to turn back into a staff when he grabbed the snake.</p>
+</div>
+
+<div class="ayah">
+    <span class="albl">The Heights (7:133)</span>
+    <span class="ar">فَأَرْسَلْنَا عَلَيْهِمُ ٱلطُّوفَانَ وَٱلْجَرَادَ وَٱلْقُمَّلَ وَٱلضَّفَادِعَ وَٱلدَّمَ ءَايَٰتٍ مُّفَصَّلَٰتٍ فَٱسْتَكْبَرُوا۟ وَكَانُوا۟ قَوْمًا مُّجْرِمِينَ</span>
+    <p class="tr">&ldquo;So We let loose on them the flood, locusts, lice, frogs, blood &mdash; all clear signs. They were arrogant, wicked people.&rdquo;</p>
+    <p class="com">When Firawn and his people disbelieved in the message that Allah sent Musa AS with, they were afflicted with various punishments. Each time a punishment would come, they would tell Musa AS, &ldquo;Pray to your Lord to relieve us of this punishment, and we promise we will believe this time!&rdquo; But as soon as Allah lifted the punishment, they returned to their wicked ways and refused to believe, so Allah would send another punishment, and the cycle would repeat!</p>
+</div>
+
+<div class="ayah">
+    <span class="albl">The Cave (18:61)</span>
+    <span class="ar">فَلَمَّا بَلَغَا مَجْمَعَ بَيْنِهِمَا نَسِيَا حُوتَهُمَا فَٱتَّخَذَ سَبِيلَهُۥ فِى ٱلْبَحْرِ سَرَبًا</span>
+    <p class="tr">&ldquo;But when they reached the place where the two seas meet, they had forgotten all about their fish, which made its way into the sea and swam away.&rdquo;</p>
+    <p class="com">When Musa AS and his servant were seeking to meet Khidr, the location they were seeking was the meeting of two seas, but they missed the landmark. The cooked fish they had brought with them for lunch miraculously jumped in the water and swam away! When Musa AS asked his servant for the fish, he confessed that he had forgotten the fish at a rock they were resting at and that the fish made its way into the sea. This helped Musa AS realize that they had missed their landmark, so they turned back.</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="movements"><span style="font-size:16px;">Meaningful Movements</span></h3>
+<p class="note">A flow of movements to get kids&rsquo; energy out at the beginning, or help them calm down at the end of the walk.</p>
+
+<div class="mv">
+    <div class="mvn">1</div>
+    <p>Begin by lowering yourself down to the earth near a body of water. Squat with feet wide apart and toes pointing out. Put your hands on the floor between your feet. Breathe in as you crouch low, then breathe out, take a few slow deep frog breaths. You can add a short jump up to release your energy!</p>
+</div>
+<div class="mv">
+    <div class="mvn">2</div>
+    <p>Now come down to hands and knees and turn into a table. Slowly stretch your right arm forward and left leg back &mdash; like a gecko climbing a wall. Hold and breathe, and see if you can lower your limbs close to the earth, then exhale. Swap sides and do a few shallow gecko breaths on this side.</p>
+</div>
+<div class="mv">
+    <div class="mvn">3</div>
+    <p>From here, lower your chest to the ground and extend your legs behind. Then push the ground away with palms planted firmly, extend your back like a water snake, breathe in and out with hissing sounds, and gradually bring your head back to neutral position and relax your arms.</p>
+</div>
+<div class="mv">
+    <div class="mvn">4</div>
+    <p>Now move into a cross-legged position and fold forward, with slow inhales and exhales, bring your forehead close to the ground and wrap your arms around you. You&rsquo;re hiding in your shell! Gradually slow your breath and try to stay low. Stay cosy and gradually lift your arms and head back up.</p>
+</div>
+<div class="mv">
+    <div class="mvn">5</div>
+    <p>Move to standing up tall and bring one foot forward into a lunge, raise both arms straight up and take a deep breath and turn your body left like a fish. Return to center, slide the foot back and swap sides and with the other foot forward, turn towards the right. Bring both feet together and find stillness, listen to the water and breathe.</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="morenature"><span style="font-size:16px;">More Nature Activities</span></h3>
+<p class="note">Here are more activities to try, whether as a group with your pod or individually at home.</p>
+
+<div class="act">
+    <div class="ah">For Kids 1&ndash;4: Slimy, Scaly, Shelly Sensory Tray</div>
+    <div class="ab2">
+        <p><em>Fish have scales, turtles have shells, frogs have smooth wet skin. Allah gave each cold-blooded creature exactly the covering it needs. Today we get to feel what that&rsquo;s like.</em></p>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Shallow tray or bin</li>
+            <li>Cooked spaghetti or wet noodles (frog skin / frog eggs)</li>
+            <li>Smooth wet river stones (fish scales / fish body)</li>
+            <li>Rough bumpy rock or dried pine cone (turtle shell)</li>
+            <li>Crinkled foil (snake scales)</li>
+            <li>Picture cards of each animal (<a href="https://drive.google.com/file/d/17MYJRRZHlwhchxJAiN2gtRubq0mpccbT/view?usp=drive_link">print this</a>)</li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>Smooth creek pebbles</li>
+            <li>Rough bark or textured rocks</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Set up the tray with each texture in its own section before the walk.</li>
+            <li>Let children reach in and feel each material one at a time &mdash; don&rsquo;t tell them what it represents yet.</li>
+            <li>Ask: does this feel rough or smooth? Wet or dry? Hard or squishy?</li>
+            <li>Hold up the matching picture card. &ldquo;This is what a frog feels like &mdash; smooth and wet so it doesn&rsquo;t dry out in the sun.&rdquo;</li>
+            <li>Let them match each texture to its animal card.</li>
+            <li>Let them feel everything again with the names in mind.</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">Why does a frog feel so slimy and wet?</p>
+        <p class="da">Frogs breathe partly through their skin &mdash; it has to stay moist or they can&rsquo;t breathe properly. Allah designed their skin to work like a second set of lungs.</p>
+        <p class="dq">Why does a turtle have such a hard bumpy shell?</p>
+        <p class="da">The shell is part of their skeleton &mdash; it protects them from predators and injury. They can pull their whole body inside. Allah gave them their home on their back.</p>
+        <p class="dq">Why do fish have scales instead of smooth skin?</p>
+        <p class="da">Scales protect them and help them move smoothly through water &mdash; like armor that doesn&rsquo;t slow you down. They also help reflect light, which can confuse predators.</p>
+        <p class="dq">Which texture did you like the most? Which was surprising?</p>
+    </div>
+</div>
+
+<div class="act">
+    <div class="ah">For Kids 5+: Cold-Blooded Animal Adaptations</div>
+    <div class="ab2">
+        <p><em>Have you ever noticed a turtle sitting perfectly still on a log in the sun? Or a frog hiding under a cool wet rock? They&rsquo;re not just resting &mdash; they&rsquo;re doing something very important. Today we&rsquo;ll find out what.</em></p>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Instant-read or infrared thermometer (for the add-on experiment)</li>
+            <li><a href="https://drive.google.com/file/d/17MYJRRZHlwhchxJAiN2gtRubq0mpccbT/view?usp=drive_link">Print adaptations chart</a></li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>A rock sitting in full sun</li>
+            <li>A rock sitting in full shade</li>
+            <li>Access to creek water</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Find three things to touch: a rock that has been sitting in full sun, a rock that has been sitting in full shade, and the surface of the creek water.</li>
+            <li>Touch each one with the back of your hand for five seconds. Don&rsquo;t try to guess yet, just feel.</li>
+            <li>Put them in order from warmest to coldest. Write it down.</li>
+            <li>Now think: if you were a turtle and you needed to warm up your body to have energy to move, where would you go? If you were a frog and you needed to stay cool and moist, where would you go?</li>
+        </ol>
+        <h5>Add-ons for older kids</h5>
+        <ol start="5">
+            <li>Use the thermometer to measure the actual surface temperature of the sun rock, the shade rock, and the creek water. Record each one.</li>
+            <li>Wait ten minutes. Measure all three again. Did anything change?</li>
+            <li>Calculate the difference: how many degrees warmer is the sun rock than the shade rock? Than the water?</li>
+            <li>If a turtle sat on the sun rock for thirty minutes, what would happen to its body temperature?</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">Why do turtles bask in the sun?</p>
+        <p class="da">Turtles are ectotherms: they can&rsquo;t generate their own body heat the way we do. They have to absorb heat from their environment to warm up enough to digest food, move quickly, and fight off illness. A cold turtle is a slow, hungry, vulnerable turtle.</p>
+        <p class="dq">Why do frogs hide in damp shade instead of basking like turtles?</p>
+        <p class="da">Frogs also need warmth but they lose moisture through their skin very quickly in direct sun. They balance temperature and moisture by finding cool, damp hiding spots, such as under rocks, in mud, near the water&rsquo;s edge. Allah gave frogs and turtles different strategies for the same problem.</p>
+        <p class="dq">What would happen to a turtle or frog on a cloudy cold day?</p>
+        <p class="da">They slow way down: digestion stops, movement slows, they may not eat at all. In winter, many become completely inactive and burrow into mud at the bottom of ponds. This is called brumation. This is why we see so many more cold-blooded animals on warm, sunny spring days.</p>
+        <p class="dq">What does this tell us about how carefully Allah designed each creature?</p>
+        <p class="da">Every behavior &mdash; basking, hiding, burrowing &mdash; is a perfect match to the body Allah gave that animal. Nothing is random. Every instinct is a form of wisdom built in by the Creator.</p>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="art"><span style="font-size:16px;">Artistic Expressions</span></h3>
+<p class="note">Let your heart guide you to create a beautiful work of nature art. Use Allah&rsquo;s divine creations as inspiration!</p>
+
+<div class="act">
+    <div class="ah">Leaf Creatures</div>
+    <div class="ab2">
+        <p><em>Allah filled the water with cold-blooded life in every shape and size &mdash; scaly fish, armored turtles, darting frogs. Today we&rsquo;ll use what He&rsquo;s already placed around us to make some of our own.</em></p>
+        <div class="img-block">
+            <img src="images/image3.png" alt="Leaf fish art project - leaves arranged into a fish shape on white paper with markers" style="max-width:440px;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>White paper or cardstock (one sheet per child)</li>
+            <li>Glue sticks or white school glue</li>
+            <li>Optional: markers or crayons for adding details (eyes, gills, scales)</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Collect a handful of leaves during the walk &mdash; look for variety. Big flat ones make good bodies; small pointed ones make fins and tails.</li>
+            <li>Lay your leaves out on the paper without gluing first. Arrange them into the shape of a fish, frog, turtle, dragonfly, or crayfish &mdash; whatever creature from today you want to bring to life.</li>
+            <li>Once you&rsquo;re happy with your arrangement, glue everything down.</li>
+            <li>Add details with markers if you like &mdash; an eye, gill lines, spots, patterns.</li>
+            <li>Give your creature a name.</li>
+        </ol>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="olderkids"><span style="font-size:16px;">Information for Older Kids &amp; Printables</span></h3>
+<ul>
+    <li><a href="https://drive.google.com/file/d/1BaI1mU7y-HzWvmNWOopeGiqHSe2qmdYz/view?usp=drive_link">Weekly Journal Page</a></li>
+    <li><a href="https://drive.google.com/file/d/1OHpeo5L_68ppz6ut36X2sC3FeIZgUJnh/view?usp=drive_link">Weekly Summary Document</a></li>
+    <li><a href="https://drive.google.com/file/d/13Qu5Oi-TiCmuSejlU2ZO85SoYkUeWxum/view?usp=drive_link">Field Guide</a></li>
+    <li><a href="https://drive.google.com/file/d/17MYJRRZHlwhchxJAiN2gtRubq0mpccbT/view?usp=drive_link">Cold-Blooded Creatures Covering Chart</a></li>
+    <li><a href="https://drive.google.com/file/d/1giVB3Ir_U7zNecApxx6imIDkTx_N4aeg/view?usp=drive_link">Aquatic Food Webs Cards</a></li>
+    <li><a href="https://tpwd.texas.gov/publications/learning/aquaticscience/coastal-wetlands.pdf">Texas Coastal Wetlands and Aquatic Creatures in the Area</a></li>
+    <li><a href="https://tpwd.texas.gov/publications/learning/aquaticscience/fish_flash_cards.pdf">Texas Fish Cards</a></li>
+</ul>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="footer">&copy; Khulafa Al-Ardh Nature Curriculum &middot; Rhythm: Water &middot; Week 6</div>
+
+</body>
+</html>
