@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 7: Green Growth: Algae and Plants of the Water</title>
+    <style id="hide-content">body > *:not(#pw-overlay) { display: none !important; }</style>
+    <style>
+        :root {
+            --w: #2B6CB0;
+            --wl: #EBF4FF;
+            --wm: #BEE3F8;
+            --wd: #1A365D;
+            --green: #276749;
+            --gl: #F0FFF4;
+            --sand: #FFF8EE;
+            --sd: #E2CAAA;
+            --rule: #CBD5E0;
+            --acc: #C05621;
+            --ink: #1a1a1a;
+            --mut: #555;
+            --fnt: #888;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--ink);
+            background: #FAFAF7;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        /* COVER */
+        .cover {
+            text-align: center;
+            padding: 52px 24px 40px;
+            border-bottom: 1px solid var(--rule);
+            margin-bottom: 48px;
+        }
+
+        .ey {
+            font-size: 11px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin-bottom: 14px;
+        }
+
+        .ey a {
+            color: var(--w);
+            text-decoration: underline;
+        }
+
+        .cover h1 {
+            font-size: clamp(24px, 5vw, 38px);
+            font-weight: bold;
+            line-height: 1.2;
+            color: var(--wd);
+            margin-bottom: 10px;
+        }
+
+        .cs {
+            font-style: italic;
+            color: var(--mut);
+            font-size: 15px;
+        }
+
+        /* PART HEADERS */
+        .ph {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 48px 0 24px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--w);
+        }
+
+        .pn {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            white-space: nowrap;
+            padding-right: 14px;
+            border-right: 1px solid var(--rule);
+        }
+
+        .ph h2 {
+            font-size: 20px;
+            color: var(--wd);
+        }
+
+        /* TYPOGRAPHY */
+        h3 {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin: 34px 0 12px;
+        }
+
+        h4 {
+            font-size: 16px;
+            color: var(--ink);
+            margin: 20px 0 7px;
+        }
+
+        p {
+            margin-bottom: 12px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul,
+        ol {
+            padding-left: 22px;
+            margin-bottom: 12px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        a {
+            color: var(--w);
+        }
+
+        /* ITALIC NOTE */
+        .note {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--fnt);
+            background: #F5F5F2;
+            border-left: 2px solid var(--rule);
+            padding: 8px 14px;
+            margin-bottom: 16px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* DUA */
+        .dua {
+            background: var(--wl);
+            border-left: 3px solid var(--w);
+            border-radius: 0 6px 6px 0;
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+
+        .ar {
+            font-size: 22px;
+            line-height: 2;
+            text-align: right;
+            direction: rtl;
+            color: var(--wd);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .tr {
+            font-style: italic;
+            color: var(--mut);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .src {
+            font-size: 12px;
+            color: var(--fnt);
+            margin-top: 5px;
+        }
+
+        /* AYAH */
+        .ayah {
+            background: var(--sand);
+            border: 1px solid var(--sd);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .ayah .ar {
+            color: var(--acc);
+            font-size: 20px;
+        }
+
+        .albl {
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: .05em;
+            color: var(--acc);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .com {
+            border-top: 1px solid var(--sd);
+            margin-top: 11px;
+            padding-top: 11px;
+            font-size: 14px;
+            color: var(--mut);
+            font-style: italic;
+        }
+
+        /* ASMA */
+        .asma {
+            background: var(--wd);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 20px 0;
+            display: flex;
+            gap: 22px;
+            align-items: flex-start;
+        }
+
+        .aar {
+            font-size: 28px;
+            line-height: 1.5;
+            color: var(--wm);
+            white-space: nowrap;
+            flex-shrink: 0;
+            direction: rtl;
+        }
+
+        .ab .nm {
+            font-size: 17px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 3px;
+        }
+
+        .ab .mn {
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--wm);
+            margin-bottom: 9px;
+        }
+
+        .ab p {
+            color: rgba(255, 255, 255, .85);
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        /* AGE GRID */
+        .ag {
+            display: flex;
+            gap: 0;
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+
+        .ac {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ac:not(:last-child) {
+            border-right: 1px solid var(--rule);
+        }
+
+        .ach {
+            background: var(--wd);
+            color: white;
+            font-size: 11px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 10px 13px;
+            text-align: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .acb {
+            padding: 13px 15px;
+            font-size: 14px;
+            line-height: 1.65;
+            flex: 1;
+        }
+
+        .ac:nth-child(odd) .acb {
+            background: var(--wl);
+        }
+
+        .ac:nth-child(even) .acb {
+            background: white;
+        }
+
+        .acb p {
+            margin-bottom: 9px;
+        }
+
+        .acb p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media(max-width:560px) {
+            .ag {
+                flex-direction: column;
+            }
+
+            .ac:not(:last-child) {
+                border-right: none;
+                border-bottom: 1px solid var(--rule);
+            }
+
+            .acb {
+                background: var(--wl) !important;
+            }
+
+            .asma {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* STORY */
+        .story {
+            border: 1px solid var(--sd);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+
+        .sh {
+            background: var(--acc);
+            color: white;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .sb {
+            padding: 20px;
+            background: var(--sand);
+        }
+
+        .sb .note {
+            margin-bottom: 13px;
+        }
+
+        .sb ul {
+            padding-left: 20px;
+        }
+
+        .sb li {
+            margin-bottom: 9px;
+            font-size: 15px;
+        }
+
+        .tw {
+            margin-top: 16px;
+            padding-top: 13px;
+            border-top: 1px solid var(--sd);
+        }
+
+        .tw h5 {
+            font-size: 10px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--acc);
+            margin-bottom: 7px;
+        }
+
+        .sf {
+            background: white;
+            border-top: 1px solid var(--sd);
+            padding: 10px 20px;
+            font-size: 12px;
+            color: var(--fnt);
+        }
+
+        /* READ ALOUDS */
+        .reads {
+            display: flex;
+            gap: 10px;
+            margin: 16px 0;
+        }
+
+        .rc {
+            flex: 1;
+            background: var(--wl);
+            border: 1px solid var(--wm);
+            border-radius: 6px;
+            padding: 13px 15px;
+        }
+
+        .ra {
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--w);
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .rc ul {
+            padding-left: 14px;
+        }
+
+        .rc li {
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        @media(max-width:560px) {
+            .reads {
+                flex-direction: column;
+            }
+        }
+
+        /* ACTIVITY CARD */
+        .act {
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+
+        .ah {
+            background: var(--w);
+            color: white;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .ab2 {
+            padding: 20px;
+        }
+
+        .ab2 h5 {
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin: 16px 0 7px;
+        }
+
+        .ab2 h5:first-child {
+            margin-top: 0;
+        }
+
+        .ab2 ul,
+        .ab2 ol {
+            padding-left: 20px;
+            margin-bottom: 9px;
+        }
+
+        .ab2 li {
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .ab2 p {
+            font-size: 15px;
+        }
+
+        /* DISCUSSION */
+        .disc {
+            background: var(--gl);
+            border-top: 1px solid #C6F6D5;
+            padding: 16px 20px;
+        }
+
+        .disc h5 {
+            color: var(--green);
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin: 0 0 11px;
+        }
+
+        .dq {
+            font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 3px;
+            color: #1a4731;
+            font-style: italic;
+        }
+
+        .da {
+            font-size: 14px;
+            color: var(--mut);
+            margin-bottom: 13px;
+            padding-left: 11px;
+            border-left: 2px solid #9AE6B4;
+        }
+
+        .da:last-child {
+            margin-bottom: 0;
+        }
+
+        /* HADITH */
+        .hadith {
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 24px 0;
+            background: white;
+        }
+
+        .hq {
+            font-size: 15px;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--ink);
+            margin: 12px 0;
+            padding-left: 14px;
+            border-left: 3px solid var(--w);
+        }
+
+        .hrf {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--rule);
+            font-size: 15px;
+            color: var(--mut);
+            font-style: italic;
+        }
+
+        /* MOVEMENTS */
+        .mv {
+            display: flex;
+            gap: 13px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+
+        .mvn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--wl);
+            border: 1.5px solid var(--wm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 12px;
+            color: var(--w);
+            font-weight: bold;
+        }
+
+        .mv p {
+            font-size: 15px;
+            margin: 0;
+        }
+
+        /* MISC */
+        .snack {
+            background: var(--gl);
+            border: 1px solid #C6F6D5;
+            border-radius: 6px;
+            padding: 11px 16px;
+            font-size: 14px;
+            color: var(--green);
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        ul.plain {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        ul.plain li {
+            padding: 3px 0 3px 15px;
+            position: relative;
+            font-size: 15px;
+        }
+
+        ul.plain li::before {
+            content: '\2014';
+            position: absolute;
+            left: 0;
+            color: var(--w);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--rule);
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--fnt);
+        }
+
+        /* NAV MENU */
+        .nav-menu {
+            background: var(--wl);
+            border: 1px solid var(--wm);
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin-bottom: 44px;
+        }
+        .nav-menu-title {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin-bottom: 14px;
+            font-family: Georgia, serif;
+        }
+        .nav-part {
+            margin-bottom: 10px;
+        }
+        .nav-part-label {
+            font-size: 13px;
+            font-weight: bold;
+            color: var(--wd);
+            margin-bottom: 4px;
+        }
+        .nav-part-label a {
+            color: var(--wd);
+            text-decoration: none;
+        }
+        .nav-part-label a:hover { text-decoration: underline; }
+        .nav-sub {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .nav-sub li a {
+            font-size: 12px;
+            color: var(--w);
+            text-decoration: none;
+            background: white;
+            border: 1px solid var(--wm);
+            border-radius: 4px;
+            padding: 3px 10px;
+            display: inline-block;
+        }
+        .nav-sub li a:hover { background: var(--wm); }
+
+        /* BACK TO TOP */
+        .back-top {
+            text-align: right;
+            margin: 32px 0 8px;
+            padding-top: 12px;
+            border-top: 1px solid var(--rule);
+        }
+        .back-top a {
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--fnt);
+            text-decoration: none;
+        }
+        .back-top a:hover { color: var(--w); }
+
+        /* IMAGES */
+        .img-block {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .img-block img {
+            max-width: 100%;
+            border-radius: 6px;
+        }
+        .img-block .img-caption {
+            font-size: 12px;
+            color: var(--fnt);
+            margin-top: 6px;
+        }
+
+        /* SECTION SUBTITLE */
+        .sub-h {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--ink);
+            margin: 24px 0 8px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="pw-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#FAFAF7;display:flex;align-items:center;justify-content:center;z-index:9999;font-family:Georgia,serif;">
+  <div style="text-align:center;padding:40px;max-width:340px;width:90%;">
+    <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#2B6CB0;margin-bottom:16px;">Khulafa Al-Ardh Nature Pods</div>
+    <h2 style="font-size:22px;color:#1A365D;margin-bottom:8px;">Members Only</h2>
+    <p style="font-size:14px;color:#555;margin-bottom:24px;">Enter the password to access this week&rsquo;s lesson plan.</p>
+    <input id="pw-input" type="password" placeholder="Password" style="width:100%;padding:10px 14px;font-size:16px;border:1px solid #CBD5E0;border-radius:6px;box-sizing:border-box;margin-bottom:4px;outline:none;" />
+    <div style="text-align:right;margin-bottom:12px;">
+      <span onclick="togglePw()" style="font-size:12px;color:#2B6CB0;cursor:pointer;user-select:none;" id="pw-toggle">Show password</span>
+    </div>
+    <button onclick="checkPassword()" style="width:100%;padding:10px;background:#2B6CB0;color:#fff;font-size:15px;border:none;border-radius:6px;cursor:pointer;">Enter</button>
+    <p id="pw-error" style="color:#C05621;font-size:13px;margin-top:12px;display:none;">Incorrect password. Please check with your pod leader.</p>
+  </div>
+</div>
+<script>
+  if (sessionStorage.getItem("kaanp_auth") === "1") {
+    document.getElementById("pw-overlay").style.display = "none";
+    document.getElementById("hide-content").remove();
+  }
+  document.getElementById("pw-input").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") checkPassword();
+  });
+  function togglePw() {
+    var input = document.getElementById("pw-input");
+    var toggle = document.getElementById("pw-toggle");
+    if (input.type === "password") {
+      input.type = "text";
+      toggle.textContent = "Hide password";
+    } else {
+      input.type = "password";
+      toggle.textContent = "Show password";
+    }
+  }
+  function checkPassword() {
+    var val = document.getElementById("pw-input").value;
+    if (val === "KAANP-Water!") {
+      sessionStorage.setItem("kaanp_auth", "1");
+      document.getElementById("pw-overlay").remove();
+      document.getElementById("hide-content").remove();
+    } else {
+      document.getElementById("pw-error").style.display = "block";
+      document.getElementById("pw-input").value = "";
+      document.getElementById("pw-input").focus();
+    }
+  }
+</script>
+
+<div class="cover">
+    <div class="ey">Khulafa Al-Ardh &middot; <a href="../index.html">Rhythm: Water</a> &middot; Week 7</div>
+    <h1>Green Growth: Algae and Plants of the Water</h1>
+</div>
+
+<div class="nav-menu" id="top">
+    <div class="nav-menu-title">Jump to section</div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part1">Part 1 &nbsp;|&nbsp; Blessed Beginnings</a></div>
+        <ul class="nav-sub">
+            <li><a href="#duaa">Opening Duaa</a></li>
+            <li><a href="#intro">An Introduction</a></li>
+            <li><a href="#discovery">Discovery Den</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part2">Part 2 &nbsp;|&nbsp; Walking with Intention</a></div>
+        <ul class="nav-sub">
+            <li><a href="#asma">The Most Beautiful of Names</a></li>
+            <li><a href="#observing">Observing on the Move</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part3">Part 3 &nbsp;|&nbsp; Grounding in Gratitude</a></div>
+        <ul class="nav-sub">
+            <li><a href="#stories">Stories for Blooming Hearts</a></li>
+            <li><a href="#readalouds">Suggested Read-Alouds</a></li>
+            <li><a href="#activity">Hands-On Activity</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part4">Part 4 &nbsp;|&nbsp; Slowing the Flow</a></div>
+        <ul class="nav-sub">
+            <li><a href="#tadabbur">Tadabbur Among the Trees</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#addendum">Addendum &nbsp;|&nbsp; Further Enrichment</a></div>
+        <ul class="nav-sub">
+            <li><a href="#prophetic">Prophetic Wisdom</a></li>
+            <li><a href="#ayaat">Additional Ayaat</a></li>
+            <li><a href="#movements">Meaningful Movements</a></li>
+            <li><a href="#olderkids">Information for Older Kids &amp; Printables</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- PART 1 -->
+<div class="ph" id="part1"><span class="pn">Part 1</span>
+    <h2>Blessed Beginnings</h2>
+</div>
+<p class="note">Set the tone for the walk and introduce the topic before beginning the walk. This should take between 5&ndash;10 minutes &mdash; nothing longer than the attention spans of the kids.</p>
+
+<h3 id="duaa"><span style="font-size:16px;">Opening Duaa</span></h3>
+<p class="note">Start with a duaa for protection from harm and evil. The duaa can be led by either the walk leader or a child who has the duaa memorized.</p>
+<div class="dua">
+    <span class="ar">أَعُوذُ بِكَلِمَاتِ اللهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</span>
+    <p class="tr">&ldquo;I seek refuge in the perfect words of Allah from the evil of what He has created.&rdquo;</p>
+</div>
+<div class="dua">
+    <span class="ar">بِسْمِ اللهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</span>
+    <p class="tr">&ldquo;In the Name of Allah, with whose Name nothing in the earth or the heavens can cause harm. He is the All-Hearing, the All-Knowing.&rdquo;</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="intro"><span style="font-size:16px;">An Introduction to Algae and Plants of the Water</span></h3>
+<p class="note">Introduce the topic to the kids. Share the opening ayah and how it ties to the week&rsquo;s topic.</p>
+<div class="ayah">
+    <span class="ar">ٱلَّذِى جَعَلَ لَكُمُ ٱلْأَرْضَ مَهْدًا وَسَلَكَ لَكُمْ فِيهَا سُبُلًا وَأَنزَلَ مِنَ ٱلسَّمَآءِ مَآءً ۖ فَأَخْرَجْنَا بِهِۦٓ أَزْوَٰجًا مِّن نَّبَاتٍ شَتَّىٰ</span>
+    <p class="tr">&ldquo;It was He who spread out the earth for you and traced routes in it. He sent down water from the sky. With that water We bring forth every kind of plant.&rdquo;</p>
+    <p class="src">Surah Taha 20:53</p>
+    <p class="com">We have seen the incredible diversity of life that is supported by our local waterways. From tiny, underground mud-dwellers to graceful hunting herons, all are supported by the same water! And that same water is what brings forth plants in all of their various forms, as Allah mentions in the ayah above. Today, we will explore the plant life that lives around the water, and we will learn about a special type of lifeform that looks like a plant but is something entirely different!</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="discovery"><span style="font-size:16px;">Discovery Den</span></h3>
+<p class="note">This is information to share with the kids. What you share and the level of detail will depend on the ages of the kids in your pod. Use your discretion.</p>
+
+<p>For the past few weeks, we have been studying the incredible creatures that live in our local waterways. But none of those animals &mdash; from the tiny mosquito larvae to the giant Great Blue Heron &mdash; could survive without the Sun-Catchers. Today, we are exploring the lush green plants and the strange, microscopic algae that produce the food and oxygen for the entire wetland food web!</p>
+
+<h4>The Divine Design: Bringing the Dead to Life</h4>
+<p>Allah (SWT) frequently uses the image of water bringing dead earth back to life to remind us of His power and mercy, as well as the reality of resurrection. When our North Texas creeks dry up in the late summer heat, they look barren. But the moment the autumn rains return, the water activates millions of dormant seeds and spores, instantly transforming the mud into a vibrant, oxygen-rich green paradise!</p>
+
+<h4>The Science: Plants vs. Algae</h4>
+<p>Everything green in the water does the same basic job (photosynthesis), but there are two very different types of Green Growth.</p>
+<ul>
+    <li><strong>True Water Plants:</strong> Just like the plants in your garden, true aquatic plants have roots to anchor them in the mud, stems to hold them up, and leaves to catch the sun. They have a vascular system (like built-in drinking straws) to pull nutrients up from the mud.</li>
+    <li><strong>The Awesome Algae:</strong> Algae are incredibly simple. They don&rsquo;t have true roots, stems, or leaves! Because they live entirely submerged, they just absorb water and nutrients directly through their cell walls. Even though they seem simple, algae produce over half of the oxygen we breathe on Earth!</li>
+</ul>
+
+<h4>The Good Green vs. The Bad Green (HABs)</h4>
+<p>Algae is essential, but it can also be dangerous if the divine balance (<em>Mizan</em>) is broken.</p>
+<ul>
+    <li><strong>The Good Green (Filamentous Algae):</strong> If you see stringy, hair-like green stuff stuck to rocks in the Elm Fork, that is good algae! It provides a safe hiding spot for baby fish and tadpoles, and it pumps fresh oxygen into the water.</li>
+    <li><strong>The Bad Green (Harmful Algal Blooms or HABs):</strong> Sometimes, humans use too much chemical fertilizer on their lawns. When it rains, that fertilizer washes right into our local creeks and lakes. The fertilizer feeds a specific, microscopic organism called Cyanobacteria (blue-green algae). When the water gets hot and full of fertilizer, the cyanobacteria multiply out of control, creating a Harmful Algal Bloom.
+        <ul style="margin-top:6px;">
+            <li><strong>How to Spot It:</strong> It doesn&rsquo;t look like stringy plants; it looks like someone spilled bright blue or neon green paint on top of the water, and it smells like rotten eggs.</li>
+            <li><strong>The Danger:</strong> HABs block sunlight from reaching the plants below, suck all the oxygen out of the water (causing fish to die), and produce toxic poisons that are highly dangerous to dogs and humans.</li>
+        </ul>
+    </li>
+</ul>
+
+<h4>The Science: The Three Plant Neighborhoods</h4>
+<p>While algae float freely wherever the water takes them, Higher Plants (which scientists call <em>macrophytes</em>) have real roots, stems, and leaves. Because they need to root into the mud, they are incredibly picky about where they live. Depending on the depth of the water, higher plants divide the pond into three distinct neighborhoods:</p>
+
+<p><strong>The Emergent Zone (The Waders)</strong></p>
+<ul>
+    <li><strong>How they grow:</strong> These plants live in the shallowest water right on the muddy banks. Their roots are firmly planted in the underwater mud, but their thick, sturdy stems push the rest of the plant high above the water&rsquo;s surface into the air.</li>
+    <li><strong>The Local Residents:</strong> Cattails and Pickerelweed. Pickerelweed is especially amazing because it shoots up bright purple flower spikes that attract tons of native bees and butterflies &mdash; making it a perfect aquatic addition to a native pollinator garden!</li>
+    <li><strong>Their Job:</strong> Their massive root systems act like an anchor, holding the muddy banks together so they don&rsquo;t wash away during heavy Texas rainstorms.</li>
+</ul>
+
+<p><strong>The Floating Zone (The Lily Pads)</strong></p>
+<ul>
+    <li><strong>How they grow:</strong> As the water gets a bit deeper, emergent plants can&rsquo;t survive. Enter the floating plants! Some (like Duckweed) are free-floating, with tiny roots dangling right in the water. Others (like Water Lilies) are rooted &mdash; their roots are in the deep mud, but they grow long, flexible, rubbery stems that reach all the way up so their flat leaves can rest perfectly on the surface of the water like solar-powered rafts.</li>
+    <li><strong>The Local Residents:</strong> Duckweed and the giant American Lotus (which produces huge, beautiful pale-yellow flowers on our local lakes).</li>
+    <li><strong>Their Job:</strong> Their wide leaves act like giant umbrellas, providing vital shade to the water below. This shade keeps the water cool during the hot summer and prevents harmful algae from getting too much sunlight!</li>
+</ul>
+
+<p><strong>The Submersed Zone (The Deep Divers)</strong></p>
+<ul>
+    <li><strong>How they grow:</strong> These plants live in the deepest parts of the sunlight zone. Their roots, stems, and leaves are completely underwater! Because they don&rsquo;t have to hold themselves up in the air, their stems are very soft and flexible, allowing them to flow gently with the water&rsquo;s current.</li>
+    <li><strong>The Local Residents:</strong> Coontail (which looks exactly like a fluffy raccoon&rsquo;s tail underwater) and Texas Pondweed.</li>
+    <li><strong>Their Job:</strong> They are the ultimate underwater oxygen factories and provide the perfect, tangled hiding spots for tiny baby fish and crawling dragonfly nymphs to escape from predators.</li>
+</ul>
+
+<h4>Local Landmarks: DFW Aquatic Flora</h4>
+<p>If you visit the shallow edges of Grapevine Lake or a local retention pond, look for these common local water plants!</p>
+<ul>
+    <li><strong>Duckweed (The Green Carpet):</strong> It looks like a layer of green algae covering a still pond, but if you look closely, you will see tiny individual leaves and microscopic roots dangling below. Duckweed is actually the world&rsquo;s smallest flowering plant! It is a favorite snack for our local Mallard ducks.</li>
+    <li><strong>Cattails (Nature&rsquo;s Hot Dogs):</strong> These tall reeds grow on the muddy banks of almost every creek in Texas. They have a brown, fuzzy top that looks like a hot dog on a stick! They are vital to the ecosystem because their thick roots act like a giant water filter, pulling pollution out of the mud.</li>
+    <li><strong>Arrowhead (Duck Potato):</strong> Look for tall plants with giant leaves shaped perfectly like the tip of an arrow. Native Americans used to dig up their roots and eat them like potatoes!</li>
+</ul>
+
+<p>We have learned that Harmful Algal Blooms are mostly caused by humans putting too many chemicals into the earth. As a Khalifah (steward), we are commanded not to corrupt the earth after Allah has set it in order. When we care for our own yards or gardens, we can choose to use natural compost (like the dirt made by earthworms!) instead of heavy chemical fertilizers. By being mindful of what we put into our dirt at home, we are actively protecting the fish, the birds, and the water in our local creeks!</p>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- PART 2 -->
+<div class="ph" id="part2"><span class="pn">Part 2</span>
+    <h2>Walking with Intention</h2>
+</div>
+<p class="note">Now that we are all up to speed on this week&rsquo;s topic, let&rsquo;s start walking! The following are some conversations and activities to do as you walk. This should take about 30&ndash;60 minutes &mdash; again, nothing longer than the stamina of the kids.</p>
+
+<h3 id="asma"><span style="font-size:16px;">The Most Beautiful of Names</span></h3>
+<p class="note">Introduce the name of Allah and its basic meaning as you start your walk. Encourage the kids to reflect on the name throughout the walk, as well as mentioning it whenever relevant.</p>
+<div class="asma">
+    <div class="aar">الْخَبِيرُ</div>
+    <div class="ab">
+        <div class="nm">Al-Khabeer</div>
+        <div class="mn">The All-Aware</div>
+        <p>For most of human history, it was assumed that seaweed was merely a plant that grows underwater. It wasn&rsquo;t until taxonomy became a more developed science that it was determined that it was an entirely different organism! Though humans had been utilizing seaweed for centuries, even farming it, we did not have a proper understanding of what it was. In fact, we are still learning so much about algae and its incredible potential and usages! This may be new to us humans, but Al-Khabeer, the All-Aware, has always known everything there is to know about His creation. Everything we discover, anything that we had misunderstood, or continue to misunderstand, is known to Al-Khabeer!</p>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="observing"><span style="font-size:16px;">Observing on the Move!</span></h3>
+<p class="note">Here are some observation prompts to help the kids tune into their environment and engage all of their senses.</p>
+<div class="ag">
+    <div class="ac">
+        <div class="ach">For Kids 1&ndash;4</div>
+        <div class="acb">
+            <p>Stand next to some water plants. Are you taller, or the plants?</p>
+            <p>Smell the water that has algae in it. What does it smell like? Does it smell like the water from your sink at home?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 5&ndash;8</div>
+        <div class="acb">
+            <p>Smell: Take a whiff around anywhere you see algae, especially where the cattails and reeds anchor their massive root networks. That smell is bacterial decomposition, and the plants are thriving on it, pulling important nutrients straight out of the muck!</p>
+            <p>Feel a submerged rock that&rsquo;s covered with green and blue algae. The slick biofilm is a colony of diatoms, green algae (<em>Cladophora</em>, <em>Spirogyra</em>), and cyanobacteria. Some of it is stiff and brittle, and some almost entirely made of water!</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 9&ndash;12</div>
+        <div class="acb">
+            <p>Hornwort (<em>Ceratophyllum</em>) releases visible oxygen bubbles in bright light, a process you can observe in seconds. Bring a magnifying glass closely and watch patiently &mdash; can you see any bubbles?</p>
+            <p>Waterweed (<em>Elodea</em>) releases visible oxygen bubbles in bright light as well. Look carefully at any submerged plant stems and observe for signs of active photosynthesis.</p>
+        </div>
+    </div>
+</div>
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- PART 3 -->
+<div class="ph" id="part3"><span class="pn">Part 3</span>
+    <h2>Grounding in Gratitude</h2>
+</div>
+<p class="note">Phew, that was a good walk! Let&rsquo;s pause and apply what we have learned and reflect on what we have observed.</p>
+
+<h3 id="stories"><span style="font-size:16px;">Stories for Blooming Hearts</span></h3>
+<p class="note">Share a story from our tradition that ties to this week&rsquo;s topic. Note that creating an engaging storytelling experience is on the storyteller; these are just the basic details. A story told from the heart will reach hearts!</p>
+<div class="story">
+    <div class="sh"><em>The Man with the Two Gardens</em></div>
+    <div class="sb">
+        <ul>
+            <li>In Surat Kahf, Allah SWT gives us stories of guidance that we are encouraged to review and read each week. One of these stories is of the men with the gardens. Allah SWT gave one of them the wealth, ability, and tawfiq to grow two beautiful gardens.</li>
+            <li>The gardens were filled with grapes and surrounded by palm trees. In the middle were all kinds of plants and a stream of water running between them.</li>
+            <li>The man who Allah blessed with two beautiful gardens started to become arrogant and attribute all the success to himself. He even reached the point of putting down the other man and telling him: &ldquo;I have more wealth and manpower than you.&rdquo;</li>
+            <li>He didn&rsquo;t think anything would ever happen to his garden. He became so consumed with his dunya that it led him to even deny the Day of Judgment. He said, &ldquo;Even if I did return to My Lord, I would find an even better ending.&rdquo;</li>
+            <li>He deluded himself into believing that his successful garden in the dunya meant that he would have a good standing in the Hereafter.</li>
+            <li>The other man tried to warn him against being ungrateful to Allah, the One who created him from a single drop then made him a fully grown man. He warned him that Allah could destroy his garden at any moment and could equally grant the one who was putting down an even better garden.</li>
+            <li>Allah did in fact bring the gardens to ruins and the man who became arrogant started to regret all that he said and did. There was no one that could come to his aid now, unless he turned back to Allah.</li>
+        </ul>
+        <p style="font-size:14px;color:var(--fnt);margin-top:12px;">Suggested Resource: Surat Kahf, Ayat 32&ndash;44</p>
+        <div class="tw">
+            <h5>Takeaways</h5>
+            <ul>
+                <li>The amazing garden the man was able to grow was only through Allah&rsquo;s blessing of water. This story humbles us to be grateful to Allah and remember how reliant we are on Him.</li>
+                <li>This story is a reminder to us that success from a dunya perspective (money, children, land, a successful career, etc.) is not an indication of good standing with Allah, and lack of success in the dunya does not mean that Allah is displeased with a person.</li>
+                <li>May Allah make us of those who are humble and grateful for our blessings when we have them, and not only when they are taken away.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="readalouds"><span style="font-size:16px;">Suggested Read-Alouds</span></h3>
+<p class="note">Here are a few book titles to check out related to this week&rsquo;s topic.</p>
+<div class="reads">
+    <div class="rc">
+        <div class="ra">Ages 1&ndash;4</div>
+        <ul>
+            <li><em>Pond</em> by Jim LaMarche</li>
+            <li><em>Life in a Pond</em> by Allan Fowler</li>
+            <li><em>Watercress</em> by Andrea Wang</li>
+        </ul>
+    </div>
+    <div class="rc">
+        <div class="ra">Ages 5&ndash;8</div>
+        <ul>
+            <li><em>Butternut Hollow Pond</em> by Brian Heinz</li>
+            <li><em>Song of the Water Boatman and Other Pond Poems</em> by Joyce Sidman</li>
+            <li><em>The Hidden Forest</em> by Jeannie Baker</li>
+        </ul>
+    </div>
+    <div class="rc">
+        <div class="ra">Ages 9&ndash;12</div>
+        <ul>
+            <li><em>DK Eyewitness: Pond &amp; River</em> by Steve Parker</li>
+            <li><em>Living Sunlight: How Plants Bring the Earth to Life</em> by Molly Bang</li>
+            <li><em>With a Little Kelp from Our Friends</em> by Matthew Bate</li>
+        </ul>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="activity"><span style="font-size:16px;">Hands-On Activity</span></h3>
+<p class="note">Time to engage little hands and minds! Additional activities can be found in the &ldquo;Further Enrichment&rdquo; section, if needed.</p>
+<p style="font-size:14px;margin-bottom:16px;">Jump to: <a href="#activity-1-4">For Kids 1&ndash;4</a> &nbsp;&middot;&nbsp; <a href="#activity-5-8">For Kids 5&ndash;8</a> &nbsp;&middot;&nbsp; <a href="#activity-9-12">For Kids 9&ndash;12</a></p>
+
+<div class="act">
+    <div class="ah" id="activity-1-4">For Kids 1&ndash;4: How Plants Eat and How Algae Eats</div>
+    <div class="ab2">
+        <p><em>Seaweed and other types of algae may look like plants, but they are two different creations of Allah, and they eat in different ways! Let us take a look at how each of them eats.</em></p>
+        <div class="img-block">
+            <img src="images/image4.jpg" alt="Mason jar with blue water and sponge pieces alongside a paper towel bridge demonstrating absorption and capillary action" style="max-width:320px;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>3 clear cups</li>
+            <li>A clean sponge, cut into smaller pieces</li>
+            <li>A few sheets of paper towel</li>
+            <li>Water (enough to fill two of the cups)</li>
+            <li>Food coloring</li>
+        </ul>
+        <h5>Activity: How Algae Eats</h5>
+        <ol>
+            <li>Fill one of the cups up with water and add a few drops of food coloring. Choose a color that will contrast with the color of the sponge.</li>
+            <li>Drop a couple pieces of the sponge into the water. Be sure to keep a couple of pieces aside for comparison.</li>
+            <li>Allow time for the sponge to absorb the colored water. Then remove the sponge from the water and compare it to the dry sponges.</li>
+            <li>The sponges that were submerged in water should have taken on the color of the water and expanded a bit. This is how algae absorbs water and nutrients &mdash; straight into its cells!</li>
+        </ol>
+        <h5>Activity: How Plants Eat</h5>
+        <ol>
+            <li>Fill up one cup with water and add a few drops of food coloring.</li>
+            <li>Roll the paper towel lengthwise, then fold the top third of the paper towel to get a checkmark-like shape.</li>
+            <li>Submerge the longer end of the folded paper towel into the cup of colored water. Have the shorter end hang over an empty cup.</li>
+            <li>Watch as the water slowly makes its way up the paper towel and eventually drips down into the empty cup! This is how a plant eats: it sucks up water from the ground using straws that are in the plant. The food makes its way slowly to each part of the plant.</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">Which one was faster: the sponge or the paper towel?</p>
+        <p class="da">The sponge! Algae can eat more quickly than plants because there is water all around it! The plant is slower because it has to find the water, then suck it up slowly.</p>
+        <p class="dq">Algae is similar to sponges in another way. What do we use a sponge for?</p>
+        <p class="da">Cleaning! Algae cleans up the water just like we use a sponge to clean our dishes or our counters.</p>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="act">
+    <div class="ah" id="activity-5-8">For Kids 5&ndash;8: Absorption vs. Capillary Action</div>
+    <div class="ab2">
+        <p><em>Seaweed and other types of algae look like plants that live underwater, but they are not considered plants! They are a different type of creation with different anatomy and they function quite differently. Let&rsquo;s take a look at how algae and plants absorb water and nutrients.</em></p>
+        <div class="img-block">
+            <img src="images/image1.jpg" alt="Multiple mason jars showing the sponge absorption and paper towel capillary action experiments side by side" style="max-width:440px;">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>3 clear cups</li>
+            <li>A clean sponge, cut into smaller pieces</li>
+            <li>A few sheets of paper towel</li>
+            <li>Water (enough to fill two of the cups)</li>
+            <li>Food coloring</li>
+        </ul>
+        <h5>Activity: How Algae Absorbs Water and Nutrients &mdash; Absorption</h5>
+        <ol>
+            <li>Fill one of the cups up with water and add a few drops of food coloring. Choose a color that will contrast with the color of the sponge.</li>
+            <li>Drop a couple pieces of the sponge into the water. Be sure to keep a couple of pieces aside for comparison.</li>
+            <li>Allow time for the sponge to absorb the colored water. Then remove the sponge from the water and compare it to the dry sponges.</li>
+            <li>The sponges that were submerged in water should have taken on the color of the water and expanded a bit. This is how algae absorbs water and nutrients &mdash; straight into their cells!</li>
+        </ol>
+        <h5>Activity: How Plants Absorb Water and Nutrients &mdash; Capillary Action</h5>
+        <ol>
+            <li>Fill up one cup with water and add a few drops of food coloring.</li>
+            <li>Roll the paper towel lengthwise, then fold the top third of the paper towel to get a checkmark-like shape.</li>
+            <li>Submerge the longer end of the folded paper towel into the cup of colored water. Have the shorter end hang over an empty cup.</li>
+            <li>Watch as the water slowly makes its way up the paper towel and eventually drips down into the empty cup! This is how a plant absorbs water and nutrients: through capillary action! Plants have a vascular system that is made up of straw-like structures that transport and deliver the water and nutrients to all parts of the plant.</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">Critical thinking: why do plants and algae absorb nutrients in the way that they do?</p>
+        <p class="da">Algae is surrounded by water, and can absorb it directly from their surroundings. Plants are not surrounded by water the way algae is. In fact, water can be scarce in many places on land. Therefore, plants have roots to search for and uptake water, and a vascular system to distribute it throughout the plant.</p>
+        <p class="dq">We have a vascular system, as plants do. What are some things in common between our vascular system and a plant&rsquo;s vascular system? What are some differences?</p>
+        <p class="da">Accept any correct answers. Some similarities include: both vascular systems move nutrients and energy throughout; they&rsquo;re tubular. Some differences include: we have blood, plants don&rsquo;t; our heart moves blood through our vascular system, plants use capillary action; we have arteries and vessels, plants have xylem and phloem.</p>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="act">
+    <div class="ah" id="activity-9-12">For Kids 9&ndash;12: Algae Beads and Photosynthesis!</div>
+    <div class="ab2">
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>Sun!</li>
+            <li>Water from lake/pond</li>
+        </ul>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Algae beads &mdash; <a href="https://a.co/d/00Hk8ypN">you can get them here</a> or at some pet stores</li>
+            <li>Plastic spoon</li>
+            <li>Small kitchen strainer</li>
+            <li>Hydrogen carbonate pH indicator solution or pH paper</li>
+            <li>4 small test tubes or vials with caps</li>
+            <li>Opaque paper</li>
+            <li>Clear tape</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Remove the algae beads by pouring them through the kitchen strainer, then use the plastic spoon to place approximately 10 beads each into two of the vials.</li>
+            <li>Fill them to the top with hydrogen carbonate pH indicator solution and cap them securely.</li>
+            <li>Fill the third vial with indicator solution only.</li>
+            <li>Fill one vial with pond/lake water where you think algae is growing and add the pH solution.</li>
+            <li><strong>Labelling:</strong> Place a small strip of tape on each vial and label them Sample A and Sample B for the two vials containing algae beads, Sample C for the vial with indicator solution only, and Sample D for your pond water.</li>
+            <li>Record the starting colour of the indicator solution in each vial using the numbered colour chart (see <a href="#olderkids">printables</a>).</li>
+            <li>Record the final colour of the indicator pH solution in each vial using the numbered colour chart.</li>
+            <li>Subtract the before colour number from the after colour number to find the colour change &mdash; a positive result indicates CO&sup2; was consumed by the algae during photosynthesis.</li>
+        </ol>
+        <p style="font-size:13px;color:var(--fnt);margin-top:12px;">Resource: <a href="https://cdn.agclassroom.org/media/uploads/2018/06/13/Experiments_with_Algae_Student_Handouts.pdf">Experiments With Algae</a></p>
+    </div>
+</div>
+
+<p class="note">After completing the activity is a good time to stop for a snack. Power their brains and bodies with something nutritious! Bonus points for avoiding single-use plastics and being good Khulafa. Be sure to leave the area as you found it, or better, following the good manners taught to us by our Prophet &#65018;.</p>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- PART 4 -->
+<div class="ph" id="part4"><span class="pn">Part 4</span>
+    <h2>Slowing the Flow</h2>
+</div>
+<p class="note">Now that this week&rsquo;s walk is just about done, let&rsquo;s wrap it up.</p>
+
+<h3 id="tadabbur"><span style="font-size:16px;">Tadabbur Among the Trees</span></h3>
+<p class="note">Here are some prompts to help wrap up the walk. These prompts can be used to spark a conversation or to fill up your nature journal for today!</p>
+<div class="ag">
+    <div class="ac">
+        <div class="ach">For Kids 1&ndash;4</div>
+        <div class="acb">
+            <p>Algae doesn&rsquo;t have stems or roots, but it creates over half the oxygen we breathe! Where did we see the most algae today? Was it the Good Green stuck to rocks, or floating freely?</p>
+            <p>Use your crayons to try and match the exact shade of green of the algae or plants we found today. See how many different greens you can blend!</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 5&ndash;8</div>
+        <div class="acb">
+            <p>Plants and algae are both green, but are different things. Can you think of some other things that look similar but are different, like clouds and cotton candy? Draw them!</p>
+            <p>Allah created so many different types of plants that are all supported from the same water! In the same way, Allah sent down one Quran, but it affects people in different ways. What is a way the Quran has impacted you?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 9&ndash;12</div>
+        <div class="acb">
+            <p>True aquatic plants have complex vascular systems (like internal plumbing) to pull nutrients from the mud, while algae are much simpler and absorb everything directly from the water around them. Even though algae seems simple, it produces half the oxygen on Earth!</p>
+            <p>Can you think of human inventions that mirror this &mdash; one complex with many moving parts (like a city plumbing system) and one incredibly simple but highly effective (like a sponge)? Sketch a mini-infographic comparing how they work!</p>
+        </div>
+    </div>
+</div>
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- ADDENDUM -->
+<div class="ph" id="addendum"><span class="pn">Addendum</span>
+    <h2>Further Enrichment</h2>
+</div>
+<p class="note">Need more nature? We got you! Here are some additional resources to further enrich your understanding and reflection. These additional resources can be utilized by the pod, by individual families, or a combination of both &mdash; whatever best fits your needs!</p>
+
+<h3 id="prophetic"><span style="font-size:16px;">Prophetic Wisdom</span></h3>
+<p class="note">Find an opportunity to share the wisdom of our Prophet &#65018; as you walk.</p>
+<div class="hadith">
+    <p class="hq">&ldquo;The example of a Believer who recites the Quran, is that of a citron which smells good and tastes good; And the example of a Believer who does not recite the Quran, is that of a date which has no smell but tastes sweet; and the example of a hypocrite who recites the Quran, is that of an aromatic plant which smells good but tastes bitter; and the example of a hypocrite who does not recite the Quran, is that of a colocynth plant which has no smell and is bitter in taste.&rdquo;</p>
+    <div class="hrf">Narrated Abu Musa Al-Ash&lsquo;ari &mdash; Sahih Bukhari 5427</div>
+    <p style="font-size:15px;margin-top:16px;">This hadith teaches us that even though some plants may look similar or have some similarities (like plants and algae), they are functionally different from each other. Among the same family of plants, some are beneficial for us and some can cause us harm if we touch or ingest them. Similarly, believers and hypocrites who do or don&rsquo;t read the Quran can look the same from the outside, but are very different. May Allah make us like the citron fruit, believers who recite the Quran and act upon it. Ameen!</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="ayaat"><span style="font-size:16px;">Additional Ayaat</span></h3>
+
+<div class="ayah">
+    <span class="albl">The Romans (30:19)</span>
+    <span class="ar">يُخْرِجُ ٱلْحَىَّ مِنَ ٱلْمَيِّتِ وَيُخْرِجُ ٱلْمَيِّتَ مِنَ ٱلْحَىِّ وَيُحْىِ ٱلْأَرْضَ بَعْدَ مَوْتِهَا ۚ وَكَذَٰلِكَ تُخْرَجُونَ</span>
+    <p class="tr">&ldquo;He brings the living out of the dead and the dead out of the living. He gives life to the earth after death, and you will be brought out in the same way.&rdquo;</p>
+    <p class="com">The revival of life, such as a seemingly barren creek that begins to teem with life after some rain, should always serve as a reminder for Resurrection! Just as Allah brings the dead earth back to life, He will bring us back to life in the same way, and we will be answerable for all that we have done.</p>
+</div>
+
+<div class="ayah">
+    <span class="albl">The Romans (30:41)</span>
+    <span class="ar">ظَهَرَ ٱلْفَسَادُ فِى ٱلْبَرِّ وَٱلْبَحْرِ بِمَا كَسَبَتْ أَيْدِى ٱلنَّاسِ لِيُذِيقَهُم بَعْضَ ٱلَّذِى عَمِلُوا۟ لَعَلَّهُمْ يَرْجِعُونَ</span>
+    <p class="tr">&ldquo;Corruption has flourished on land and sea as a result of people&rsquo;s actions and He will make them taste the consequences of some of their own actions so that they may turn back.&rdquo;</p>
+    <p class="com">The frivolous pursuit of a perfect lawn is one of the causes of the proliferation of Harmful Algal Blooms, which has a number of negative downstream effects. There are many such examples of human vanity and greed leading to imbalance in the ecosystem, which eventually ends up coming back to harm us!</p>
+</div>
+
+<div class="ayah">
+    <span class="albl">The Most Merciful (55:7&ndash;9)</span>
+    <span class="ar">وَٱلسَّمَآءَ رَفَعَهَا وَوَضَعَ ٱلْمِيزَانَ ۞ أَلَّا تَطْغَوْا۟ فِى ٱلْمِيزَانِ ۞ وَأَقِيمُوا۟ ٱلْوَزْنَ بِٱلْقِسْطِ وَلَا تُخْسِرُوا۟ ٱلْمِيزَانَ</span>
+    <p class="tr">&ldquo;He has raised up the sky. He has set the balance so that you may not exceed in the balance: weigh with justice and do not fall short in the balance.&rdquo;</p>
+    <p class="com">We have visited the concept of the <em>mizan</em> throughout the rhythm. We have seen example after example of how Allah had created everything with perfect balance, and how corruption disrupts this natural balance.</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="movements"><span style="font-size:16px;">Meaningful Movements</span></h3>
+<p class="note">A flow of movements to get kids&rsquo; energy out at the beginning, or help them calm down at the end of the walk.</p>
+
+<div class="mv">
+    <div class="mvn">1</div>
+    <p>Begin by standing with both feet wide and firm into the earth, then let the upper body arc slowly side to side from the waist, tall and hollow like a reed stalk in moving water.</p>
+</div>
+<div class="mv">
+    <div class="mvn">2</div>
+    <p>Stand tall through the trunk, then release the arms and fold slowly forward and down, letting everything hang like long trailing branches in a gentle current.</p>
+</div>
+<div class="mv">
+    <div class="mvn">3</div>
+    <p>Standing, extend both arms in a slow full circle at shoulder height, feeling each fingertip trace an orbit around the still centre of the spine.</p>
+</div>
+<div class="mv">
+    <div class="mvn">4</div>
+    <p>In a forward fold, let the fingers spread and flutter gently with each breath, soft and many-branched, swaying in an invisible current.</p>
+</div>
+<div class="mv">
+    <div class="mvn">5</div>
+    <p>From standing, bend knees into a low squat, draw slowly upright in one long inhale, arms sealing together overhead into a tight spike, move the whole body up in one vertical line reaching out of the water.</p>
+</div>
+<div class="mv">
+    <div class="mvn">6</div>
+    <p>Move to seated, soles of the feet together, hands cupped at the heart; on each exhale, let the knees drop a little lower and the hands open outward like a flower unfurling on still water.</p>
+</div>
+<div class="mv">
+    <div class="mvn">7</div>
+    <p>Sit cross-legged and press both palms flat to the floor; feel the body move downward into the sediment, heavy, still, and deeply anchored.</p>
+</div>
+<div class="mv">
+    <div class="mvn">8</div>
+    <p>Lie on your back, limbs loose and weightless, letting the body drift without intention, trusting the surface to hold you.</p>
+</div>
+<div class="mv">
+    <div class="mvn">9</div>
+    <p>Sink completely into the floor, imagining the body as a soft mat of algae on the riverbed &mdash; absorbing, still, nourishing everything above.</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="olderkids"><span style="font-size:16px;">Information for Older Kids &amp; Printables</span></h3>
+<ul>
+    <li><a href="https://drive.google.com/file/d/1u6o2bWWIdA5oD7W9LPHeEE_TzO3KE5TU/view?usp=drive_link">Weekly Summary Document</a></li>
+    <li><a href="https://drive.google.com/file/d/1KCLPF864VT-HKeYAgfM78JqydipG7K2T/view?usp=drive_link">Weekly Journal Page</a></li>
+</ul>
+
+<p style="margin-top:16px;font-size:15px;font-weight:bold;">Numbered colored chart for experiment for 9&ndash;12 yo:</p>
+<div class="img-block">
+    <img src="images/image3.jpg" alt="pH indicator color chart showing numbered colors from yellow-orange to deep purple, with data collection table for algae photosynthesis experiment" style="max-width:580px;">
+</div>
+
+<p style="margin-top:16px;font-size:15px;">From surface to sediment, aquatic algae stratified by light: The free-floating algae drift in the sunlit upper column near the Riparian Bank. Cyanobacteria may form foam or scum on the water surface, bloom at the surface, diatoms glint mid-water, stonewort anchors itself upright in the lower reaches, and a benthic algae mat carpets the nutrient-rich floor.</p>
+<div class="img-block">
+    <img src="images/image2.jpg" alt="Diagram showing aquatic plant and algae zones from riparian bank through surface/floating and submerged to benthic/sediment layers" style="max-width:580px;">
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="footer">&copy; Khulafa Al-Ardh Nature Curriculum &middot; Rhythm: Water &middot; Week 7</div>
+
+</body>
+</html>
