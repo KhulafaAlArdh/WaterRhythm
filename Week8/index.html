@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 8: Stewardship: Water in Human Hands</title>
+    <style id="hide-content">body > *:not(#pw-overlay) { display: none !important; }</style>
+    <style>
+        :root {
+            --w: #2B6CB0;
+            --wl: #EBF4FF;
+            --wm: #BEE3F8;
+            --wd: #1A365D;
+            --green: #276749;
+            --gl: #F0FFF4;
+            --sand: #FFF8EE;
+            --sd: #E2CAAA;
+            --rule: #CBD5E0;
+            --acc: #C05621;
+            --ink: #1a1a1a;
+            --mut: #555;
+            --fnt: #888;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--ink);
+            background: #FAFAF7;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        /* COVER */
+        .cover {
+            text-align: center;
+            padding: 52px 24px 40px;
+            border-bottom: 1px solid var(--rule);
+            margin-bottom: 48px;
+        }
+
+        .ey {
+            font-size: 11px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin-bottom: 14px;
+        }
+
+        .ey a {
+            color: var(--w);
+            text-decoration: underline;
+        }
+
+        .cover h1 {
+            font-size: clamp(24px, 5vw, 38px);
+            font-weight: bold;
+            line-height: 1.2;
+            color: var(--wd);
+            margin-bottom: 10px;
+        }
+
+        .cs {
+            font-style: italic;
+            color: var(--mut);
+            font-size: 15px;
+        }
+
+        /* PART HEADERS */
+        .ph {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 48px 0 24px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--w);
+        }
+
+        .pn {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            white-space: nowrap;
+            padding-right: 14px;
+            border-right: 1px solid var(--rule);
+        }
+
+        .ph h2 {
+            font-size: 20px;
+            color: var(--wd);
+        }
+
+        /* TYPOGRAPHY */
+        h3 {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin: 34px 0 12px;
+        }
+
+        h4 {
+            font-size: 16px;
+            color: var(--ink);
+            margin: 20px 0 7px;
+        }
+
+        p {
+            margin-bottom: 12px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul,
+        ol {
+            padding-left: 22px;
+            margin-bottom: 12px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        a {
+            color: var(--w);
+        }
+
+        /* ITALIC NOTE */
+        .note {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--fnt);
+            background: #F5F5F2;
+            border-left: 2px solid var(--rule);
+            padding: 8px 14px;
+            margin-bottom: 16px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* DUA */
+        .dua {
+            background: var(--wl);
+            border-left: 3px solid var(--w);
+            border-radius: 0 6px 6px 0;
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+
+        .ar {
+            font-size: 22px;
+            line-height: 2;
+            text-align: right;
+            direction: rtl;
+            color: var(--wd);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .tr {
+            font-style: italic;
+            color: var(--mut);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .src {
+            font-size: 12px;
+            color: var(--fnt);
+            margin-top: 5px;
+        }
+
+        /* AYAH */
+        .ayah {
+            background: var(--sand);
+            border: 1px solid var(--sd);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .ayah .ar {
+            color: var(--acc);
+            font-size: 20px;
+        }
+
+        .albl {
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: .05em;
+            color: var(--acc);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .com {
+            border-top: 1px solid var(--sd);
+            margin-top: 11px;
+            padding-top: 11px;
+            font-size: 14px;
+            color: var(--mut);
+            font-style: italic;
+        }
+
+        /* ASMA */
+        .asma {
+            background: var(--wd);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 20px 0;
+            display: flex;
+            gap: 22px;
+            align-items: flex-start;
+        }
+
+        .aar {
+            font-size: 28px;
+            line-height: 1.5;
+            color: var(--wm);
+            white-space: nowrap;
+            flex-shrink: 0;
+            direction: rtl;
+        }
+
+        .ab .nm {
+            font-size: 17px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 3px;
+        }
+
+        .ab .mn {
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--wm);
+            margin-bottom: 9px;
+        }
+
+        .ab p {
+            color: rgba(255, 255, 255, .85);
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        /* AGE GRID */
+        .ag {
+            display: flex;
+            gap: 0;
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+
+        .ac {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ac:not(:last-child) {
+            border-right: 1px solid var(--rule);
+        }
+
+        .ach {
+            background: var(--wd);
+            color: white;
+            font-size: 11px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 10px 13px;
+            text-align: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .acb {
+            padding: 13px 15px;
+            font-size: 14px;
+            line-height: 1.65;
+            flex: 1;
+        }
+
+        .ac:nth-child(odd) .acb {
+            background: var(--wl);
+        }
+
+        .ac:nth-child(even) .acb {
+            background: white;
+        }
+
+        .acb p {
+            margin-bottom: 9px;
+        }
+
+        .acb p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media(max-width:560px) {
+            .ag {
+                flex-direction: column;
+            }
+
+            .ac:not(:last-child) {
+                border-right: none;
+                border-bottom: 1px solid var(--rule);
+            }
+
+            .acb {
+                background: var(--wl) !important;
+            }
+
+            .asma {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* STORY */
+        .story {
+            border: 1px solid var(--sd);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+
+        .sh {
+            background: var(--acc);
+            color: white;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .sb {
+            padding: 20px;
+            background: var(--sand);
+        }
+
+        .sb .note {
+            margin-bottom: 13px;
+        }
+
+        .sb ul {
+            padding-left: 20px;
+        }
+
+        .sb li {
+            margin-bottom: 9px;
+            font-size: 15px;
+        }
+
+        .tw {
+            margin-top: 16px;
+            padding-top: 13px;
+            border-top: 1px solid var(--sd);
+        }
+
+        .tw h5 {
+            font-size: 10px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--acc);
+            margin-bottom: 7px;
+        }
+
+        .sf {
+            background: white;
+            border-top: 1px solid var(--sd);
+            padding: 10px 20px;
+            font-size: 12px;
+            color: var(--fnt);
+        }
+
+        /* READ ALOUDS */
+        .reads {
+            display: flex;
+            gap: 10px;
+            margin: 16px 0;
+        }
+
+        .rc {
+            flex: 1;
+            background: var(--wl);
+            border: 1px solid var(--wm);
+            border-radius: 6px;
+            padding: 13px 15px;
+        }
+
+        .ra {
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--w);
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .rc ul {
+            padding-left: 14px;
+        }
+
+        .rc li {
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        @media(max-width:560px) {
+            .reads {
+                flex-direction: column;
+            }
+        }
+
+        /* ACTIVITY CARD */
+        .act {
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+
+        .ah {
+            background: var(--w);
+            color: white;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .ab2 {
+            padding: 20px;
+        }
+
+        .ab2 h5 {
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin: 16px 0 7px;
+        }
+
+        .ab2 h5:first-child {
+            margin-top: 0;
+        }
+
+        .ab2 ul,
+        .ab2 ol {
+            padding-left: 20px;
+            margin-bottom: 9px;
+        }
+
+        .ab2 li {
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .ab2 p {
+            font-size: 15px;
+        }
+
+        /* DISCUSSION */
+        .disc {
+            background: var(--gl);
+            border-top: 1px solid #C6F6D5;
+            padding: 16px 20px;
+        }
+
+        .disc h5 {
+            color: var(--green);
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin: 0 0 11px;
+        }
+
+        .dq {
+            font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 3px;
+            color: #1a4731;
+            font-style: italic;
+        }
+
+        .da {
+            font-size: 14px;
+            color: var(--mut);
+            margin-bottom: 13px;
+            padding-left: 11px;
+            border-left: 2px solid #9AE6B4;
+        }
+
+        .da:last-child {
+            margin-bottom: 0;
+        }
+
+        /* HADITH */
+        .hadith {
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 24px 0;
+            background: white;
+        }
+
+        .hq {
+            font-size: 15px;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--ink);
+            margin: 12px 0;
+            padding-left: 14px;
+            border-left: 3px solid var(--w);
+        }
+
+        .hrf {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--rule);
+            font-size: 15px;
+            color: var(--mut);
+            font-style: italic;
+        }
+
+        /* MOVEMENTS */
+        .mv {
+            display: flex;
+            gap: 13px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+
+        .mvn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--wl);
+            border: 1.5px solid var(--wm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 12px;
+            color: var(--w);
+            font-weight: bold;
+        }
+
+        .mv p {
+            font-size: 15px;
+            margin: 0;
+        }
+
+        /* MISC */
+        .snack {
+            background: var(--gl);
+            border: 1px solid #C6F6D5;
+            border-radius: 6px;
+            padding: 11px 16px;
+            font-size: 14px;
+            color: var(--green);
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        ul.plain {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        ul.plain li {
+            padding: 3px 0 3px 15px;
+            position: relative;
+            font-size: 15px;
+        }
+
+        ul.plain li::before {
+            content: '\2014';
+            position: absolute;
+            left: 0;
+            color: var(--w);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--rule);
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--fnt);
+        }
+
+        /* NAV MENU */
+        .nav-menu {
+            background: var(--wl);
+            border: 1px solid var(--wm);
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin-bottom: 44px;
+        }
+        .nav-menu-title {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--w);
+            margin-bottom: 14px;
+            font-family: Georgia, serif;
+        }
+        .nav-part {
+            margin-bottom: 10px;
+        }
+        .nav-part-label {
+            font-size: 13px;
+            font-weight: bold;
+            color: var(--wd);
+            margin-bottom: 4px;
+        }
+        .nav-part-label a {
+            color: var(--wd);
+            text-decoration: none;
+        }
+        .nav-part-label a:hover { text-decoration: underline; }
+        .nav-sub {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .nav-sub li a {
+            font-size: 12px;
+            color: var(--w);
+            text-decoration: none;
+            background: white;
+            border: 1px solid var(--wm);
+            border-radius: 4px;
+            padding: 3px 10px;
+            display: inline-block;
+        }
+        .nav-sub li a:hover { background: var(--wm); }
+
+        /* BACK TO TOP */
+        .back-top {
+            text-align: right;
+            margin: 32px 0 8px;
+            padding-top: 12px;
+            border-top: 1px solid var(--rule);
+        }
+        .back-top a {
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--fnt);
+            text-decoration: none;
+        }
+        .back-top a:hover { color: var(--w); }
+
+        /* IMAGES */
+        .img-block {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .img-block img {
+            max-width: 100%;
+            border-radius: 6px;
+        }
+        .img-block .img-caption {
+            font-size: 12px;
+            color: var(--fnt);
+            margin-top: 6px;
+        }
+
+        /* SECTION SUBTITLE */
+        .sub-h {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--ink);
+            margin: 24px 0 8px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="pw-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#FAFAF7;display:flex;align-items:center;justify-content:center;z-index:9999;font-family:Georgia,serif;">
+  <div style="text-align:center;padding:40px;max-width:340px;width:90%;">
+    <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#2B6CB0;margin-bottom:16px;">Khulafa Al-Ardh Nature Pods</div>
+    <h2 style="font-size:22px;color:#1A365D;margin-bottom:8px;">Members Only</h2>
+    <p style="font-size:14px;color:#555;margin-bottom:24px;">Enter the password to access this week&rsquo;s lesson plan.</p>
+    <input id="pw-input" type="password" placeholder="Password" style="width:100%;padding:10px 14px;font-size:16px;border:1px solid #CBD5E0;border-radius:6px;box-sizing:border-box;margin-bottom:4px;outline:none;" />
+    <div style="text-align:right;margin-bottom:12px;">
+      <span onclick="togglePw()" style="font-size:12px;color:#2B6CB0;cursor:pointer;user-select:none;" id="pw-toggle">Show password</span>
+    </div>
+    <button onclick="checkPassword()" style="width:100%;padding:10px;background:#2B6CB0;color:#fff;font-size:15px;border:none;border-radius:6px;cursor:pointer;">Enter</button>
+    <p id="pw-error" style="color:#C05621;font-size:13px;margin-top:12px;display:none;">Incorrect password. Please check with your pod leader.</p>
+  </div>
+</div>
+<script>
+  if (sessionStorage.getItem("kaanp_auth") === "1") {
+    document.getElementById("pw-overlay").style.display = "none";
+    document.getElementById("hide-content").remove();
+  }
+  document.getElementById("pw-input").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") checkPassword();
+  });
+  function togglePw() {
+    var input = document.getElementById("pw-input");
+    var toggle = document.getElementById("pw-toggle");
+    if (input.type === "password") {
+      input.type = "text";
+      toggle.textContent = "Hide password";
+    } else {
+      input.type = "password";
+      toggle.textContent = "Show password";
+    }
+  }
+  function checkPassword() {
+    var val = document.getElementById("pw-input").value;
+    if (val === "KAANP-Water!") {
+      sessionStorage.setItem("kaanp_auth", "1");
+      document.getElementById("pw-overlay").remove();
+      document.getElementById("hide-content").remove();
+    } else {
+      document.getElementById("pw-error").style.display = "block";
+      document.getElementById("pw-input").value = "";
+      document.getElementById("pw-input").focus();
+    }
+  }
+</script>
+
+<div class="cover">
+    <div class="ey">Khulafa Al-Ardh &middot; <a href="../index.html">Rhythm: Water</a> &middot; Week 8</div>
+    <h1>Stewardship: Water in Human Hands</h1>
+</div>
+
+<div class="nav-menu" id="top">
+    <div class="nav-menu-title">Jump to section</div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part1">Part 1 &nbsp;|&nbsp; Blessed Beginnings</a></div>
+        <ul class="nav-sub">
+            <li><a href="#duaa">Opening Duaa</a></li>
+            <li><a href="#intro">An Introduction</a></li>
+            <li><a href="#discovery">Discovery Den</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part2">Part 2 &nbsp;|&nbsp; Walking with Intention</a></div>
+        <ul class="nav-sub">
+            <li><a href="#asma">The Most Beautiful of Names</a></li>
+            <li><a href="#observing">Observing on the Move</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part3">Part 3 &nbsp;|&nbsp; Grounding in Gratitude</a></div>
+        <ul class="nav-sub">
+            <li><a href="#stories">Stories for Blooming Hearts</a></li>
+            <li><a href="#readalouds">Suggested Read-Alouds</a></li>
+            <li><a href="#activity">Hands-On Activity</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#part4">Part 4 &nbsp;|&nbsp; Slowing the Flow</a></div>
+        <ul class="nav-sub">
+            <li><a href="#tadabbur">Tadabbur Among the Trees</a></li>
+        </ul>
+    </div>
+    <div class="nav-part">
+        <div class="nav-part-label"><a href="#addendum">Addendum &nbsp;|&nbsp; Further Enrichment</a></div>
+        <ul class="nav-sub">
+            <li><a href="#prophetic">Prophetic Wisdom</a></li>
+            <li><a href="#ayaat">Additional Ayaat</a></li>
+            <li><a href="#movements">Meaningful Movements</a></li>
+            <li><a href="#moreactivities">More Nature Activities</a></li>
+            <li><a href="#art">Artistic Expressions</a></li>
+            <li><a href="#olderkids">Information for Older Kids &amp; Printables</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- PART 1 -->
+<div class="ph" id="part1"><span class="pn">Part 1</span>
+    <h2>Blessed Beginnings</h2>
+</div>
+<p class="note">Set the tone for the walk and introduce the topic before beginning the walk. This should take between 5&ndash;10 minutes &mdash; nothing longer than the attention spans of the kids.</p>
+
+<h3 id="duaa"><span style="font-size:16px;">Opening Duaa</span></h3>
+<p class="note">Start with a duaa for protection from harm and evil. The duaa can be led by either the walk leader or a child who has the duaa memorized.</p>
+<div class="dua">
+    <span class="ar">أَعُوذُ بِكَلِمَاتِ اللهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</span>
+    <p class="tr">&ldquo;I seek refuge in the perfect words of Allah from the evil of what He has created.&rdquo;</p>
+</div>
+<div class="dua">
+    <span class="ar">بِسْمِ اللهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</span>
+    <p class="tr">&ldquo;In the Name of Allah, with whose Name nothing in the earth or the heavens can cause harm. He is the All-Hearing, the All-Knowing.&rdquo;</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="intro"><span style="font-size:16px;">An Introduction to Stewardship</span></h3>
+<p class="note">Introduce the topic to the kids. Share the opening ayah and how it ties to the week&rsquo;s topic.</p>
+<div class="ayah">
+    <span class="ar">قُلْ أَرَءَيْتُمْ إِنْ أَصْبَحَ مَآؤُكُمْ غَوْرًا فَمَن يَأْتِيكُم بِمَآءٍ مَّعِينٍ ٣٠</span>
+    <p class="tr">&ldquo;Say, &lsquo;Just think: if all your water were to sink deep into the earth, who could give you flowing water in its place?&rsquo;&rdquo;</p>
+    <p class="src">Surah Al-Mulk 67:30</p>
+    <p class="com">Throughout this rhythm, we have seen how all sorts of different creatures rely on water, how those lifeforms are interconnected, as well as the impact water has on the earth itself. The blessings found in water are countless! This ayah reminds us of a vital point: that our continued access to water is only possible with the permission of Allah, and that it is a blessing that can be rescinded at any point, if Allah willed it. In order to show our gratitude for this blessing, we must abide by the laws Allah has put in place and act as good <em>Khulafaa</em> (stewards). In this lesson, we will dive into the dos and don&rsquo;ts of stewardship, and how we can fulfill our role as <em>Khulafaa Al-Ardh</em>!</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="discovery"><span style="font-size:16px;">Discovery Den</span></h3>
+<p class="note">This is information to share with the kids. What you share and the level of detail will depend on the ages of the kids in your pod. Use your discretion.</p>
+
+<p>Over the last seven weeks, we have traveled from the muddy banks to the deep water, meeting the birds, bugs, reptiles, and plants that make up our local wetlands. But today, we are looking at the most powerful creature in the entire ecosystem: <strong>Us.</strong> Humans have a massive impact on the water, and this week is all about learning how to use our hands to protect it!</p>
+
+<h4>The Divine Design: The Flowing River</h4>
+<p>In Islam, humans are given a very special job title: <strong>Khalifah</strong> (Steward or Caretaker of the Earth). Allah gave us the <em>Amanah</em> (trust) to use the earth&rsquo;s resources, but we are strictly forbidden from destroying them.</p>
+<p>The Prophet (PBUH) taught us not to waste a single drop of water, no matter how much we have in front of us. Conservation is an act of worship.</p>
+
+<h4>What is a Watershed?</h4>
+<p>A <strong>watershed</strong> is exactly what it sounds like: a giant &ldquo;shed&rdquo; or bowl of land that catches all the rain.</p>
+<ul>
+    <li><strong>The Giant Bowl:</strong> When it rains in North Texas, the water doesn&rsquo;t just stay where it falls. Because the land is sloped, the rain flows downhill. It runs off our roofs, down our driveways, into the street gutters, into the small creeks, and eventually into a massive river or lake.</li>
+    <li><strong>The Runoff Rule:</strong> Here is the most important rule of the watershed: <em>The water carries whatever it touches.</em> If rainwater flows over a forest, it picks up dead leaves and dirt (natural). But if it flows over a parking lot or a fertilized lawn, it picks up oil, trash, and chemicals (pollution), carrying it straight into the homes of our local turtles and herons.</li>
+</ul>
+
+<h4>The Journey to Your Tap</h4>
+<p>Before water reaches our sinks, it goes on a massive, highly engineered journey. As <em>Khulafa</em> (stewards), we should know exactly where our resources come from!</p>
+<ul>
+    <li><strong>The Source:</strong> The water in your city doesn&rsquo;t magically appear in the pipes; it comes straight out of the local Trinity River basin lakes, like <strong>Grapevine Lake</strong>, <strong>Lake Lewisville</strong>, or <strong>Lake Lavon</strong>.</li>
+    <li><strong>The Transport:</strong> Giant, high-pressure underground pipes pump the raw lake water for miles to a massive Water Treatment Plant. After it is cleaned, it is pumped up into those giant water towers you see around town. Gravity pulls the water down from the tower, creating the water pressure that pushes it through the pipes and out of your faucet! When we protect the creek from pollution, we are actually protecting our own drinking water!</li>
+    <li><strong>The Cleaning Process:</strong> Raw lake water isn&rsquo;t safe to drink yet. At the treatment plant, engineers clean it in three main steps:
+        <ol style="margin-top:6px;">
+            <li><strong>Clumping:</strong> They add safe chemicals that make the dirt and mud stick together into heavy clumps that sink to the bottom.</li>
+            <li><strong>Filtering:</strong> The water is pushed through giant beds of sand and crushed coal (just like our Earth Filter activity!) to scrub out the tiny particles.</li>
+            <li><strong>Disinfection:</strong> They add a tiny bit of chlorine or ozone to kill the invisible germs.</li>
+        </ol>
+    </li>
+    <li><strong>The Contaminants:</strong> What exactly are they cleaning out? The plant has to remove natural things like dirt, algae, and bacteria (from animal waste), but it also has to work hard to remove human pollution, like the chemical fertilizers we learned about last week, oil from the roads, and even microplastics.</li>
+</ul>
+
+<h4>Stewardship at Home: Catch the Rain and Plant the Natives!</h4>
+<p>We know that all the water flows downhill, but what happens when that water hits our driveways, sidewalks, and streets?</p>
+<ul>
+    <li><strong>The Concrete Problem:</strong> Soft earth acts like a giant sponge, soaking up rain slowly. But concrete and cement are completely solid. When heavy Texas rain hits a paved street or a roof, it cannot soak in. Instead, it rushes incredibly fast into our storm drains and blasts into the local creeks. This rushing water causes <strong>erosion</strong>, literally washing away the muddy banks and destroying the homes of our frogs and turtles!</li>
+    <li><strong>The Rain Barrel Solution:</strong> How do we slow the water down? We catch it! By hooking up a rain barrel to the gutters on our houses, we act like a giant &ldquo;pause button&rdquo; for the storm. The barrel catches the fast water before it hits the concrete. Even better, during our blistering, dry Texas summers, we can use that free, caught rainwater to irrigate our gardens instead of wasting the city&rsquo;s perfectly clean drinking water!</li>
+    <li><strong>The Native Plant Power-Up:</strong> As <em>Khulafa</em> (stewards), we can make a brilliant swap! If we replace some of our lawn grass with native Texas pollinator plants, we win twice. Allah designed native plants to survive harsh Texas droughts, meaning they naturally need very little water to thrive. Plus, their beautiful blooms provide an all-you-can-eat buffet for our local butterflies, native bees, and birds!</li>
+</ul>
+
+<h4>The &ldquo;Invisible&rdquo; Water on Your Plate</h4>
+<p>Did you know you &ldquo;eat&rdquo; water every day? A single apple takes 18 gallons of water to grow before it gets to the grocery store. A single hamburger takes over 600 gallons of water to produce (from watering the grass the cow eats to processing the meat)!</p>
+
+<p>As we end this rhythm, take a moment to reflect on the incredible journey we&rsquo;ve shared. Over the last eight weeks, we have transformed from curious observers into knowledgeable <em>Khulafa</em> of our local wetlands. We have dug our hands into the mud, traced the food web from microscopic algae to the giant Great Blue Heron, and witnessed the perfect, divine balance (<em>Mizan</em>) Allah has woven into every drop of our creeks and lakes.</p>
+<p>Earning your title as a Khalifa is all about carrying the <em>Amanah</em> (trust) to protect and cherish these waters every single day. This rhythm may be over, but your job as a steward of the earth is just beginning. Whether you are hiking the sunny trails of the Elm Fork, grabbing a trash bag and spending an hour picking up plastic from the shoreline of a local creek, planting native flowers in your garden, or simply remembering to turn off the tap at home, the future of the water is now in your hands. True leadership means leaving a place better than we found it. Keep exploring, keep protecting, and always keep looking for Allah&rsquo;s beautiful signs in the wild! When we work together to clean up a habitat, we are answering the Prophet&rsquo;s call to show mercy (<em>Rahmah</em>) to the earth!</p>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- PART 2 -->
+<div class="ph" id="part2"><span class="pn">Part 2</span>
+    <h2>Walking with Intention</h2>
+</div>
+<p class="note">Now that we are all up to speed on this week&rsquo;s topic, let&rsquo;s start walking! The following are some conversations and activities to do as you walk. This should take about 30&ndash;60 minutes &mdash; again, nothing longer than the stamina of the kids.</p>
+
+<h3 id="asma"><span style="font-size:16px;">The Most Beautiful of Names</span></h3>
+<p class="note">Introduce the name of Allah and its basic meaning as you start your walk. Encourage the kids to reflect on the name throughout the walk, as well as mentioning it whenever relevant.</p>
+<div class="asma">
+    <div class="aar">الْوَاسِعُ</div>
+    <div class="ab">
+        <div class="nm">Al-Waasi&lsquo;</div>
+        <div class="mn">The All-Encompassing and Magnanimous</div>
+        <p>We have seen a few of the endless blessings that stem from water. Allah created all life from water, made all life reliant on it, and has made us interconnected and reliant on that which relies on water. These countless blessings are given to us by Al-Waasi&lsquo;, the All-Encompassing and Magnanimous. The blessings of Al-Waasi&lsquo; stretch wide and far, and are not limited in the way we sometimes think it to be; it is not a zero-sum game. The gain of one does not necessitate the loss of another.</p>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="observing"><span style="font-size:16px;">Observing on the Move!</span></h3>
+<p class="note">Here are some observation prompts to help the kids tune into their environment and engage all of their senses.</p>
+<div class="ag">
+    <div class="ac">
+        <div class="ach">For Kids 1&ndash;4</div>
+        <div class="acb">
+            <p>Do you see any water flowing today that may end up in the water we have at home?</p>
+            <p>Is the water we see water we can drink? Is it clean? How does it get clean?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 5&ndash;8</div>
+        <div class="acb">
+            <p>Just like our parents take care of us and we take care of our home, what does it mean to take care of our environments?</p>
+            <p>Allah entrusted us with the earth and its treasures. How can we be good stewards of nature?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 9&ndash;12</div>
+        <div class="acb">
+            <p>Today, look around for all of the man-made additions to your natural environment. Which of the items belong in the recycling bins? Which ones are biodegradable? What makes an item degradable vs biodegradable vs compostable?</p>
+            <p>Is it good for the environment to throw banana peels into the woods? How about fruit seeds?</p>
+        </div>
+    </div>
+</div>
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- PART 3 -->
+<div class="ph" id="part3"><span class="pn">Part 3</span>
+    <h2>Grounding in Gratitude</h2>
+</div>
+<p class="note">Phew, that was a good walk! Let&rsquo;s pause and apply what we have learned and reflect on what we have observed.</p>
+
+<h3 id="stories"><span style="font-size:16px;">Stories for Blooming Hearts</span></h3>
+<p class="note">Share a story from our tradition that ties to this week&rsquo;s topic. Note that creating an engaging storytelling experience is on the storyteller; these are just the basic details. A story told from the heart will reach hearts!</p>
+<div class="story">
+    <div class="sh"><em>Musa AS and the Splitting of the Sea</em></div>
+    <div class="sb">
+        <ul>
+            <li>When Musa AS came to know of his Prophethood, Allah SWT commanded him to go to Fir&rsquo;awn, the Pharaoh, and address him about his disbelief.</li>
+            <li>When Musa AS went to fulfill Allah&rsquo;s command and spoke with Fir&rsquo;awn about his beliefs, Fir&rsquo;awn accused Musa AS of being a sorcerer and trying to trick people when Musa AS publicly demonstrated a miracle from Allah &mdash; his staff turning into a snake!</li>
+            <li>Fir&rsquo;awn challenged Musa AS by bringing all of the best sorcerers of Egypt at their time. Musa AS&rsquo;s miracle of Allah, his staff turning into a huge live snake, devoured all of the magicians&rsquo; tricks.</li>
+            <li>Many people fell into sujood believing in Musa AS and that he was a true Prophet of Allah.</li>
+            <li>Fir&rsquo;awn now sought Musa AS out as an enemy. He did not want Musa&rsquo;s people, Bani Isra&rsquo;il, to escape because he wanted them to be there for labor.</li>
+            <li>Finally, Allah commanded Musa AS to take Bani Isra&rsquo;il and escape at night.</li>
+            <li>They did just that and ran as far as they could to escape the oppression under which they were living.</li>
+            <li>When Fir&rsquo;awn found out Bani Isra&rsquo;il were escaping, he followed them with his army.</li>
+            <li>Fir&rsquo;awn&rsquo;s army was just about to catch up when Musa AS and Bani Isra&rsquo;il reached the sea.</li>
+            <li>Bani Isra&rsquo;il started to panic as there didn&rsquo;t seem to be any escape. They said, &ldquo;Certainly, we will be caught!&rdquo; Musa reassured them, &ldquo;Absolutely not! My Lord is certainly with me &mdash; He will guide me.&rdquo; Then Allah SWT inspired Musa: &ldquo;Strike the sea with your staff,&rdquo; and the sea was split, each part rising like a huge mountain! (Surat Shu&rsquo;araa, Ayah 61&ndash;62)</li>
+            <li>Bani Isra&rsquo;il was able to escape through the path made in the water. When Fir&rsquo;awn and his army tried to follow, the water crashed in on them, drowning them while the believers were safe at last.</li>
+        </ul>
+        <p style="font-size:14px;color:var(--fnt);margin-top:12px;">Suggested Resource: Tafsir of Surat Shu&rsquo;araa, Ayah 52&ndash;68</p>
+        <div class="tw">
+            <h5>Takeaways</h5>
+            <ul>
+                <li>This is a beautiful story of the power and confidence of trusting in Allah. Don&rsquo;t forget to recall this story on &lsquo;Ashura&rsquo; coming up on the 10th of Muharram, because that was the day Musa AS and his people were saved!</li>
+                <li>This story gives us hope that Allah will eventually give relief to all oppressed people. May Allah free all of our oppressed brothers and sisters around the world, make us of those who stand up for them, and never amongst the oppressors. Ameen!</li>
+                <li>This week we are learning about the impact of humans&rsquo; use of water. In this story, Musa AS used a miracle Allah gave him to move water and save people. How can we benefit others through water as well?</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="readalouds"><span style="font-size:16px;">Suggested Read-Alouds</span></h3>
+<p class="note">Here are a few book titles to check out related to this week&rsquo;s topic.</p>
+<div class="reads">
+    <div class="rc">
+        <div class="ra">Ages 1&ndash;4</div>
+        <ul>
+            <li><em>We are Water Protectors</em> by Carole Lindstrom</li>
+            <li><em>Water Can Be</em> by Laura Purdie Salas</li>
+        </ul>
+    </div>
+    <div class="rc">
+        <div class="ra">Ages 5&ndash;8</div>
+        <ul>
+            <li><em>The Water Princess</em> by Susan Verde</li>
+            <li><em>Hope Springs</em> by Eric Walter</li>
+            <li><em>The Magic School Bus at the Waterworks</em> by Joanna Cole</li>
+        </ul>
+    </div>
+    <div class="rc">
+        <div class="ra">Ages 9&ndash;12</div>
+        <ul>
+            <li><em>The Water Walker</em> by Joanne Robertson</li>
+            <li><em>One Well: The Story of Water on Earth</em> by Rochelle Strauss</li>
+        </ul>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="activity"><span style="font-size:16px;">Hands-On Activity</span></h3>
+<p class="note">Time to engage little hands and minds! Additional activities can be found in the &ldquo;Further Enrichment&rdquo; section, if needed.</p>
+<p style="font-size:14px;margin-bottom:16px;">Jump to: <a href="#activity-1-4">For Kids 1&ndash;4</a> &nbsp;&middot;&nbsp; <a href="#activity-5-8">For Kids 5&ndash;8</a> &nbsp;&middot;&nbsp; <a href="#activity-9-12">For Kids 9&ndash;12</a></p>
+
+<div class="act">
+    <div class="ah" id="activity-1-4">For Kids 1&ndash;4: Sponge Squeeze Rain Barrel</div>
+    <div class="ab2">
+        <div class="img-block">
+            <img src="images/image3.png" alt="Blue bucket filled with water surrounded by yellow sponges and colorful cups representing the sponge squeeze rain barrel activity">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>1 large bucket or bin (the &ldquo;rain cloud&rdquo;)</li>
+            <li>1 small cup per child (their &ldquo;rain barrel&rdquo;)</li>
+            <li>1 sponge per child</li>
+            <li>Water to fill the bucket</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Fill the large bucket with water and place it in the center. Tell the kids: &ldquo;This is our rain cloud &mdash; it&rsquo;s full of water that Allah sent down from the sky.&rdquo;</li>
+            <li>Give each child a sponge and a small cup. The cup is their rain barrel &mdash; it collects the water before it runs away into the ground.</li>
+            <li>Kids dip their sponge into the bucket, then squeeze it out into their cup.</li>
+            <li>Count squeezes together out loud as they fill their cup. How many did it take?</li>
+            <li>Once their cup is full, celebrate: &ldquo;Your barrel is full &mdash; that&rsquo;s water saved!&rdquo;</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">Where does rain go when it falls on the ground?</p>
+        <p class="da">It soaks into the soil, flows into streams, or runs off into drains &mdash; and a lot of it is lost. A rain barrel catches it before it gets away.</p>
+        <p class="dq">Why would someone want to save rainwater in a barrel?</p>
+        <p class="da">To water plants, wash things, or save it for when it doesn&rsquo;t rain for a long time.</p>
+        <p class="dq">Allah sends rain as a gift. What&rsquo;s one way we can take care of that gift?</p>
+        <p class="da">Collect it, don&rsquo;t waste it, use it wisely.</p>
+    </div>
+    <div class="sf">Note: Alternate activity for this age in the Addendum: Can We Clean This Water?</div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="act">
+    <div class="ah" id="activity-5-8">For Kids 5&ndash;8: Pollution Runoff Lab</div>
+    <div class="ab2">
+        <div class="img-block">
+            <img src="images/image2.png" alt="Miniature landscape in a tray showing a road with a toy car, colored pollution tablets, sprinkles, and blue water representing a river &mdash; the pollution runoff lab setup">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Plastic container or baking tray (with at least 2&ndash;3 inch sides)</li>
+            <li>Gravel or pebbles</li>
+            <li>Water</li>
+            <li>Spray bottle</li>
+            <li>Pollutant options &mdash; choose one or combine:
+                <ul>
+                    <li>Color tablets (easiest, clean, vivid)</li>
+                    <li>Food coloring drops labeled by type (e.g., green = fertilizer, red = chemical waste)</li>
+                    <li>Cooking oil (a few drops &mdash; represents fuel/motor oil runoff)</li>
+                    <li>Sprinkles (good substitute for color tablets, represent different pollutant types)</li>
+                </ul>
+            </li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>Small rocks or sticks to shape terrain</li>
+        </ul>
+        <h5>Activity &mdash; Part 1: Build the Landscape</h5>
+        <ol>
+            <li>Fill the bottom of your container with gravel (or pebbles).</li>
+            <li>Create a hill with the gravel so that the bottom of one side of the container is empty, and the gravel slants upward to the other side.</li>
+            <li>Pour water into the empty side of the container.</li>
+        </ol>
+        <h5>Activity &mdash; Part 2: Pollute the Ground</h5>
+        <ol>
+            <li>Place your pollutants at the top of the hill before it rains:
+                <ul>
+                    <li>Drop color tablets or food coloring on the &ldquo;field&rdquo; side (fertilizer, pesticides)</li>
+                    <li>Drizzle a few drops of oil on the &ldquo;road&rdquo; side (car runoff)</li>
+                    <li>Add sprinkles anywhere to represent litter or chemical residue</li>
+                </ul>
+            </li>
+            <li>Ask: &ldquo;What do you think will happen when it rains?&rdquo; Let kids make predictions.</li>
+        </ol>
+        <h5>Activity &mdash; Part 3: Make It Rain</h5>
+        <ol>
+            <li>Use the spray bottle to rain down on the landscape.</li>
+            <li>Watch what happens &mdash; what moves? Where does it go? What does the river look like now?</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">What happened to the pollutants when it rained? Did they stay where they were?</p>
+        <p class="da">They moved &mdash; water carried them downhill and into the river.</p>
+        <p class="dq">What could your color tablets or food coloring represent in real life?</p>
+        <p class="da">Fertilizers from lawns, pesticides from farms, chemicals from factories, or soaps from car washing.</p>
+        <p class="dq">What kind of pollution is this called?</p>
+        <p class="da">Surface runoff &mdash; pollution that gets washed off the land and into waterways by rain. It doesn&rsquo;t come from one pipe or one source, it comes from everywhere at once.</p>
+        <p class="dq">This is exactly what happens to the Trinity River after a heavy rain in DFW. What do you think that means for the fish and plants living in it?</p>
+        <p class="da">The water becomes harder to live in &mdash; less oxygen, more chemicals, cloudier and harder for light to reach underwater plants.</p>
+        <p class="dq">Is there anything we can do to slow it down or stop it?</p>
+        <p class="da">Plant more grass and trees to absorb runoff, avoid using too many chemicals on lawns, pick up litter before rain washes it away.</p>
+        <p class="dq">How does polluted water affect us?</p>
+        <p class="da">When waters are polluted, it leads to less healthy fish, fish with toxins that end up in our bodies when we eat them, decreased biodiversity, and predators that get sick from eating sick prey &mdash; unable to keep pest populations under control.</p>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="act">
+    <div class="ah" id="activity-9-12">For Kids 9&ndash;12: Pollution Lab + Filtration Challenge</div>
+    <div class="ab2">
+        <div class="img-block">
+            <img src="images/image7.png" alt="Two multi-layer water filtration bottles with labeled INPUT (polluted runoff) and OUTPUT (filtered water) cups, alongside bowls of cotton, moss, gravel, sand, and activated charcoal">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>All materials from the 5&ndash;8 Pollution Lab (see above)</li>
+            <li>2 large plastic bottles per child or pair, cut in half</li>
+            <li>Coffee filters or cotton balls</li>
+            <li>Activated charcoal (optional but powerful &mdash; available at pet stores)</li>
+            <li>Fine sand</li>
+            <li>Gravel or small pebbles</li>
+            <li>Rubber bands or tape to secure layers</li>
+            <li>Aquarium water test strips (pH, nitrates, hardness) &mdash; or bring a clear glass for visual clarity comparison</li>
+        </ul>
+        <h5>Materials to collect from nature</h5>
+        <ul>
+            <li>Moss or dried grass (natural pre-filter layer)</li>
+            <li>Sand from a creek or trail edge</li>
+        </ul>
+        <h5>Activity &mdash; Part 1: Run the Pollution Lab</h5>
+        <ol>
+            <li>Follow the same steps as the 5&ndash;8 experiment &mdash; build the landscape, pollute it, make it rain, collect the runoff in your river container. This is your input water for the filtration challenge.</li>
+        </ol>
+        <h5>Activity &mdash; Part 2: Design Your Filter</h5>
+        <ol>
+            <li>Before building, give kids 2&ndash;3 minutes to plan on paper: what layers will you use, and in what order? Why?</li>
+            <li>The challenge: using only the provided materials, build a multi-stage filter inside your cut bottle that gets the runoff water as clean as possible.</li>
+            <li>A suggested starting point (they can modify): cotton or moss &rarr; gravel &rarr; sand &rarr; charcoal &rarr; coffee filter at the bottom.</li>
+            <li>Pour the polluted runoff water slowly through the top and collect the output in the bottom half of the bottle.</li>
+        </ol>
+        <h5>Activity &mdash; Part 3: Test and Compare</h5>
+        <ol>
+            <li>Hold the output next to a cup of plain tap water. How close does it look?</li>
+            <li>If using test strips, dip into both samples and compare readings side by side.</li>
+            <li>Discuss: what did the filter remove? What did it not remove?</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">What did your filter visibly remove? What did it miss?</p>
+        <p class="da">Sediment and some color likely cleared up &mdash; but oil and dissolved chemicals are much harder to remove with simple materials.</p>
+        <p class="dq">Why does the order of your filter layers matter?</p>
+        <p class="da">Larger particles need to be caught first or they clog the finer layers. It&rsquo;s a sequence &mdash; just like how DFW water treatment plants use multiple stages, not just one.</p>
+        <p class="dq">Your filter made the water look cleaner. Does that mean it&rsquo;s safe to drink?</p>
+        <p class="da">Not necessarily. Clarity doesn&rsquo;t equal safety &mdash; pathogens, dissolved chemicals, and heavy metals don&rsquo;t always change the color or smell of water.</p>
+        <p class="dq">What does a real municipal water treatment plant do that your filter can&rsquo;t?</p>
+        <p class="da">Chemical treatment (chlorination), UV sterilization, pressure filtration, and constant monitoring.</p>
+        <p class="dq">If a community didn&rsquo;t have access to a treatment plant &mdash; after a flood, or in a remote area &mdash; what would they need to know to make water safer?</p>
+        <p class="da">Boiling kills pathogens, filtration removes sediment, and some chemicals (like iodine tablets) can treat biological contamination. But no single method does everything.</p>
+    </div>
+</div>
+
+<p class="note">After completing the activity is a good time to stop for a snack. Power their brains and bodies with something nutritious! Bonus points for avoiding single-use plastics and being good Khulafa. Be sure to leave the area as you found it, or better, following the good manners taught to us by our Prophet &#65018;.</p>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- PART 4 -->
+<div class="ph" id="part4"><span class="pn">Part 4</span>
+    <h2>Slowing the Flow</h2>
+</div>
+<p class="note">Now that this week&rsquo;s walk is just about done, let&rsquo;s wrap it up.</p>
+
+<h3 id="tadabbur"><span style="font-size:16px;">Tadabbur Among the Trees</span></h3>
+<p class="note">Here are some prompts to help wrap up the walk. These prompts can be used to spark a conversation or to fill up your nature journal for today!</p>
+<div class="ag">
+    <div class="ac">
+        <div class="ach">For Kids 1&ndash;4</div>
+        <div class="acb">
+            <p>What did we use water for on our walk today? Did everyone bring drinking water? Wash their snacks? Let&rsquo;s thank Allah for this blessing He made readily available for us.</p>
+            <p>What are things we can do to protect water on this earth?</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 5&ndash;8</div>
+        <div class="acb">
+            <p>What are some changes you can make in your life to reduce water waste?</p>
+            <p>How does pollution affect wildlife? Draw two scenes: one of animals in clean water, and another of animals in polluted water.</p>
+        </div>
+    </div>
+    <div class="ac">
+        <div class="ach">For Kids 9&ndash;12</div>
+        <div class="acb">
+            <p>Narrate a story about a tree being chopped down&hellip; how does it make you feel? How do the surroundings look without it?</p>
+            <p>Make a list of all the trash you collected today. How much of it was degradable or non-degradable? Which items can you send to the recycling center?</p>
+        </div>
+    </div>
+</div>
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<!-- ADDENDUM -->
+<div class="ph" id="addendum"><span class="pn">Addendum</span>
+    <h2>Further Enrichment</h2>
+</div>
+<p class="note">Need more nature? We got you! Here are some additional resources to further enrich your understanding and reflection. These additional resources can be utilized by the pod, by individual families, or a combination of both &mdash; whatever best fits your needs!</p>
+
+<h3 id="prophetic"><span style="font-size:16px;">Prophetic Wisdom</span></h3>
+<p class="note">Find an opportunity to share the wisdom of our Prophet &#65018; as you walk.</p>
+<div class="hadith">
+    <p class="hq">&ldquo;It was narrated from &lsquo;Abdullah bin &lsquo;Amr that: The Messenger of Allah passed by Sa&lsquo;d when he was performing ablution, and he said: &lsquo;What is this extravagance?&rsquo; He said: &lsquo;Can there be any extravagance in ablution?&rsquo; He said: &lsquo;Yes, even if you are on the bank of a flowing river.&rsquo;&rdquo;</p>
+    <div class="hrf">Sunan Ibn Majah 425</div>
+    <p style="font-size:15px;margin-top:16px;">In this hadith, Rasulullah SAWS reminds us to be mindful not to waste water even if we have access to an abundance of it. This is especially relevant in our times when we turn on the water faucets and forget ourselves. Some ways to use less water when making wudu are to be mindful and pay attention when making wudu, turn the faucet on a lower setting to make a smaller stream of water, or use a container filled with water and pour it out instead of using running water. Our ibada is not only to make wudu but to do it in the best way, and the least wasteful way possible.</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="ayaat"><span style="font-size:16px;">Additional Ayaat</span></h3>
+
+<div class="ayah">
+    <span class="albl">The Bee (16:18)</span>
+    <span class="ar">وَإِن تَعُدُّوا۟ نِعْمَةَ ٱللَّهِ لَا تُحْصُوهَآ ۗ إِنَّ ٱللَّهَ لَغَفُورٌ رَّحِيمٌ ١٨</span>
+    <p class="tr">&ldquo;If you tried to count Allah&rsquo;s blessings, you would never be able to number them. Surely Allah is All-Forgiving, Most Merciful.&rdquo;</p>
+    <p class="com">We have spent eight weeks learning about water and we have witnessed the various blessings it brings, and we have not been able to scratch the surface! Truly, the blessings that stem from a single blessing are countless!</p>
+</div>
+
+<div class="ayah">
+    <span class="albl">The Prophets (21:35)</span>
+    <span class="ar">كُلُّ نَفْسٍ ذَآئِقَةُ ٱلْمَوْتِ ۗ وَنَبْلُوكُم بِٱلشَّرِّ وَٱلْخَيْرِ فِتْنَةً ۖ وَإِلَيْنَا تُرْجَعُونَ ٣٥</span>
+    <p class="tr">&ldquo;Every soul is certain to taste death: We test you all through the bad and the good, and to Us you will all return.&rdquo;</p>
+    <p class="com">Allah tests us through blessings and through trials. A person living with modern amenities and continual access to clean water on demand is being tested just as a person living in a developing country without easy access to water is being tested. They are different trials, but trials nonetheless.</p>
+</div>
+
+<div class="ayah">
+    <span class="albl">The Night Journey (17:27)</span>
+    <span class="ar">إِنَّ ٱلْمُبَذِّرِينَ كَانُوٓا۟ إِخْوَٰنَ ٱلشَّيَٰطِينِ ۖ وَكَانَ ٱلشَّيْطَٰنُ لِرَبِّهِۦ كَفُورًا ٢٧</span>
+    <p class="tr">&ldquo;Those who squander are the brothers of Satan, and Satan is most ungrateful to his Lord.&rdquo;</p>
+    <p class="com">Wastefulness is a sign of ingratitude, and ingratitude is a quality of Shaytan. The only time the Quran uses the term &ldquo;the brothers of Shaytan&rdquo; is in this ayah, in the context of wastefulness! None of us wants that description ascribed to them, so we must be very careful not to be wasteful and to show gratitude for all of our blessings.</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="movements"><span style="font-size:16px;">Meaningful Movements</span></h3>
+<p class="note">A flow of movements to get kids&rsquo; energy out at the beginning, or help them calm down at the end of the walk.</p>
+
+<div class="mv">
+    <div class="mvn">1</div>
+    <p>Today, we will slow our bodies to think and move like water. Stand tall with feet hip-width apart. Breathe in deeply and slowly raise both arms up like water droplets evaporating into the sky. Reach your fingertips as high as they can go, becoming clouds!</p>
+</div>
+<div class="mv">
+    <div class="mvn">2</div>
+    <p>Sway side to side with soft knees, letting your arms ripple out like rolling ocean waves. What sounds does the ocean make? Can we hum like a wave together? Breathe in and hum out loud like an ocean!</p>
+</div>
+<div class="mv">
+    <div class="mvn">3</div>
+    <p>Still yourself and stand in Mountain Pose &mdash; feet together, arms at sides, spine tall. Imagine you&rsquo;re a mighty glacier, holding millions of gallons of frozen fresh water for the rivers below.</p>
+</div>
+<div class="mv">
+    <div class="mvn">4</div>
+    <p>Now lunge forward, one knee bent, arms stretched long in opposite directions like a watershed spreading water across the land. A watershed is all the water that drains into one river. Now switch legs and stretch arms again! Take slow deep breaths.</p>
+</div>
+<div class="mv">
+    <div class="mvn">5</div>
+    <p>Take a seat on the ground and kneel and fold forward, arms stretched out or resting by your sides. All the water has seeped into the ground. You&rsquo;re a shell resting peacefully on the ocean floor, held gently by the water all around you. Breathe slowly&hellip; in for 4 counts, out for 6. Feel the ground holding you, steady your breath and sit back into a seated position.</p>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="moreactivities"><span style="font-size:16px;">More Nature Activities</span></h3>
+<p class="note">Here are more activities to try, whether as a group with your pod or individually at home.</p>
+
+<div class="act">
+    <div class="ah">For Kids 1&ndash;4: Can We Clean This Water?</div>
+    <div class="ab2">
+        <div class="img-block">
+            <img src="images/image5.png" alt="Tub of murky water with visible plastic pieces and soil pollution, alongside tongs, a small container of collected debris, a coffee filter in a funnel, and a trash bag">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>1 small tub or bin of water, pre-polluted with:
+                <ul>
+                    <li>A few small plastic wrappers or lids</li>
+                    <li>Torn strips of paper</li>
+                    <li>A spoonful of soil</li>
+                    <li>A few drops of cooking oil</li>
+                </ul>
+            </li>
+            <li>Small tongs or a strainer (one per child or shared)</li>
+            <li>A small trash bag or container for collected debris</li>
+            <li>A coffee filter and a funnel or wide-mouth cup to hold it</li>
+            <li>A clear pitcher or cup to pour into</li>
+        </ul>
+        <h5>Activity &mdash; Part 1: Clean What You Can See</h5>
+        <ol>
+            <li>Show kids the tub. &ldquo;This water got dirty: there&rsquo;s trash, mud, and oil in it. Can we clean it?&rdquo;</li>
+            <li>Give each child a turn using the tongs or strainer to pull out visible objects and drop them in the trash container.</li>
+            <li>When they&rsquo;ve pulled everything out, hold up the water and ask: &ldquo;Is it clean now?&rdquo; It will still look murky and oily. Let them notice on their own.</li>
+        </ol>
+        <h5>Activity &mdash; Part 2: Pour It Through a Filter</h5>
+        <ol>
+            <li>Set the coffee filter in the funnel or cup. Show kids what it looks like: it&rsquo;s like a tiny net for the water.</li>
+            <li>Slowly pour the water through the filter together. Watch what stays behind in the filter.</li>
+            <li>Look at the water that dripped through. It may be clearer, but it&rsquo;s probably still tan or slightly colored. &ldquo;Is it clean enough to drink?&rdquo;</li>
+            <li>Try a second clean filter. Is the water any clearer this time?</li>
+        </ol>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">After we picked out all the trash, did that make the water clean?</p>
+        <p class="da">Not completely &mdash; there was still dirt and oil we couldn&rsquo;t grab with our hands.</p>
+        <p class="dq">What did the filter catch that our hands couldn&rsquo;t?</p>
+        <p class="da">Tiny pieces of dirt and debris too small to see or grab.</p>
+        <p class="dq">The water looks cleaner now &mdash; does that mean it&rsquo;s safe to drink?</p>
+        <p class="da">No, there are still things hiding in the water we can&rsquo;t see at all. That&rsquo;s why water needs many more steps before we can drink it.</p>
+        <p class="dq">Allah made water clean when He sends it as rain. What&rsquo;s our job when water gets dirty?</p>
+        <p class="da">To take care of it, not add more pollution, and learn how to clean it up.</p>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="act">
+    <div class="ah">For Kids 5+: Build a Water Wheel</div>
+    <div class="ab2">
+        <div class="img-block">
+            <img src="images/image4.png" alt="Homemade water wheel built from a plastic bottle and white cups, resting on a bamboo skewer across a yellow tray, with water being poured from above to spin it">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>2 plastic plates</li>
+            <li>1 wooden dowel (~35cm long)</li>
+            <li>7 small identical plastic pots (yogurt cups, small drinking cups, or film canisters)</li>
+            <li>Waterproof tape</li>
+            <li>Scissors</li>
+            <li>A watering can filled with water</li>
+            <li>Permanent marker</li>
+            <li>Stopwatch</li>
+        </ul>
+        <h5>Optional materials for older kids (9&ndash;12)</h5>
+        <ul>
+            <li>A small length of string (~12 inches)</li>
+            <li>A few paper clips or a coin taped to string (the &ldquo;load&rdquo;)</li>
+        </ul>
+        <h5>Activity</h5>
+        <ol>
+            <li>Using the tip of the scissors, poke a hole through the center of both plates, just wide enough for the dowel to slide through.</li>
+            <li>Slide the dowel through both plates, leaving enough space between them for the cups to fit. Plates should face back to back.</li>
+            <li>Tape the cups evenly around the rim between the two plates, all facing the same direction.</li>
+            <li>Rest the dowel across the edges of the tray and secure with tape so the wheel hangs freely and can spin.</li>
+            <li>Slowly pour water from the watering can into one cup. As it fills and falls, the wheel spins, bringing the next cup under the stream.</li>
+        </ol>
+        <h5>Additional steps for older kids (9&ndash;12)</h5>
+        <ol>
+            <li>Mark one cup with a permanent marker. Use a stopwatch to time one full revolution. Calculate revolutions per minute (rpm).</li>
+            <li>Try holding the watering can at different heights. Does the wheel spin faster when water falls from higher up? Record results.</li>
+            <li>Tie a string to the center of the dowel and hang a paper clip or coin from it. Pour water and watch the wheel wind the string and lift the weight &mdash; it&rsquo;s now doing measurable work.</li>
+        </ol>
+        <p style="font-size:13px;color:var(--fnt);margin-top:12px;">Video tutorial: <a href="https://www.youtube.com/watch?v=HUaaFE8regs&t=42s">link</a></p>
+    </div>
+    <div class="disc">
+        <h5>Discussion</h5>
+        <p class="dq">What made the wheel spin?</p>
+        <p class="da">The weight and movement of water pushing into the cups; the water transfers its energy into the wheel.</p>
+        <p class="dq">Did it spin faster when you poured from higher up?</p>
+        <p class="da">Yes, the higher the water falls, the more kinetic energy it builds up before hitting the wheel.</p>
+        <p class="dq">Before electricity, what did people use water wheels for?</p>
+        <p class="da">Grinding grain into flour, sawing wood, pumping water, running looms &mdash; moving water was the original power source.</p>
+        <p class="dq">What is kinetic energy?</p>
+        <p class="da">The energy something has because it is moving. Falling water has kinetic energy. The spinning wheel has kinetic energy. Water wheels convert one into the other.</p>
+        <p class="dq" style="margin-top:10px;"><em>For older kids:</em> What is the difference between the wheel just spinning and the wheel lifting a weight?</p>
+        <p class="da">Spinning alone is motion; lifting a weight is work. Energy is transferring from the water, through the wheel, into the load.</p>
+        <p class="dq">If you connected this wheel to a generator, what would happen?</p>
+        <p class="da">The mechanical energy of the spinning wheel would be converted into electrical energy. This is the same principle behind every hydroelectric dam on earth.</p>
+        <p class="dq">The Hoover Dam uses this same principle on a massive scale. What are some differences between what we built and a real dam?</p>
+        <p class="da">Instead of cups on a dowel, it uses precision-engineered turbines. Instead of lifting a paper clip, it drives generators powering entire cities. But the core idea &mdash; falling water turning a wheel that does work &mdash; is identical.</p>
+        <p class="dq">Is your water wheel 100% efficient? Where is energy being lost?</p>
+        <p class="da">No, energy is lost to friction at the axle, water splashing off instead of turning the wheel, and vibration. Real turbines are engineered to minimize every one of these losses.</p>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="art"><span style="font-size:16px;">Artistic Expressions</span></h3>
+<p class="note">Let your heart guide you to create a beautiful work of nature art. Use Allah&rsquo;s divine creations as inspiration!</p>
+
+<div class="act">
+    <div class="ah">Oil Sheen Marbling</div>
+    <div class="ab2">
+        <p><em>Water carries color the way it carries pollution &mdash; spreading, swirling, impossible to fully take back. Today we use that to make something beautiful.</em></p>
+        <div class="img-block">
+            <img src="images/image1.png" alt="Two side-by-side marbled art prints: one in blues and greens representing a clean river, and one in dark grays and browns representing a polluted river">
+        </div>
+        <h5>Materials to bring from home</h5>
+        <ul>
+            <li>Soft pastels or chalk (both work; soft pastels give richer color)</li>
+            <li>A shallow tray or bin filled with water</li>
+            <li>White cardstock or watercolor paper, cut to fit the tray</li>
+            <li>Scissors (for scraping the pastels)</li>
+            <li>Paper towels for drying</li>
+        </ul>
+        <h5>Activity &mdash; Part 1: Make the Sheen</h5>
+        <ol>
+            <li>Fill the tray with water and let it settle until still.</li>
+            <li>Using the edge of the scissors, scrape soft pastels or chalk over the water surface &mdash; the dust will float and spread, swirling like an oil sheen on a river. Use blues and greens first.</li>
+            <li>Pause here before printing. Look at the surface together: &ldquo;This is what runoff looks like from above &mdash; color and chemicals that don&rsquo;t sink, just spread across the top. A fish swimming under this can&rsquo;t breathe properly.&rdquo;</li>
+            <li>Swirl gently with a finger or stick to create movement in the pigment.</li>
+        </ol>
+        <h5>Activity &mdash; Part 2: Pull the Print</h5>
+        <ol>
+            <li>Fold a piece of cardstock into a slight U shape and lower it gently onto the water surface. Let it sit for about one minute.</li>
+            <li>Starting from one end, slowly peel the paper up from the tray and set it aside to dry.</li>
+            <li>This is your &ldquo;river&rdquo; print &mdash; the marbled surface captured on paper.</li>
+        </ol>
+        <h5>Activity &mdash; Part 3: The Polluted River (optional second print)</h5>
+        <ol>
+            <li>Scrape darker colors into the same water &mdash; grays, browns, black. Watch how they cloud and overwhelm the blues and greens still floating there.</li>
+            <li>Pull a second print the same way. Set it next to the first.</li>
+            <li>The two prints side by side tell the whole story &mdash; clean water and polluted water, both made from the same tray, the same surface, the same river.</li>
+        </ol>
+        <p style="font-size:13px;color:var(--fnt);margin-top:12px;">Tutorial: <a href="https://www.kidspot.com.au/parenting/things-to-do/chalk-and-water-art-is-the-perfect-indoor-craft-activity/news-story/1ee0f5d35261543b708006ce56ba37c1">link</a></p>
+    </div>
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+<h3 id="olderkids"><span style="font-size:16px;">Information for Older Kids &amp; Printables</span></h3>
+<ul>
+    <li><a href="https://drive.google.com/file/d/17xLVLNTCSy8721Vtdgk5G2i0s3wc3Thk/view?usp=drive_link">Weekly Summary Document</a></li>
+    <li><a href="https://drive.google.com/file/d/15_42YAwIh2dboi800gYvBaC4ReMwMDe6/view?usp=drive_link">Weekly Journal Page</a></li>
+    <li><a href="https://sapt.co.za/biodegradable-vs-compostable-vs-oxo-degradable-plastics/">Biodegradable vs compostable vs oxo-degradable plastics</a></li>
+    <li>App for teaching about environmental stewardship: <a href="https://store.fillitforward.com/">Fill It Forward</a></li>
+</ul>
+
+<div class="img-block" style="margin-top:24px;">
+    <img src="images/image6.png" alt="Infographic explaining the difference between compostable, degradable (oxo), and plastic bags and their environmental impact" style="max-width:580px;">
+</div>
+
+<div class="back-top"><a href="#top">&#8593; Back to top</a></div>
+
+<div class="footer">&copy; Khulafa Al-Ardh Nature Curriculum &middot; Rhythm: Water &middot; Week 8</div>
+
+</body>
+</html>
